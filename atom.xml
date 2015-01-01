@@ -4,7 +4,7 @@
   <subtitle><![CDATA[明月不染，亦不因我而染]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://zhangleijuly.me/"/>
-  <updated>2014-10-26T20:22:49.982Z</updated>
+  <updated>2015-01-01T16:12:17.839Z</updated>
   <id>http://zhangleijuly.me/</id>
   
   <author>
@@ -13,6 +13,25 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[2015 元旦快乐]]></title>
+    <link href="http://zhangleijuly.me/20150101-happy-new-year-2015/"/>
+    <id>http://zhangleijuly.me/20150101-happy-new-year-2015/</id>
+    <published>2015-01-01T14:54:28.000Z</published>
+    <updated>2015-01-01T16:10:31.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/large/4b949cf8jw1enuf08qhppj20x30imjst.jpg" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://ww4.sinaimg.cn/large/4b949cf8jw1enuf08qhppj20x30imjst.jpg" alt=""></p>
+]]>
+    </summary>
+    
+      <category term="2015" scheme="http://zhangleijuly.me/tags/2015/"/>
+    
+      <category term="日志" scheme="http://zhangleijuly.me/categories/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[「承」 三]]></title>

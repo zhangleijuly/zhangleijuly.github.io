@@ -38,10 +38,10 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: true
-  tab_replace:
+    enable: true
+    line_number: true
+    auto_detect: true
+    tab_replace:
 
 # Category & Tag
 default_category: uncategorized
@@ -68,13 +68,13 @@ theme: tranquilpeak
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:zhangleijuly/zhangleijuly.me.git
-  branch: gh-pages
+    type: git
+    repository:
+        github: https://github.com/zhangleijuly/zhangleijuly.me.git,gh-pages
 
 # Backup
 backup:
     type: git
     theme: tranquilpeak
     repository:
-       github: git@github.com:zhangleijuly/zhangleijuly.me.git,master
+        github: git@github.com:zhangleijuly/zhangleijuly.me.git,master

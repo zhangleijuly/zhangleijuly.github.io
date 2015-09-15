@@ -77,4 +77,4 @@ backup:
     type: git
     theme: tranquilpeak
     repository:
-        github: git@github.com:zhangleijuly/zhangleijuly.me.git,master
+        gitcafe: git@github.com:zhangleijuly/zhangleijuly.me.git,master

@@ -65,16 +65,16 @@ pagination_dir: page
 ## Themes: http://hexo.io/themes/
 theme: tranquilpeak
 
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-    type: git
-    repo: 
-        github: git@github.com:zhangleijuly/zhangleijuly.me.git,gh-pages
-
 # Backup
 backup:
     type: git
     theme: tranquilpeak
     repository:
         gitcafe: git@github.com:zhangleijuly/zhangleijuly.me.git,master
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+    type: git
+    repo: 
+        github: git@github.com:zhangleijuly/zhangleijuly.me.git,gh-pages

@@ -75,6 +75,5 @@ deploy:
 # Backup
 backup:
     type: git
-    theme: tranquilpeak
     repository:
-        git@github.com:zhangleijuly/zhangleijuly.me.git,master
+        github: git@github.com:zhangleijuly/zhangleijuly.me.git,master

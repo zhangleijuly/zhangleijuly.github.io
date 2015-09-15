@@ -69,12 +69,12 @@ theme: tranquilpeak
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
     type: git
-    repository:
-        github: https://github.com/zhangleijuly/zhangleijuly.me.git,gh-pages
+    repo: 
+        github: git@github.com:zhangleijuly/zhangleijuly.me.git,gh-pages
 
 # Backup
 backup:
     type: git
     theme: tranquilpeak
     repository:
-        github: https://github.com/zhangleijuly/zhangleijuly.me.git,master
+        github: git@github.com:zhangleijuly/zhangleijuly.me.git,master

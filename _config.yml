@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 七月
 subtitle:
-description:
-author: John Doe
-language:
-timezone:
+description: 明月不染，亦不因我而染
+author: Artemis
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://zhangleijuly.me
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :year:month:day-:title/
 permalink_defaults:
 
 # Directory
@@ -28,7 +28,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year:month:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
@@ -52,12 +52,12 @@ tag_map:
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: YYYY-MM-DD
+date_format: MMM DD, YYYY
 time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 10
+per_page: 7
 pagination_dir: page
 
 # Extensions
@@ -68,12 +68,13 @@ theme: tranquilpeak
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:zhangleijuly/zhangleijuly.me.git
+  branch: gh-pages
 
 # Backup
 backup:
     type: git 
-		theme: tranquilpeak
-		message: source backup
+    theme: tranquilpeak
     repository:
        github: git@github.com:zhangleijuly/zhangleijuly.me.git,master

@@ -70,11 +70,11 @@ backup:
     type: git
     theme: tranquilpeak
     repository:
-        gitcafe: git@github.com:zhangleijuly/zhangleijuly.me.git,master
+        github: git@github.com:zhangleijuly/zhangleijuly.me.git,master
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
-deploy:
-    type: git
-    repo: 
-        github: git@github.com:zhangleijuly/zhangleijuly.me.git,gh-pages
+#deploy:
+#    type: git
+#    repo: 
+#        github: git@github.com:zhangleijuly/zhangleijuly.me.git,gh-pages

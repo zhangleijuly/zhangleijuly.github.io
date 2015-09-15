@@ -68,7 +68,7 @@ theme: tranquilpeak
 # Backup
 backup:
     type: git
-    theme: tranquilpeak
+#    theme: tranquilpeak
     repository:
         github: git@github.com:zhangleijuly/zhangleijuly.me.git,master
 

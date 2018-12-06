@@ -1,10 +1,8 @@
 title: 从前慢
 date: 2013-06-03 04:10:30
-comments: false
 tags:
 - 木心
 - 诗歌
-
 categories:
 - 文字
 ---

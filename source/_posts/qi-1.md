@@ -1,9 +1,7 @@
 title: 「起」 一
 date: 2012-09-21 3:59
-comments: false
 tags:
 - 生活
-
 categories:
 - 日志
 ---

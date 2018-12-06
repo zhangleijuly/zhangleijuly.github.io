@@ -4,10 +4,11 @@
 
 # Site
 title: 凉城
-subtitle: 明月不染，亦不因我而染
-description:
+subtitle:
+description: 明月不染，亦不因我而染
+keywords: zhangleijuly, blog
 author: Artemis
-language: zh-Hans
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -67,7 +68,7 @@ time_format: HH:mm:ss
 # Pagination
 ## Set per_page to 0 to disable pagination
 per_page: 7
-pagination_dir: pages
+pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
@@ -80,10 +81,6 @@ deploy:
   type: git
   repo: https://github.com/zhangleijuly/zhangleijuly.me.git
   branch: gh-pages
-
-# --------------------------------------------------------
-# My Settings
-# --------------------------------------------------------
 
 # Feed
 feed:

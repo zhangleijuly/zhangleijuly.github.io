@@ -1,9 +1,7 @@
 title: 「起」 四
 date: 2012-10-28 16:32:50
-comments: false
 tags:
 - 生活
-
 categories:
 - 日志
 ---

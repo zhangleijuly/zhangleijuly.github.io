@@ -1,12 +1,10 @@
 title: 赏味期限
 date: 2013-05-20 15:47:12
-comments: false
 tags:
 - 友情
 - 林夕
 - 梦想
 - 爱情
-
 categories:
 - 文字
 ---

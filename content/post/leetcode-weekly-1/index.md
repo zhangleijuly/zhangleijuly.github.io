@@ -1,11 +1,9 @@
 ---
 title: "LeetCode每日一题周总结(一)"
 date: 2021-11-08
+slug: leetcode-weekly-1
 image: "img/LeetCode.jpeg"
 math: true
-hidden: false
-comments: true
-draft: false
 categories:
     - Code
 tags:

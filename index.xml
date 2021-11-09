@@ -1,1 +1,114 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 05 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 08 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(一)</title><link>https://zhangleijuly.me/p/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%91%A8%E6%80%BB%E7%BB%93%E4%B8%80/</link><pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%91%A8%E6%80%BB%E7%BB%93%E4%B8%80/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(一)" />&lt;h2 id="surrounded-regions">Surrounded Regions&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/02/19/xogrid.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/02/19/xogrid.jpg"
+loading="lazy"
+alt="Surrounded Regions">
+&lt;/a>
+&lt;figcaption>Surrounded Regions&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/surrounded-regions/" target="_blank" rel="noopener"
+>Surrounded Regions&lt;/a>题目大意：矩形棋盘上有&amp;quot;O&amp;quot;和&amp;quot;X&amp;quot;两种棋子，将所有四面被&amp;quot;X&amp;quot;包围的&amp;quot;O&amp;quot;的区域都替换为&amp;quot;X&amp;quot;(棋盘边缘不算被&amp;quot;X&amp;quot;包围)。&lt;/p>
+&lt;p>一道做过的题，常规思路是遍历棋盘上所有&amp;quot;O&amp;quot;的区域，用&lt;strong>深度优先搜索&lt;/strong>确定当前区域的范围，并判断是否满足替换条件，如果满足替换条件就进行替换，不满足替换条件就标记当前区域为已访问。这种思路能够解答该题，但是比较麻烦，需要维护额外的数据结构储存当前区域的范围，并且直到搜索遍整个当前区域后才能够确定是否需要替换。&lt;/p>
+&lt;p>另一种比较巧妙的思路是反向思考，题目的含义告诉我们，不需要替换的&amp;quot;O&amp;quot;的区域都是临近棋盘边缘的，所以可以先找到这样的区域。沿着棋盘边缘寻找包含&amp;quot;O&amp;quot;的区域，同样用&lt;strong>深度优先搜索&lt;/strong>确定这些区域的范围，这些区域就是所有不需要替换的&amp;quot;O&amp;quot;，对这些&amp;quot;O&amp;quot;做标记，把其他的&amp;quot;O&amp;quot;替换为&amp;quot;X&amp;quot;即可。&lt;/p>
+&lt;h2 id="unique-paths-iii">Unique Paths III&lt;/h2>
+&lt;p>前置题目为&lt;a class="link" href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="noopener"
+>Unique Paths&lt;/a>和&lt;a class="link" href="https://leetcode.com/problems/unique-paths-ii/" target="_blank" rel="noopener"
+>Unique Paths II&lt;/a>。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" >
+&lt;img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png"
+loading="lazy"
+alt="Unique Paths">
+&lt;/a>
+&lt;figcaption>Unique Paths&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="noopener"
+>Unique Paths&lt;/a>题目大意：机器人从矩形网格左上角走到右下角，每次只能向右或者向下走一步，求不同的走法有多少种。&lt;/p>
+&lt;p>使用递推法即可。假设矩阵大小为m×n，左上角坐标为(0, 0)，右下角坐标为(m-1, n-1)。从(0, 0)到(i, j)的不同走法记作result[i][j]，有递推公式result[i][j] = result[i-1][j] + result[i][j-1]，系统初态为result[0][0] = 1。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg"
+loading="lazy"
+alt="Unique Paths II">
+&lt;/a>
+&lt;figcaption>Unique Paths II&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/unique-paths-ii/" target="_blank" rel="noopener"
+>Unique Paths II&lt;/a>与Unique Paths题干类似，只是在网格中增加了障碍物，整体解题思路不变。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/08/02/lc-unique1.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/08/02/lc-unique1.jpg"
+loading="lazy"
+alt="Unique Paths III">
+&lt;/a>
+&lt;figcaption>Unique Paths III&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/unique-paths-iii" target="_blank" rel="noopener"
+>Unique Paths III&lt;/a>题干相比以上两道发生了比较大变化，起点和终点不再固定。网格上的点分为四类：起点、终点、空格和障碍物。机器人从起点出发，可以任意向四个方向移动到终点，必须通过并且仅通过每个空格一次，求不同的走法有多少种。&lt;/p>
+&lt;p>可以用&lt;strong>深度优先搜索&lt;/strong>解决，因为网格上的点只有四种，每个空格必须通过并且只能通过一次，所以每种可行的走法通过的格子数是一定的。首先扫描整个网格确定起点、终点和空格数，从起点开始搜索，初始步数为0，如果遇到障碍物或者已经踩过的空格就返回；遇到没走过的空格就标记已走过，步数加1，然后继续搜索；遇到终点就判断步数是否等于空格数，等于就返回1，否则返回0。将所有返回值相加就是最终结果。&lt;/p>
+&lt;h2 id="sum-root-to-leaf-numbers">Sum Root to Leaf Numbers&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/02/19/num2tree.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/02/19/num2tree.jpg"
+loading="lazy"
+alt="Sum Root to Leaf Numbers">
+&lt;/a>
+&lt;figcaption>Sum Root to Leaf Numbers&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/sum-root-to-leaf-numbers/" target="_blank" rel="noopener"
+>Sum Root to Leaf Numbers&lt;/a>题目大意：一棵二叉树每个结点都是0~9的整数，从根结点到叶子结点的路径能够表示一个整数，例如上图的路径4-&amp;gt;9-&amp;gt;5可以表示495。求一棵这样的二叉树根结点到每一个叶子结点路径表示的整数之和。&lt;/p>
+&lt;p>&lt;strong>深度优先搜索&lt;/strong>即可，如果根结点为空直接返回0。用cur记录根结点到当前结点路径表示的整数，初始为0。对每一个非空结点root，调用函数时首先更新cur为cur*10+root-&amp;gt;val。如果左右子树都为空，说明当前结点是叶子结点，给最终结果加上cur；否则递归调用函数，将cur传给非空子树。&lt;/p>
+&lt;h2 id="sum-of-left-leaves">Sum of Left Leaves&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg"
+loading="lazy"
+alt="Sum of Left Leaves">
+&lt;/a>
+&lt;figcaption>Sum of Left Leaves&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/sum-of-left-leaves/" target="_blank" rel="noopener"
+>Sum of Left Leaves&lt;/a>题目大意：求二叉树所有左叶子结点值的和。&lt;/p>
+&lt;p>从根结点开始递归遍历每一个结点，增加一个标记位，进入左子树时传true，进入右子树时传false。到达叶子结点时如果标记位是true就在最终结果加上当前结点的值。&lt;/p>
+&lt;h2 id="arranging-coins">Arranging Coins&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/04/09/arrangecoins2-grid.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/04/09/arrangecoins2-grid.jpg"
+loading="lazy"
+alt="Arranging Coins">
+&lt;/a>
+&lt;figcaption>Arranging Coins&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/arranging-coins/" target="_blank" rel="noopener"
+>Arranging Coins&lt;/a>题目大意：n枚硬币按照1、2、3……逐层摆放，求摆满的层数。&lt;/p>
+&lt;p>略。&lt;/p>
+&lt;h2 id="single-number-iii">Single Number III&lt;/h2>
+&lt;p>前置题目为&lt;a class="link" href="https://leetcode.com/problems/single-number/" target="_blank" rel="noopener"
+>Single Number&lt;/a>和&lt;a class="link" href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener"
+>Single Number II&lt;/a>。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-number/" target="_blank" rel="noopener"
+>Single Number&lt;/a>题目大意：非空数组中除了一个整数外其他整数都出现偶数次，找到只出现一次的整数。&lt;/p>
+&lt;p>这里利用了异或运算的性质：a⊕b⊕a=b。把整个数组异或起来结果就是要找的整数。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener"
+>Single Number II&lt;/a>题目大意：非空数组中除了一个整数外其他整数都出现3次，找到只出现一次的整数。&lt;/p>
+&lt;p>常规思路是把每个整数都表示为二进制，对每一位分别求和并模3，余数所构成的二进制整数就是所求的数。进阶解法是把每一位求和模3的状态表示为0、1和2，那么下一个数这一位为0时，该状态保持不变；下一个数这一位为1时，状态将按照0-&amp;gt;1-&amp;gt;2-&amp;gt;0迁移，表示为二进制就是00-&amp;gt;01-&amp;gt;10-&amp;gt;00。分别用B&lt;!-- raw HTML omitted -->0&lt;!-- raw HTML omitted -->和B&lt;!-- raw HTML omitted -->1&lt;!-- raw HTML omitted -->表示二进制状态的低位和高位，B表示输入的这一位的值，根据状态迁移可以推导出以下关系：&lt;/p>
+&lt;p>$$
+B_0 = (B_0 \oplus B) \And B_1 \newline
+B_1 = (B_1 \oplus B) \And B_0
+$$&lt;/p>
+&lt;p>应用到这道题中，就是用两个整数high和low分别维护二进制整数每一位的高低位状态表示，对数组中的每一个整数分别计算high和low，最终维护低位状态表示的整数low即为答案。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="noopener"
+>Single Number III&lt;/a>题目大意：非空数组中除了两个整数外其他整数都出现偶数次，找到这两个整数。&lt;/p>
+&lt;p>假设这两个整数分别为a和b，利用异或运算的性质，把整个数组异或起来结果就是a⊕b。a和b是不同整数，所以a⊕b不为0，我们可以在a⊕b的二进制表示中找到值为1的某一位，a和b的这一位一定一个为0一个为1。根据这一位的不同把数组分为两个数组，那么a和b一定分别在这两个数组中，并且除了a和b以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到a和b。&lt;/p>
+&lt;h2 id="multiply-strings">Multiply Strings&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/multiply-strings/" target="_blank" rel="noopener"
+>Multiply Strings&lt;/a>题目大意：已知两个表示整数的字符串，求这两个整数的乘积，也用字符串表示。&lt;/p>
+&lt;p>字符串表示的大整数乘法，略。&lt;/p></description></item></channel></rss>

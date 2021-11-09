@@ -1,0 +1,217 @@
+<!doctype html><html lang=zh-cn>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Surrounded Regions Surrounded Regions Surrounded Regions题目大意：矩形棋盘上有&amp;quot;O&amp;quot;和&amp;quot;X&amp;quot;两种棋子，将所有四面被&amp;quot;X&q"><title>LeetCode每日一题周总结(一)</title>
+<link rel=canonical href=https://zhangleijuly.me/p/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%91%A8%E6%80%BB%E7%BB%93%E4%B8%80/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="LeetCode每日一题周总结(一)">
+<meta property="og:description" content="Surrounded Regions Surrounded Regions Surrounded Regions题目大意：矩形棋盘上有&amp;quot;O&amp;quot;和&amp;quot;X&amp;quot;两种棋子，将所有四面被&amp;quot;X&q">
+<meta property="og:url" content="https://zhangleijuly.me/p/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%91%A8%E6%80%BB%E7%BB%93%E4%B8%80/">
+<meta property="og:site_name" content="凉城">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="LeetCode"><meta property="article:published_time" content="2021-11-08T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-08T00:00:00+00:00"><meta property="og:image" content="https://zhangleijuly.me/img/LeetCode.jpeg">
+<meta name=twitter:title content="LeetCode每日一题周总结(一)">
+<meta name=twitter:description content="Surrounded Regions Surrounded Regions Surrounded Regions题目大意：矩形棋盘上有&amp;quot;O&amp;quot;和&amp;quot;X&amp;quot;两种棋子，将所有四面被&amp;quot;X&q"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://zhangleijuly.me/img/LeetCode.jpeg">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-25675628-4','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>返回</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<link rel=stylesheet href=/katex/katex.min.css>
+<script defer src=/katex/katex.min.js></script>
+<script defer src=/katex/contrib/auto-render.js onload=renderMathInElement(document.body)></script>
+<div class=article-image>
+<a href=/p/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%91%A8%E6%80%BB%E7%BB%93%E4%B8%80/>
+<img src=/img/LeetCode.jpeg loading=lazy alt="Featured image of post LeetCode每日一题周总结(一)">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/code/ style=background-color:#2a9d8f;color:#fff>
+Code
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%91%A8%E6%80%BB%E7%BB%93%E4%B8%80/>LeetCode每日一题周总结(一)</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Nov 08, 2021</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h2 id=surrounded-regions>Surrounded Regions</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/02/19/xogrid.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/02/19/xogrid.jpg loading=lazy alt="Surrounded Regions">
+</a>
+<figcaption>Surrounded Regions</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/surrounded-regions/ target=_blank rel=noopener>Surrounded Regions</a>题目大意：矩形棋盘上有"O"和"X"两种棋子，将所有四面被"X"包围的"O"的区域都替换为"X"(棋盘边缘不算被"X"包围)。</p>
+<p>一道做过的题，常规思路是遍历棋盘上所有"O"的区域，用<strong>深度优先搜索</strong>确定当前区域的范围，并判断是否满足替换条件，如果满足替换条件就进行替换，不满足替换条件就标记当前区域为已访问。这种思路能够解答该题，但是比较麻烦，需要维护额外的数据结构储存当前区域的范围，并且直到搜索遍整个当前区域后才能够确定是否需要替换。</p>
+<p>另一种比较巧妙的思路是反向思考，题目的含义告诉我们，不需要替换的"O"的区域都是临近棋盘边缘的，所以可以先找到这样的区域。沿着棋盘边缘寻找包含"O"的区域，同样用<strong>深度优先搜索</strong>确定这些区域的范围，这些区域就是所有不需要替换的"O"，对这些"O"做标记，把其他的"O"替换为"X"即可。</p>
+<h2 id=unique-paths-iii>Unique Paths III</h2>
+<p>前置题目为<a class=link href=https://leetcode.com/problems/unique-paths/ target=_blank rel=noopener>Unique Paths</a>和<a class=link href=https://leetcode.com/problems/unique-paths-ii/ target=_blank rel=noopener>Unique Paths II</a>。</p>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png>
+<img src=https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png loading=lazy alt="Unique Paths">
+</a>
+<figcaption>Unique Paths</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/unique-paths/ target=_blank rel=noopener>Unique Paths</a>题目大意：机器人从矩形网格左上角走到右下角，每次只能向右或者向下走一步，求不同的走法有多少种。</p>
+<p>使用递推法即可。假设矩阵大小为m×n，左上角坐标为(0, 0)，右下角坐标为(m-1, n-1)。从(0, 0)到(i, j)的不同走法记作result[i][j]，有递推公式result[i][j] = result[i-1][j] + result[i][j-1]，系统初态为result[0][0] = 1。</p>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg>
+<img src=https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg loading=lazy alt="Unique Paths II">
+</a>
+<figcaption>Unique Paths II</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/unique-paths-ii/ target=_blank rel=noopener>Unique Paths II</a>与Unique Paths题干类似，只是在网格中增加了障碍物，整体解题思路不变。</p>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/08/02/lc-unique1.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/08/02/lc-unique1.jpg loading=lazy alt="Unique Paths III">
+</a>
+<figcaption>Unique Paths III</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/unique-paths-iii target=_blank rel=noopener>Unique Paths III</a>题干相比以上两道发生了比较大变化，起点和终点不再固定。网格上的点分为四类：起点、终点、空格和障碍物。机器人从起点出发，可以任意向四个方向移动到终点，必须通过并且仅通过每个空格一次，求不同的走法有多少种。</p>
+<p>可以用<strong>深度优先搜索</strong>解决，因为网格上的点只有四种，每个空格必须通过并且只能通过一次，所以每种可行的走法通过的格子数是一定的。首先扫描整个网格确定起点、终点和空格数，从起点开始搜索，初始步数为0，如果遇到障碍物或者已经踩过的空格就返回；遇到没走过的空格就标记已走过，步数加1，然后继续搜索；遇到终点就判断步数是否等于空格数，等于就返回1，否则返回0。将所有返回值相加就是最终结果。</p>
+<h2 id=sum-root-to-leaf-numbers>Sum Root to Leaf Numbers</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/02/19/num2tree.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/02/19/num2tree.jpg loading=lazy alt="Sum Root to Leaf Numbers">
+</a>
+<figcaption>Sum Root to Leaf Numbers</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/sum-root-to-leaf-numbers/ target=_blank rel=noopener>Sum Root to Leaf Numbers</a>题目大意：一棵二叉树每个结点都是0~9的整数，从根结点到叶子结点的路径能够表示一个整数，例如上图的路径4->9->5可以表示495。求一棵这样的二叉树根结点到每一个叶子结点路径表示的整数之和。</p>
+<p><strong>深度优先搜索</strong>即可，如果根结点为空直接返回0。用cur记录根结点到当前结点路径表示的整数，初始为0。对每一个非空结点root，调用函数时首先更新cur为cur*10+root->val。如果左右子树都为空，说明当前结点是叶子结点，给最终结果加上cur；否则递归调用函数，将cur传给非空子树。</p>
+<h2 id=sum-of-left-leaves>Sum of Left Leaves</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/04/08/leftsum-tree.jpg loading=lazy alt="Sum of Left Leaves">
+</a>
+<figcaption>Sum of Left Leaves</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/sum-of-left-leaves/ target=_blank rel=noopener>Sum of Left Leaves</a>题目大意：求二叉树所有左叶子结点值的和。</p>
+<p>从根结点开始递归遍历每一个结点，增加一个标记位，进入左子树时传true，进入右子树时传false。到达叶子结点时如果标记位是true就在最终结果加上当前结点的值。</p>
+<h2 id=arranging-coins>Arranging Coins</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/04/09/arrangecoins2-grid.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/04/09/arrangecoins2-grid.jpg loading=lazy alt="Arranging Coins">
+</a>
+<figcaption>Arranging Coins</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/arranging-coins/ target=_blank rel=noopener>Arranging Coins</a>题目大意：n枚硬币按照1、2、3……逐层摆放，求摆满的层数。</p>
+<p>略。</p>
+<h2 id=single-number-iii>Single Number III</h2>
+<p>前置题目为<a class=link href=https://leetcode.com/problems/single-number/ target=_blank rel=noopener>Single Number</a>和<a class=link href=https://leetcode.com/problems/single-number-ii/ target=_blank rel=noopener>Single Number II</a>。</p>
+<p><a class=link href=https://leetcode.com/problems/single-number/ target=_blank rel=noopener>Single Number</a>题目大意：非空数组中除了一个整数外其他整数都出现偶数次，找到只出现一次的整数。</p>
+<p>这里利用了异或运算的性质：a⊕b⊕a=b。把整个数组异或起来结果就是要找的整数。</p>
+<p><a class=link href=https://leetcode.com/problems/single-number-ii/ target=_blank rel=noopener>Single Number II</a>题目大意：非空数组中除了一个整数外其他整数都出现3次，找到只出现一次的整数。</p>
+<p>常规思路是把每个整数都表示为二进制，对每一位分别求和并模3，余数所构成的二进制整数就是所求的数。进阶解法是把每一位求和模3的状态表示为0、1和2，那么下一个数这一位为0时，该状态保持不变；下一个数这一位为1时，状态将按照0->1->2->0迁移，表示为二进制就是00->01->10->00。分别用B0和B1表示二进制状态的低位和高位，B表示输入的这一位的值，根据状态迁移可以推导出以下关系：</p>
+<p>$$
+B_0 = (B_0 \oplus B) \And B_1 \newline
+B_1 = (B_1 \oplus B) \And B_0
+$$</p>
+<p>应用到这道题中，就是用两个整数high和low分别维护二进制整数每一位的高低位状态表示，对数组中的每一个整数分别计算high和low，最终维护低位状态表示的整数low即为答案。</p>
+<p><a class=link href=https://leetcode.com/problems/single-number-iii/ target=_blank rel=noopener>Single Number III</a>题目大意：非空数组中除了两个整数外其他整数都出现偶数次，找到这两个整数。</p>
+<p>假设这两个整数分别为a和b，利用异或运算的性质，把整个数组异或起来结果就是a⊕b。a和b是不同整数，所以a⊕b不为0，我们可以在a⊕b的二进制表示中找到值为1的某一位，a和b的这一位一定一个为0一个为1。根据这一位的不同把数组分为两个数组，那么a和b一定分别在这两个数组中，并且除了a和b以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到a和b。</p>
+<h2 id=multiply-strings>Multiply Strings</h2>
+<p><a class=link href=https://leetcode.com/problems/multiply-strings/ target=_blank rel=noopener>Multiply Strings</a>题目大意：已知两个表示整数的字符串，求这两个整数的乘积，也用字符串表示。</p>
+<p>字符串表示的大整数乘法，略。</p>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/leetcode/>LeetCode</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<script src=//cdn.jsdelivr.net/npm/twikoo@1.4.3/dist/twikoo.all.min.js></script>
+<div id=tcomment></div>
+<style>.twikoo{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}:root[data-scheme=dark]{--twikoo-body-text-color-main:rgba(255, 255, 255, 0.9);--twikoo-body-text-color:rgba(255, 255, 255, 0.7)}.twikoo .el-input-group__prepend,.twikoo .tk-action-icon,.twikoo .tk-time,.twikoo .tk-comments-count{color:var(--twikoo-body-text-color)}.twikoo .el-input__inner,.twikoo .el-textarea__inner,.twikoo .tk-preview-container,.twikoo .tk-content,.twikoo .tk-nick,.twikoo .tk-send{color:var(--twikoo-body-text-color-main)}.twikoo .el-button{color:var(--twikoo-body-text-color)!important}</style><script>twikoo.init({envId:'twikoo-2gpvjqe49b66cf52',el:'#tcomment'})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2021 凉城
+</section>
+<section class=powerby>
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">目录</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#surrounded-regions>Surrounded Regions</a></li>
+<li><a href=#unique-paths-iii>Unique Paths III</a></li>
+<li><a href=#sum-root-to-leaf-numbers>Sum Root to Leaf Numbers</a></li>
+<li><a href=#sum-of-left-leaves>Sum of Left Leaves</a></li>
+<li><a href=#arranging-coins>Arranging Coins</a></li>
+<li><a href=#single-number-iii>Single Number III</a></li>
+<li><a href=#multiply-strings>Multiply Strings</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

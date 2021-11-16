@@ -1,6 +1,6 @@
 ---
 title: "Code"
-description: 
+description: "Code is poetry."
 slug: "code"
 image: "Code.jpg"
 style:

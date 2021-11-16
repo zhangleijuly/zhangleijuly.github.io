@@ -1,4 +1,126 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 08 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(一)</title><link>https://zhangleijuly.me/p/leetcode-weekly-1/</link><pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-1/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(一)" />&lt;h2 id="surrounded-regions">Surrounded Regions&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 14 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(二)</title><link>https://zhangleijuly.me/p/leetcode-weekly-2/</link><pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-2/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(二)" />&lt;h2 id="unique-binary-search-trees">Unique Binary Search Trees&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/01/18/uniquebstn3.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/01/18/uniquebstn3.jpg"
+loading="lazy"
+alt="Unique Binary Search Trees">
+&lt;/a>
+&lt;figcaption>Unique Binary Search Trees&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/unique-binary-search-trees/" target="_blank" rel="noopener"
+>Unique Binary Search Trees&lt;/a>题目大意：n个结点的二叉搜索树其结点的值分别为1~n，求这样的二叉搜索树有多少种不同的结构。&lt;/p>
+&lt;p>刷软考题时遇到过相同问题，可以把该问题转化为规模更小的问题来求解。假设结点数为n时该问题的解为&lt;code>fun(n)&lt;/code>。对于n个结点的二叉搜索树，选择1个结点作为根节点，可以选择1~n，假设我们选择m作为根节点，那么根据二叉搜索树的性质，左子树将包含1~m-1这m-1个结点，右子树将包含m+1~n这n-m个结点，以m作为根结点的二叉搜索树的结构就有&lt;code>fun(m-1)*fun(m-n)&lt;/code>种。根节点的选择有n种，可以得到以下公式：
+$$
+fun(n) = \sum_{i=1}^n fun(i-1)*fun(n-i)
+$$
+为了避免重复运算，我们用数组记录结果，初始化&lt;code>fun[0]=1&lt;/code>，然后从小到大依次求解&lt;code>fun[1]&lt;/code>直到&lt;code>fun[n]&lt;/code>即可。&lt;/p>
+&lt;h2 id="number-of-valid-words-for-each-puzzle">Number of Valid Words for Each Puzzle&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/number-of-valid-words-for-each-puzzle/" target="_blank" rel="noopener"
+>Number of Valid Words for Each Puzzle&lt;/a>题目大意：输入包括&lt;code>word&lt;/code>和&lt;code>puzzle&lt;/code>两种字符串，对于一个&lt;code>puzzle&lt;/code>，满足以下条件的&lt;code>word&lt;/code>是合法的：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>word&lt;/code>包含&lt;code>puzzle&lt;/code>的首字母&lt;/li>
+&lt;li>&lt;code>word&lt;/code>中的每一个字母都在&lt;code>puzzle&lt;/code>中出现&lt;/li>
+&lt;/ul>
+&lt;p>求每个&lt;code>puzzle&lt;/code>分别有多少个合法的&lt;code>word&lt;/code>。&lt;/p>
+&lt;p>这道题题意比较简单，数据规模不大的情况下可以直接求解。但是LeetCode给出的数据规模是$1 \leq words.length \leq 10^5$和$1 \leq puzzle.length \leq 10^4$，直接求解一定会超时。&lt;/p>
+&lt;p>题目的约束中，&lt;code>word&lt;/code>和&lt;code>puzzle&lt;/code>只包含英文小写字母。用1位二进制表示某个字母在字符串中是否出现，1表示出现，0表示未出现，只需要26位二进制整数就能表示一个字符串包含的字母集合。遍历&lt;code>word&lt;/code>数组，可以求出每一个单词所包含的字母集合，因为不同的单词可能有相同的字母集合，用一个&lt;code>hashMap&lt;/code>保存每一个字母集合分别构成了多少个单词。&lt;/p>
+&lt;p>处理完&lt;code>word&lt;/code>之后，对每个&lt;code>puzzle&lt;/code>也计算出表示它所包含字母集合的整数，因为后面用到&lt;a class="link" href="https://zh.wikipedia.org/wiki/%E6%8E%A9%E7%A0%81" target="_blank" rel="noopener"
+>&lt;strong>掩码&lt;/strong>&lt;/a>操作，就用&lt;code>mask&lt;/code>表示这个整数。然后需要找到符合条件的&lt;code>mask&lt;/code>集合的子集&lt;code>subMask&lt;/code>。&lt;/p>
+&lt;p>首先&lt;code>subMask&lt;/code>一定小于等于&lt;code>mask&lt;/code>，但是并非所有小于等于&lt;code>mask&lt;/code>的整数都是&lt;code>mask&lt;/code>的子集，这时就需要用到&lt;a class="link" href="https://zh.wikipedia.org/wiki/%E6%8E%A9%E7%A0%81" target="_blank" rel="noopener"
+>&lt;strong>掩码&lt;/strong>&lt;/a>操作，对任意&lt;code>subMask&lt;/code>，&lt;code>subMask&amp;amp;mask&lt;/code>一定是&lt;code>mask&lt;/code>的子集。用下面的循环就可以遍历所有&lt;code>mask&lt;/code>的子集，掩码操作也是对这个循环的剪枝，大大减少了循环的时间代价。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="kt">int&lt;/span> &lt;span class="n">subMask&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">mask&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">while&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">subMask&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="c1">//do something
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="n">subMask&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="o">--&lt;/span>&lt;span class="n">subMask&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="n">mask&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>当然，不要忘记在&lt;code>subMask&lt;/code>中必须包含&lt;code>puzzle&lt;/code>的首字母。对符合条件的&lt;code>subMask&lt;/code>，在&lt;code>hashMap&lt;/code>中查找有多少由该字母集合构成的单词，计入结果中即可。&lt;/p>
+&lt;h2 id="best-time-to-buy-and-sell-stock-ii">Best Time to Buy and Sell Stock II&lt;/h2>
+&lt;p>这周最有意思的有一道题，兄弟姐妹也真的多，同系列一共有6道题，包括&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock&lt;/a>、&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock II&lt;/a>、&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock III&lt;/a>、&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock IV&lt;/a>、&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock with Cooldown&lt;/a>和&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock with Transaction Fee&lt;/a>。&lt;/p>
+&lt;p>我做了前三道，但是思路不连贯在第四道卡住了，在网上找第四道的题解大多是用局部最优和全局最优数组的动态规划解法，看得一知半解。直到在B站找到下面的视频，小姐姐把这六道题串连在一起，解题思路统一清晰，关键是容易理解，强烈推荐。&lt;/p>
+&lt;div class="video-wrapper">
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1nv411P7bk"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+>
+&lt;/iframe>
+&lt;/div>
+&lt;p>下面主要介绍这系列题的题意，我解前三道题的方法和补充视频里动态规划数组降维的证明。&lt;/p>
+&lt;h3 id="题目大意">题目大意&lt;/h3>
+&lt;p>题目的背景是已知一个数组表示每一天的股票价格&lt;code>prices&lt;/code>，可以选择某一天买入一支股票，并在之后的另一天卖掉获得盈利，同时最多只能持有一支股票。每道题都是在这个背景上增加不同的条件，求能够获得的最高盈利是多少。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock&lt;/a>的条件是只能买入一次卖出一次，如果不能盈利就返回0。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock II&lt;/a>的条件是可以任意买入和卖出，只要满足最多持有一支股票的限制即可。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock III&lt;/a>的条件是最多只能够买入和卖出2次，&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock IV&lt;/a>更进一步，最多只能买入和卖出&lt;code>k&lt;/code>次。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock with Cooldown&lt;/a>的条件是可以买入和卖出任意多次，但是卖出股票后必须等待一天才能够再次买入。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/" target="_blank" rel="noopener"
+>Best Time to Buy and Sell Stock with Transaction Fee&lt;/a>的条件是可以买入和卖出任意多次，但是卖出股票时必须支付交易费&lt;code>fee&lt;/code>。&lt;/p>
+&lt;h3 id="我解前三道题的思路">我解前三道题的思路&lt;/h3>
+&lt;p>Best Time to Buy and Sell Stock的条件是只能买入和卖出一次，所以使用贪心法。维护一个买入价格&lt;code>buy&lt;/code>和盈利&lt;code>profit&lt;/code>，分别初始化为&lt;code>prices[0]&lt;/code>和&lt;code>0&lt;/code>。从第一天开始遍历股票价格，如果这一天的股票价格比买入价格低，那么在这一天买入可以获得更高的盈利，更新&lt;code>buy=prices[i]&lt;/code>；如果这一天的股票价格比买入价格高，那么可以在这一天卖出，更新盈利&lt;code>profit=max(profit, prices[i]-buy)&lt;/code>。&lt;/p>
+&lt;p>Best Time to Buy and Sell Stock III可以在第一题的基础上求解。题目的条件是最多可以买入和卖出2次，那么可以分为3种情况：&lt;/p>
+&lt;ol>
+&lt;li>不进行交易，盈利为0；&lt;/li>
+&lt;li>买入和卖出1次，第一题中已经求出最高盈利；&lt;/li>
+&lt;li>买入和卖出2次，假设第一次卖出发生在第&lt;code>i&lt;/code>天，那么我们可以分别对第一天到第&lt;code>i&lt;/code>天和第&lt;code>i+1&lt;/code>天到最后一天使用第一题的算法分别计算最高盈利，然后相加即可。&lt;/li>
+&lt;/ol>
+&lt;p>只需要考虑第三种情况，我们需要分别计算第一天到第&lt;code>i&lt;/code>天交易一次的最高盈利和第&lt;code>i&lt;/code>天到最后一天交易一次的最高盈利。对于前者，我们用数组&lt;code>fromBegin[i]&lt;/code>储存第一天到第&lt;code>i&lt;/code>天交易一次的最高盈利，仍然使用第一题的算法，只需要每一天都用&lt;code>profit&lt;/code>更新&lt;code>fromBegin[i]&lt;/code>即可。我们用数组&lt;code>toEnd[i]&lt;/code>储存第&lt;code>i&lt;/code>天到最后一天交易一次的最高盈利。把第一题的算法反过来，维护一个卖出价格&lt;code>sell&lt;/code>和盈利&lt;code>profit&lt;/code>，分别初始化为&lt;code>prices[prices.size()-1]&lt;/code>和&lt;code>0&lt;/code>。从最后一天倒序遍历股票价格，如果这一天的股票价格比卖出价格高，那么在这一天卖出可以获得更高的盈利，更新&lt;code>sell=prices[i]&lt;/code>；如果这一天的股票价格比卖出价格低，那么可以在这一天买入，更新盈利&lt;code>profit=max(profix,sell-prices[i])&lt;/code>。每一天都用&lt;code>profit&lt;/code>更新&lt;code>toEnd[i]&lt;/code>。&lt;/p>
+&lt;p>初始化&lt;code>profit&lt;/code>为&lt;code>fromBegin[prices.size()-1]&lt;/code>，也就是只交易一次能获得的最高盈利。然后遍历所有&lt;code>i&lt;/code>，更新&lt;code>profit=max(profit,fromBegin[i]+toEnd[i+1])&lt;/code>。最后&lt;code>profit&lt;/code>即为最高盈利。&lt;/p>
+&lt;p>最后回到本题Best Time to Buy and Sell Stock II，题目不限制买入和卖出次数，但是最多只能持有一支股票。如果画出股票的价格曲线，那么要实现最大化盈利只需要在曲线的波谷买入股票，在下一个波峰卖出，然后在下一个波谷再买入，不断重复。可以用算法模拟这一过程，分别维护两个变量&lt;code>top&lt;/code>和&lt;code>bottom&lt;/code>表示价格曲线中的波峰和波谷。在一笔交易中需要先买入后卖出，所以先寻找波谷，再寻找波峰。从第一天遍历股票价格，直到当天的价格比后一天的价格低，那么这一天的价格就是波谷，接下来继续遍历，直到当天的价格比后一天的价格高，那么这一天的价格就是波峰，找到一对波谷与波峰后在盈利中加上&lt;code>top-bottom&lt;/code>，循环该过程直到遍历整个数组。&lt;/p>
+&lt;h3 id="视频里数组降维的证明">视频里数组降维的证明&lt;/h3>
+&lt;p>数组降维出现在视频对第二道题的讲解中(3分40秒到8分40秒)。用动态规划来解决这道题，每一天有两种状态，即有股票和没有股票。每一天的状态由前一天的状态转移而来，用&lt;code>dp[i][1]&lt;/code>和&lt;code>dp[i][0]&lt;/code>表示第&lt;code>i&lt;/code>天有股票和没有股票的盈利状态，状态转移公式如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="n">dp&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dp&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">],&lt;/span>&lt;span class="n">dp&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">prices&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;span class="n">dp&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dp&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">],&lt;/span>&lt;span class="n">dp&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">prices&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>因为状态转移只跟前一天的状态有关系，用&lt;code>withShare&lt;/code>和&lt;code>noShare&lt;/code>分别表示有股票和没有股票的盈利状态，状态转移公式变成：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c++" data-lang="c++">&lt;span class="n">noShare&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">noShare&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">withShare&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">prices&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;span class="n">withShare&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">max&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">withShare&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">noShare&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">prices&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>评论区有人问&lt;code>noShare&lt;/code>更新完已经是第&lt;code>i&lt;/code>天的状态了，用第&lt;code>i&lt;/code>天的&lt;code>noShare&lt;/code>更新第&lt;code>i&lt;/code>天的&lt;code>withShare&lt;/code>不对啊。其实我第一次看到这里的时候也产生了相同的疑问，动态规划的状态转移公式比较好理解，后一天的状态由前一天的状态来决定，但数组降维之后后更新的变量一定需要用先更新的变量去更新，这和后一天的状态由前一天的状态来决定不矛盾吗。严格计算之后就会发现并不矛盾。&lt;/p>
+&lt;p>首先观察数组降维前的状态转移公式，这两个&lt;code>max&lt;/code>看似进行了两次比较，但实际上比较的是相同的东西。不等式&lt;code>dp[i-1][1]&amp;gt;dp[i-1][0]-prices[i]&lt;/code>，把&lt;code>prices[i]&lt;/code>移项后可得&lt;code>dp[i-1][1]+prices[i]&amp;gt;dp[i-1][0]&lt;/code>。也就是说，&lt;code>dp[i-1][1]+prices[i]&lt;/code>和&lt;code>dp[i-1][0]&lt;/code>的大小关系唯一地决定了状态转移的结果。&lt;/p>
+&lt;p>下面分别讨论&lt;code>dp[i-1][1]+prices[i]&lt;/code>和&lt;code>dp[i-1][0]&lt;/code>的不同大小关系对状态转移的影响。&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>dp[i-1][1]+prices[i]&lt;/code>和&lt;code>dp[i-1][0]&lt;/code>相等。二者相等那么&lt;code>max&lt;/code>函数在两个相等的值中任取其一，选择&lt;code>dp[i][0]=dp[i-1][0]&lt;/code>和&lt;code>dp[i][1]=dp[i-1][1]&lt;/code>。对应数组降维后是&lt;code>noShare=noShare&lt;/code>和&lt;code>withShare=withShare&lt;/code>，&lt;code>withShare&lt;/code>没有用&lt;code>noShare&lt;/code>更新，所以没有影响。&lt;/li>
+&lt;li>&lt;code>dp[i-1][1]+prices[i]&lt;/code>比&lt;code>dp[i-1][0]&lt;/code>大。可以得到&lt;code>dp[i][0] = dp[i-1][1]+prices[i]&lt;/code>和&lt;code>dp[i][1] = dp[i-1][i]&lt;/code>。对应数组降维后是&lt;code>noShare=withShare+prices[i]&lt;/code>和&lt;code>withShare=withShare&lt;/code>，&lt;code>withShare&lt;/code>没有用&lt;code>noShare&lt;/code>更新，所以没有影响。&lt;/li>
+&lt;li>&lt;code>dp[i-1][1]+prices[i]&lt;/code>比&lt;code>dp[i-1][0]&lt;/code>小。可以得到&lt;code>dp[i][0] = dp[i-1][0]&lt;/code>和&lt;code>dp[i][1]=dp[i-1][0]-prices[i]&lt;/code>。对应数组降维后是&lt;code>noShare=noShare&lt;/code>和&lt;code>withShare=noShare-prices[i]&lt;/code>，&lt;code>withShare&lt;/code>用&lt;code>noShare&lt;/code>更新，但是这时&lt;code>noShare&lt;/code>的值还是前一天的&lt;code>noShare&lt;/code>的值，所以仍然没有影响。&lt;/li>
+&lt;/ol>
+&lt;p>综上所述，无论何种情况，数组降维后两种状态都能够正确更新。同样在Best Time to Buy and Sell Stock with Transaction Fee一题中，状态转移公式中虽然加上了交易费，但是两种状态还是能够正确更新。&lt;/p>
+&lt;h2 id="minimum-value-to-get-positive-step-by-step-sum">Minimum Value to Get Positive Step by Step Sum&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/" target="_blank" rel="noopener"
+>Minimum Value to Get Positive Step by Step Sum&lt;/a>题目大意：已知整型数组&lt;code>nums&lt;/code>，用一个正整数&lt;code>startValue&lt;/code>逐一累加数组中的数，为保证累加和全程不小于1，&lt;code>startValue&lt;/code>至少要是多少。&lt;/p>
+&lt;p>略。&lt;/p>
+&lt;h2 id="remove-linked-list-elements">Remove Linked List Elements&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/remove-linked-list-elements/" target="_blank" rel="noopener"
+>Remove Linked List Elements&lt;/a>题目大意：已知链表的头指针，删除链表中所有值等于给定值的结点，返回新的头指针。&lt;/p>
+&lt;p>略。&lt;/p>
+&lt;h2 id="daily-temperatures">Daily Temperatures&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/daily-temperatures/" target="_blank" rel="noopener"
+>Daily Temperatures&lt;/a>题目大意：已知一个数组&lt;code>temperatures&lt;/code>表示每日温度，求每一天需要过多少天才能迎来更高温度，如果未来没有更高的温度，输出0。&lt;/p>
+&lt;p>题意很简单，但是数据规模很大，$1 \leq temperatures.length \leq 10^5$，如果对每一天都扫描一遍数组肯定会超时。&lt;/p>
+&lt;p>解这类&lt;strong>找后面第一个比自身小或者大的位置&lt;/strong>的题目，可以考虑使用单调栈，单调栈要求其中的元素保持单调性。&lt;/p>
+&lt;p>维护一个栈&lt;code>stack&lt;/code>，栈内元素保存数组下标，保持的单调性为：越靠近栈顶的数组下标，对应的温度越低。&lt;/p>
+&lt;p>倒序遍历数组&lt;code>temperatures&lt;/code>，遍历到第&lt;code>i&lt;/code>个元素时，如果栈非空就弹栈直到栈为空或者栈顶元素对应的温度比&lt;code>temperatures[i]&lt;/code>大。如果栈为空则记答案为0，如果栈不为空那么记答案为&lt;code>stack.top()-i&lt;/code>。最后把&lt;code>i&lt;/code>入栈。&lt;/p>
+&lt;h2 id="iterator-for-combination">Iterator for Combination&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/iterator-for-combination/" target="_blank" rel="noopener"
+>Iterator for Combination&lt;/a>题目大意：设计一个&lt;code>CombinationIterator&lt;/code>类，构造时传入一个由不同英文小写字母构成的有序字符串&lt;code>characters&lt;/code>和组合长度&lt;code>combinationLength&lt;/code>。该类有两个方法：&lt;code>next()&lt;/code>按字典序返回下一个长度为&lt;code>combinationLength&lt;/code>的字母组合；&lt;code>hasNext()&lt;/code>返回是否存在下一个字母组合。&lt;/p>
+&lt;p>根据题意，在构造&lt;code>CombinationIterator&lt;/code>对象时，需要生成由&lt;code>characters&lt;/code>中字符构成的所有长度为&lt;code>combinationLength&lt;/code>的字母组合，并按照字典序保存在一个数组中。初始化数组下标&lt;code>index&lt;/code>为0，调用&lt;code>next()&lt;/code>方法时返回当前下标的字母组合，然后把&lt;code>index&lt;/code>加&lt;code>1&lt;/code>；调用&lt;code>hasNext()&lt;/code>方法时返回&lt;code>index&lt;/code>是否小于数组大小的布尔值。&lt;/p>
+&lt;h2 id="一些碎碎念">一些碎碎念&lt;/h2>
+&lt;p>上一周算是我行动力最强的一周了，花了几天时间把博客从&lt;a class="link" href="https://hexo.io/" target="_blank" rel="noopener"
+>Hexo&lt;/a>迁移到&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+>Hugo&lt;/a>，开始参与&lt;a class="link" href="https://leetcode.com/" target="_blank" rel="noopener"
+>LeetCode&lt;/a>每日打卡领勋章活动，并记录总结。&lt;/p>
+&lt;p>刷算法题我是一直不太擅长的，虽然我曾经也在博客写过很多的题解，但是现在我想换一种方式。我希望能够在尽量不贴代码的情况下用文字把解题思路描述清楚，今后自己再看的时候能够想起算法是如何实现的。现阶段这些内容可能并不适合其他读者看，毕竟在算法上文字比起代码在表达上是乏力的。幸运的是互联网上有大量分享解题思路的文章，我也仅仅是其中普通的一员罢了。&lt;/p>
+&lt;p>工作之后才发现现在互联网上充斥着所谓“内容农场”的网站，每每搜索一些问题的解决办法出现在首页的都是一些机器人抓取的机翻的出处不明的文章，虽然有时候能在其中找到work的方法，但是给人的观感真的很差。也正是这些内容让我意识到重要的并非问题和答案，而是找到答案的过程。这些总结对我而言的意义正在于此，在今后遇到类似问题的时候能够举一反三，有记录可复盘。&lt;/p></description></item><item><title>LeetCode每日一题周总结(一)</title><link>https://zhangleijuly.me/p/leetcode-weekly-1/</link><pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-1/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(一)" />&lt;h2 id="surrounded-regions">Surrounded Regions&lt;/h2>
 &lt;p>&lt;figure
 >
 &lt;a href="https://assets.leetcode.com/uploads/2021/02/19/xogrid.jpg" >
@@ -10,8 +132,8 @@ alt="Surrounded Regions">
 &lt;/figure>&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/surrounded-regions/" target="_blank" rel="noopener"
 >Surrounded Regions&lt;/a>题目大意：矩形棋盘上有&amp;quot;O&amp;quot;和&amp;quot;X&amp;quot;两种棋子，将所有四面被&amp;quot;X&amp;quot;包围的&amp;quot;O&amp;quot;的区域都替换为&amp;quot;X&amp;quot;(棋盘边缘不算被&amp;quot;X&amp;quot;包围)。&lt;/p>
-&lt;p>一道做过的题，常规思路是遍历棋盘上所有&amp;quot;O&amp;quot;的区域，用&lt;strong>深度优先搜索&lt;/strong>确定当前区域的范围，并判断是否满足替换条件，如果满足替换条件就进行替换，不满足替换条件就标记当前区域为已访问。这种思路能够解答该题，但是比较麻烦，需要维护额外的数据结构储存当前区域的范围，并且直到搜索遍整个当前区域后才能够确定是否需要替换。&lt;/p>
-&lt;p>另一种比较巧妙的思路是反向思考，题目的含义告诉我们，不需要替换的&amp;quot;O&amp;quot;的区域都是临近棋盘边缘的，所以可以先找到这样的区域。沿着棋盘边缘寻找包含&amp;quot;O&amp;quot;的区域，同样用&lt;strong>深度优先搜索&lt;/strong>确定这些区域的范围，这些区域就是所有不需要替换的&amp;quot;O&amp;quot;，对这些&amp;quot;O&amp;quot;做标记，把其他的&amp;quot;O&amp;quot;替换为&amp;quot;X&amp;quot;即可。&lt;/p>
+&lt;p>一道做过的题，常规思路是遍历棋盘上所有&amp;quot;O&amp;quot;的区域，用深度优先搜索确定当前区域的范围，并判断是否满足替换条件，如果满足替换条件就进行替换，不满足替换条件就标记当前区域为已访问。这种思路能够解答该题，但是比较麻烦，需要维护额外的数据结构储存当前区域的范围，并且直到搜索遍整个当前区域后才能够确定是否需要替换。&lt;/p>
+&lt;p>另一种比较巧妙的思路是反向思考，题目的含义告诉我们，不需要替换的&amp;quot;O&amp;quot;的区域都是临近棋盘边缘的，所以可以先找到这样的区域。沿着棋盘边缘寻找包含&amp;quot;O&amp;quot;的区域，同样用深度优先搜索确定这些区域的范围，这些区域就是所有不需要替换的&amp;quot;O&amp;quot;，对这些&amp;quot;O&amp;quot;做标记，把其他的&amp;quot;O&amp;quot;替换为&amp;quot;X&amp;quot;即可。&lt;/p>
 &lt;h2 id="unique-paths-iii">Unique Paths III&lt;/h2>
 &lt;p>前置题目为&lt;a class="link" href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="noopener"
 >Unique Paths&lt;/a>和&lt;a class="link" href="https://leetcode.com/problems/unique-paths-ii/" target="_blank" rel="noopener"
@@ -27,7 +149,7 @@ alt="Unique Paths">
 &lt;/figure>&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="noopener"
 >Unique Paths&lt;/a>题目大意：机器人从矩形网格左上角走到右下角，每次只能向右或者向下走一步，求不同的走法有多少种。&lt;/p>
-&lt;p>使用递推法即可。假设矩阵大小为m×n，左上角坐标为(0, 0)，右下角坐标为(m-1, n-1)。从(0, 0)到(i, j)的不同走法记作result[i][j]，有递推公式result[i][j] = result[i-1][j] + result[i][j-1]，系统初态为result[0][0] = 1。&lt;/p>
+&lt;p>使用递推法求解即可。&lt;/p>
 &lt;p>&lt;figure
 >
 &lt;a href="https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg" >
@@ -38,7 +160,7 @@ alt="Unique Paths II">
 &lt;figcaption>Unique Paths II&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/unique-paths-ii/" target="_blank" rel="noopener"
->Unique Paths II&lt;/a>与Unique Paths题干类似，只是在网格中增加了障碍物，整体解题思路不变。&lt;/p>
+>Unique Paths II&lt;/a>与Unique Paths题干相同，只是在网格中增加了障碍物，整体解题思路不变。&lt;/p>
 &lt;p>&lt;figure
 >
 &lt;a href="https://assets.leetcode.com/uploads/2021/08/02/lc-unique1.jpg" >
@@ -49,8 +171,8 @@ alt="Unique Paths III">
 &lt;figcaption>Unique Paths III&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/unique-paths-iii" target="_blank" rel="noopener"
->Unique Paths III&lt;/a>题干相比以上两道发生了比较大变化，起点和终点不再固定。网格上的点分为四类：起点、终点、空格和障碍物。机器人从起点出发，可以任意向四个方向移动到终点，必须通过并且仅通过每个空格一次，求不同的走法有多少种。&lt;/p>
-&lt;p>可以用&lt;strong>深度优先搜索&lt;/strong>解决，因为网格上的点只有四种，每个空格必须通过并且只能通过一次，所以每种可行的走法通过的格子数是一定的。首先扫描整个网格确定起点、终点和空格数，从起点开始搜索，初始步数为0，如果遇到障碍物或者已经踩过的空格就返回；遇到没走过的空格就标记已走过，步数加1，然后继续搜索；遇到终点就判断步数是否等于空格数，等于就返回1，否则返回0。将所有返回值相加就是最终结果。&lt;/p>
+>Unique Paths III&lt;/a>题干相比以上两道变化较大，起点和终点不再固定。网格上的点分为四类：起点、终点、空格和障碍物。机器人从起点出发，可以任意向四个方向移动到终点，必须通过并且仅通过每个空格一次，求不同的走法有多少种。&lt;/p>
+&lt;p>可以用深度优先搜索解决，因为网格上的点只有四种，每个空格必须通过并且只能通过一次，所以每种可行的走法通过的格子数是一定的。首先扫描整个网格确定起点、终点和空格数，从起点开始搜索，初始步数为0，如果遇到障碍物或者已经踩过的空格就返回；遇到没走过的空格就标记已走过，步数加1，然后继续搜索；遇到终点就判断步数是否等于空格数，等于就返回1，否则返回0。将所有返回值相加就是最终结果。&lt;/p>
 &lt;h2 id="sum-root-to-leaf-numbers">Sum Root to Leaf Numbers&lt;/h2>
 &lt;p>&lt;figure
 >
@@ -63,7 +185,7 @@ alt="Sum Root to Leaf Numbers">
 &lt;/figure>&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/sum-root-to-leaf-numbers/" target="_blank" rel="noopener"
 >Sum Root to Leaf Numbers&lt;/a>题目大意：一棵二叉树每个结点都是0~9的整数，从根结点到叶子结点的路径能够表示一个整数，例如上图的路径4-&amp;gt;9-&amp;gt;5可以表示495。求一棵这样的二叉树根结点到每一个叶子结点路径表示的整数之和。&lt;/p>
-&lt;p>&lt;strong>深度优先搜索&lt;/strong>即可，如果根结点为空直接返回0。用cur记录根结点到当前结点路径表示的整数，初始为0。对每一个非空结点root，调用函数时首先更新cur为cur*10+root-&amp;gt;val。如果左右子树都为空，说明当前结点是叶子结点，给最终结果加上cur；否则递归调用函数，将cur传给非空子树。&lt;/p>
+&lt;p>深度优先搜索即可，如果根结点为空直接返回0。用&lt;code>cur&lt;/code>记录根结点到当前结点路径表示的整数，初始化为0。对每一个非空结点&lt;code>root&lt;/code>，调用函数时首先更新&lt;code>cur&lt;/code>为&lt;code>cur*10+root-&amp;gt;val&lt;/code>。如果左右子树都为空，说明当前结点是叶子结点，给最终结果加上&lt;code>cur&lt;/code>；否则递归调用函数，将&lt;code>cur&lt;/code>传给非空子树。&lt;/p>
 &lt;h2 id="sum-of-left-leaves">Sum of Left Leaves&lt;/h2>
 &lt;p>&lt;figure
 >
@@ -76,7 +198,7 @@ alt="Sum of Left Leaves">
 &lt;/figure>&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/sum-of-left-leaves/" target="_blank" rel="noopener"
 >Sum of Left Leaves&lt;/a>题目大意：求二叉树所有左叶子结点值的和。&lt;/p>
-&lt;p>从根结点开始递归遍历每一个结点，增加一个标记位，进入左子树时传true，进入右子树时传false。到达叶子结点时如果标记位是true就在最终结果加上当前结点的值。&lt;/p>
+&lt;p>从根结点开始递归遍历每一个结点，增加一个标记位，进入左子树时传&lt;code>true&lt;/code>，进入右子树时传&lt;code>false&lt;/code>。到达叶子结点时如果标记位是&lt;code>true&lt;/code>就在最终结果加上当前结点的值。&lt;/p>
 &lt;h2 id="arranging-coins">Arranging Coins&lt;/h2>
 &lt;p>&lt;figure
 >
@@ -99,15 +221,15 @@ alt="Arranging Coins">
 &lt;p>这里利用了异或运算的性质：a⊕b⊕a=b。把整个数组异或起来结果就是要找的整数。&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener"
 >Single Number II&lt;/a>题目大意：非空数组中除了一个整数外其他整数都出现3次，找到只出现一次的整数。&lt;/p>
-&lt;p>常规思路是把每个整数都表示为二进制，对每一位分别求和并模3，余数所构成的二进制整数就是所求的数。进阶解法是把每一位求和模3的状态表示为0、1和2，那么下一个数这一位为0时，该状态保持不变；下一个数这一位为1时，状态将按照0-&amp;gt;1-&amp;gt;2-&amp;gt;0迁移，表示为二进制就是00-&amp;gt;01-&amp;gt;10-&amp;gt;00。分别用B&lt;!-- raw HTML omitted -->0&lt;!-- raw HTML omitted -->和B&lt;!-- raw HTML omitted -->1&lt;!-- raw HTML omitted -->表示二进制状态的低位和高位，B表示输入的这一位的值，根据状态迁移可以推导出以下关系：&lt;/p>
+&lt;p>常规思路是把每个整数都表示为二进制，对每一位分别求和并模3，余数所构成的二进制整数就是所求的数。进阶解法是把每一位求和模3的状态表示为0、1和2，那么下一个数这一位为0时，该状态保持不变；下一个数这一位为1时，状态将按照0-&amp;gt;1-&amp;gt;2-&amp;gt;0迁移，表示为二进制就是00-&amp;gt;01-&amp;gt;10-&amp;gt;00。分别用$B_0$和$B_1$表示二进制状态的低位和高位，$B$表示输入的这一位的值，根据状态迁移可以推导出以下关系：&lt;/p>
 &lt;p>$$
 B_0 = (B_0 \oplus B) \And B_1 \newline
 B_1 = (B_1 \oplus B) \And B_0
 $$&lt;/p>
-&lt;p>应用到这道题中，就是用两个整数high和low分别维护二进制整数每一位的高低位状态表示，对数组中的每一个整数分别计算high和low，最终维护低位状态表示的整数low即为答案。&lt;/p>
+&lt;p>应用到这道题中，就是用两个整数&lt;code>high&lt;/code>和&lt;code>low&lt;/code>分别维护二进制整数每一位的高低位状态表示，对数组中的每一个整数分别计算&lt;code>high&lt;/code>和&lt;code>low&lt;/code>，最终维护低位状态表示的整数&lt;code>low&lt;/code>即为答案。&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="noopener"
 >Single Number III&lt;/a>题目大意：非空数组中除了两个整数外其他整数都出现偶数次，找到这两个整数。&lt;/p>
-&lt;p>假设这两个整数分别为a和b，利用异或运算的性质，把整个数组异或起来结果就是a⊕b。a和b是不同整数，所以a⊕b不为0，我们可以在a⊕b的二进制表示中找到值为1的某一位，a和b的这一位一定一个为0一个为1。根据这一位的不同把数组分为两个数组，那么a和b一定分别在这两个数组中，并且除了a和b以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到a和b。&lt;/p>
+&lt;p>假设这两个整数分别为a和b，利用异或运算的性质，把整个数组异或起来结果就是a⊕b。a和b是不同整数，所以a⊕b不为0，我们可以在a⊕b的二进制表示中找到值为1的某一位。根据这一位的不同把数组分为两个数组，那么a和b一定分别在这两个数组中，并且除了a和b以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到a和b。&lt;/p>
 &lt;h2 id="multiply-strings">Multiply Strings&lt;/h2>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/multiply-strings/" target="_blank" rel="noopener"
 >Multiply Strings&lt;/a>题目大意：已知两个表示整数的字符串，求这两个整数的乘积，也用字符串表示。&lt;/p>

@@ -1,0 +1,203 @@
+<!doctype html><html lang=zh-cn>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Largest Divisible Subset Largest Divisible Subset题目大意：已知一个不同正整数组成的集合nums，求它的一个最大子集合answer，answer中任意两个整数都满足其中"><title>LeetCode每日一题周总结(三)</title>
+<link rel=canonical href=https://zhangleijuly.me/p/leetcode-weekly-3/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="LeetCode每日一题周总结(三)">
+<meta property="og:description" content="Largest Divisible Subset Largest Divisible Subset题目大意：已知一个不同正整数组成的集合nums，求它的一个最大子集合answer，answer中任意两个整数都满足其中">
+<meta property="og:url" content="https://zhangleijuly.me/p/leetcode-weekly-3/">
+<meta property="og:site_name" content="凉城">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="LeetCode"><meta property="article:published_time" content="2021-11-21T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-21T00:00:00+00:00"><meta property="og:image" content="https://zhangleijuly.me/img/LeetCode.jpeg">
+<meta name=twitter:title content="LeetCode每日一题周总结(三)">
+<meta name=twitter:description content="Largest Divisible Subset Largest Divisible Subset题目大意：已知一个不同正整数组成的集合nums，求它的一个最大子集合answer，answer中任意两个整数都满足其中"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://zhangleijuly.me/img/LeetCode.jpeg">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-25675628-4','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>返回</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<link rel=stylesheet href=/katex/katex.min.css>
+<script defer src=/katex/katex.min.js></script>
+<script defer src=/katex/contrib/auto-render.js onload=renderMathInElement(document.body)></script>
+<div class=article-image>
+<a href=/p/leetcode-weekly-3/>
+<img src=/img/LeetCode.jpeg loading=lazy alt="Featured image of post LeetCode每日一题周总结(三)">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/code/ style=background-color:#2a9d8f;color:#fff>
+Code
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/leetcode-weekly-3/>LeetCode每日一题周总结(三)</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Nov 21, 2021</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h2 id=largest-divisible-subset>Largest Divisible Subset</h2>
+<p><a class=link href=https://leetcode.com/problems/largest-divisible-subset/ target=_blank rel=noopener>Largest Divisible Subset</a>题目大意：已知一个不同正整数组成的集合<code>nums</code>，求它的一个最大子集合<code>answer</code>，<code>answer</code>中任意两个整数都满足其中一个是另外一个的整数倍。</p>
+<p>这道题和动态规划的经典问题<a class=link href=https://leetcode.com/problems/longest-increasing-subsequence/ target=_blank rel=noopener>Longest Increasing Subsequence</a>类似，只是把条件从大小关系变成了整除关系。</p>
+<p>因为只可能较大的数整除较小的数，所以要先把<code>nums</code>从小到大排序。接下来找到<code>nums</code>的满足<code>sub[i+1]%sub[i]==0</code>最大子序列<code>sub</code>就得到了答案，因为<code>sub</code>具有其中任意一个整数都能整除<code>sub</code>中比它小的整数并且被<code>sub</code>中比它大的整数整除的性质。</p>
+<p>用<code>dp[i]</code>存储包含<code>nums[i]</code>的最大子序列<code>sub</code>的长度，用<code>pred[i]</code>存储在该子序列中<code>nums[i]</code>的前驱在<code>nums</code>中的下标。对所有<code>i&lt;j</code>，当<code>nums[j]%nums[i]==0 && dp[i]+1>dp[j]</code>时更新<code>dp[j]=dp[i]+1; pred[j]=i</code>。最后根据<code>dp</code>找到最大的子序列和其中最大的元素，再根据<code>pred</code>找到所有其他元素。</p>
+<h2 id=kth-smallest-number-in-multiplication-table>Kth Smallest Number in Multiplication Table</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/05/02/multtable1-grid.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/05/02/multtable1-grid.jpg loading=lazy alt="Kth Smallest Number in Multiplication Table">
+</a>
+<figcaption>Kth Smallest Number in Multiplication Table</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/ target=_blank rel=noopener>Kth Smallest Number in Multiplication Table</a>题目大意：求乘法表里第k小的数。乘法表是一个矩形表格，其中每一格中的数是这一格的行号乘列号。</p>
+<p>又一道题意简单但是数据规模庞大的题。这道题可以使用二分查找来降低时间复杂度，找到乘法表在1~x区间内有至少k个数的最小x即可。</p>
+<p>假设乘法表大小为m×n，初始化二分查找的左边界<code>l=1</code>，右边界<code>r=m*n</code>。查找时首先计算中点<code>mid=(l+r)/2</code>，然后计算乘法表在1到<code>mid</code>之间有多少数，如果有不少于k个，说明应该缩小区间，<code>r=mid</code>；如果不足k个，说明应该扩大区间，<code>l=mid+1</code>。左右边界相等时就找到了要求的x。二分查找算法模板参见<a class=link href=https://www.acwing.com/blog/content/31/ target=_blank rel=noopener>AcWing</a>。</p>
+<p>由于乘法表每一行都是行号的倍数，第i行就有<code>min(n, mid/i)</code>个数在1和<code>mid</code>之间，遍历每一行就可以知道乘法表中一共有多少数在1和<code>mid</code>之间。</p>
+<h2 id=unique-paths>Unique Paths</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png>
+<img src=https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png loading=lazy alt="Unique Paths">
+</a>
+<figcaption>Unique Paths</figcaption>
+</figure></p>
+<p>这道题在<a class=link href=/p/leetcode-weekly-1/#unique-paths-iii>LeetCode 每日一题周总结 (一)</a>中讲到过。</p>
+<h2 id=find-all-numbers-disappeared-in-an-array>Find All Numbers Disappeared in an Array</h2>
+<p><a class=link href=https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/ target=_blank rel=noopener>Find All Numbers Disappeared in an Array</a>题目大意：已知一个数组大小为n，其中包含1到n之间的整数，求1到n之间有哪些整数没有在数组中出现。</p>
+<p>数组大小为n，其中包含的整数也在1到n之间，那么可以把数组中的整数放到对应下标的位置上去，最后遍历数组，对应下标上的数字不正确就表示缺少这个整数。</p>
+<p>思路很简单，但是编码过程中有不少细节。遍历数组到下标<code>i</code>，<code>nums[i]</code>对应的下标是<code>nums[i]-1</code>，首先检查<code>nums[nums[i]-1]</code>是否和<code>nums[i]</code>相等，如果相等就说明那个下标已经有对应的数字了，继续遍历；如果不相等就交换<code>nums[i]</code>和<code>nums[nums[i]-1]</code>，交换后<code>nums[i]</code>是原先在<code>nums[nums[i]-1]</code>处的数字，需要重新判断是否需要交换，这时需要把下标<code>i</code>减1，确保下次遍历还检查<code>nums[i]</code>。</p>
+<h2 id=hamming-distance>Hamming Distance</h2>
+<p><a class=link href=https://leetcode.com/problems/hamming-distance/ target=_blank rel=noopener>Hamming Distance</a>题目大意：求两个整数的汉明距离。两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。</p>
+<p>把两个整数异或，计算结果的二进制表示中有多少位为1即可。</p>
+<h2 id=single-element-in-a-sorted-array>Single Element in a Sorted Array</h2>
+<p><a class=link href=https://leetcode.com/problems/single-element-in-a-sorted-array/ target=_blank rel=noopener>Single Element in a Sorted Array</a>题目大意：在有序数组中有一个元素只出现一次，其余元素均成对出现，找到这个只出现一次的元素。要求时间复杂度为$O(\log n)$，空间复杂度为$O(1)$。</p>
+<p>如果没有附加条件，这道题可以直接使用<a class=link href=/p/leetcode-weekly-1/#single-number-iii>Single Number</a>的方法求解。考虑到附加条件和已知数组有序，应该使用二分查找来求解。</p>
+<p>二分查找的关键是如何判断这个元素在左半边还是在右半边。如果没有这个元素，那么成对元素的下标应该是2n和2n+1，但是这个元素出现后，成对元素的下标就会向后偏移一位。首先确定中点下标<code>mid</code>，找到和<code>mid</code>组成(2n,2n+1)对的另一个下标，可以对<code>mid</code>的奇偶分类讨论，还有一种简单的方法，另一个下标是<code>mid</code>异或1。然后判断这两个下标对应的元素是否相等，相等就说明要找的元素还没出现，在右半边；不相等就说明要找的元素在左半边。</p>
+<h2 id=construct-binary-tree-from-inorder-and-postorder-traversal>Construct Binary Tree from Inorder and Postorder Traversal</h2>
+<p><a class=link href=https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/ target=_blank rel=noopener>Construct Binary Tree from Inorder and Postorder Traversal</a>题目大意：已知一棵树的中序遍历和后序遍历，构造出这棵树。题目保证中序遍历和后序遍历的数都唯一出现。</p>
+<p>可以先建立根节点，再递归地构造左子树和右子树。根节点的值是后序遍历的最后一个值，在中序遍历中找到这个值，以它为分界点把中序遍历分成左右两部分，左半边是左子树的中序遍历，右半边是右子树的中序遍历。这样就得到了左右子树的大小，根据左右子树的大小可以从后序遍历中提取出左子树的后序遍历和右子树的后序遍历。用根节点的值建立根节点，递归调用函数，用左子树的中序遍历和后序遍历生成左子树，并赋值给根节点的指针，然后再类似地生成右子树赋值给根节点的指针。最后返回根节点。</p>
+<p>注意边界条件，如果中序遍历和后序遍历为空，返回空指针。</p>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/leetcode/>LeetCode</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>相关文章</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article class=has-image>
+<a href=/p/leetcode-weekly-2/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-2 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(二)</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/leetcode-weekly-1/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-1 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(一)</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=//cdn.jsdelivr.net/npm/twikoo@1.4.11/dist/twikoo.all.min.js></script>
+<div id=tcomment></div>
+<style>.twikoo{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}:root[data-scheme=dark]{--twikoo-body-text-color-main:rgba(255, 255, 255, 0.9);--twikoo-body-text-color:rgba(255, 255, 255, 0.7)}.twikoo .el-input-group__prepend,.twikoo .tk-action-icon,.twikoo .tk-time,.twikoo .tk-comments-count{color:var(--twikoo-body-text-color)}.twikoo .el-input__inner,.twikoo .el-textarea__inner,.twikoo .tk-preview-container,.twikoo .tk-content,.twikoo .tk-nick,.twikoo .tk-send{color:var(--twikoo-body-text-color-main)}.twikoo .el-button{color:var(--twikoo-body-text-color)!important}</style><script>twikoo.init({envId:'twikoo-2gpvjqe49b66cf52',el:'#tcomment'})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2021 凉城
+</section>
+<section class=powerby>
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">目录</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#largest-divisible-subset>Largest Divisible Subset</a></li>
+<li><a href=#kth-smallest-number-in-multiplication-table>Kth Smallest Number in Multiplication Table</a></li>
+<li><a href=#unique-paths>Unique Paths</a></li>
+<li><a href=#find-all-numbers-disappeared-in-an-array>Find All Numbers Disappeared in an Array</a></li>
+<li><a href=#hamming-distance>Hamming Distance</a></li>
+<li><a href=#single-element-in-a-sorted-array>Single Element in a Sorted Array</a></li>
+<li><a href=#construct-binary-tree-from-inorder-and-postorder-traversal>Construct Binary Tree from Inorder and Postorder Traversal</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

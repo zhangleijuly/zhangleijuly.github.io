@@ -114,7 +114,7 @@ Code
 <h2 id=single-number-iii>Single Number III</h2>
 <p>前置题目为<a class=link href=https://leetcode.com/problems/single-number/ target=_blank rel=noopener>Single Number</a>和<a class=link href=https://leetcode.com/problems/single-number-ii/ target=_blank rel=noopener>Single Number II</a>。</p>
 <p><a class=link href=https://leetcode.com/problems/single-number/ target=_blank rel=noopener>Single Number</a>题目大意：非空数组中除了一个整数外其他整数都出现偶数次，找到只出现一次的整数。</p>
-<p>这里利用了异或运算的性质：a⊕b⊕a=b。把整个数组异或起来结果就是要找的整数。</p>
+<p>这里利用了异或运算的性质：$a \oplus b \oplus a = b$。把整个数组异或起来结果就是要找的整数。</p>
 <p><a class=link href=https://leetcode.com/problems/single-number-ii/ target=_blank rel=noopener>Single Number II</a>题目大意：非空数组中除了一个整数外其他整数都出现3次，找到只出现一次的整数。</p>
 <p>常规思路是把每个整数都表示为二进制，对每一位分别求和并模3，余数所构成的二进制整数就是所求的数。进阶解法是把每一位求和模3的状态表示为0、1和2，那么下一个数这一位为0时，该状态保持不变；下一个数这一位为1时，状态将按照0->1->2->0迁移，表示为二进制就是00->01->10->00。分别用$B_0$和$B_1$表示二进制状态的低位和高位，$B$表示输入的这一位的值，根据状态迁移可以推导出以下关系：</p>
 <p>$$
@@ -123,7 +123,7 @@ B_1 = (B_1 \oplus B) \And B_0
 $$</p>
 <p>应用到这道题中，就是用两个整数<code>high</code>和<code>low</code>分别维护二进制整数每一位的高低位状态表示，对数组中的每一个整数分别计算<code>high</code>和<code>low</code>，最终维护低位状态表示的整数<code>low</code>即为答案。</p>
 <p><a class=link href=https://leetcode.com/problems/single-number-iii/ target=_blank rel=noopener>Single Number III</a>题目大意：非空数组中除了两个整数外其他整数都出现偶数次，找到这两个整数。</p>
-<p>假设这两个整数分别为a和b，利用异或运算的性质，把整个数组异或起来结果就是a⊕b。a和b是不同整数，所以a⊕b不为0，我们可以在a⊕b的二进制表示中找到值为1的某一位。根据这一位的不同把数组分为两个数组，那么a和b一定分别在这两个数组中，并且除了a和b以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到a和b。</p>
+<p>假设这两个整数分别为$a$和$b$，利用异或运算的性质，把整个数组异或起来结果就是$a \oplus b$。$a$和$b$是不同整数，所以$a \oplus b$不为0，我们可以在$a \oplus b$的二进制表示中找到值为1的某一位。根据这一位的不同把数组分为两个数组，那么$a$和$b$一定分别在这两个数组中，并且除了$a$和$b$以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到$a$和$b$。</p>
 <h2 id=multiply-strings>Multiply Strings</h2>
 <p><a class=link href=https://leetcode.com/problems/multiply-strings/ target=_blank rel=noopener>Multiply Strings</a>题目大意：已知两个表示整数的字符串，求这两个整数的乘积，也用字符串表示。</p>
 <p>字符串表示的大整数乘法，略。</p>
@@ -143,6 +143,16 @@ $$</p>
 <div class=related-contents>
 <div class="flex article-list--tile">
 <article class=has-image>
+<a href=/p/leetcode-weekly-3/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-3 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(三)</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
 <a href=/p/leetcode-weekly-2/>
 <div class=article-image>
 <img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-2 data-hash=/img/LeetCode.jpeg>
@@ -155,7 +165,7 @@ $$</p>
 </div>
 </div>
 </aside>
-<script src=//cdn.jsdelivr.net/npm/twikoo@1.4.3/dist/twikoo.all.min.js></script>
+<script src=//cdn.jsdelivr.net/npm/twikoo@1.4.11/dist/twikoo.all.min.js></script>
 <div id=tcomment></div>
 <style>.twikoo{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}:root[data-scheme=dark]{--twikoo-body-text-color-main:rgba(255, 255, 255, 0.9);--twikoo-body-text-color:rgba(255, 255, 255, 0.7)}.twikoo .el-input-group__prepend,.twikoo .tk-action-icon,.twikoo .tk-time,.twikoo .tk-comments-count{color:var(--twikoo-body-text-color)}.twikoo .el-input__inner,.twikoo .el-textarea__inner,.twikoo .tk-preview-container,.twikoo .tk-content,.twikoo .tk-nick,.twikoo .tk-send{color:var(--twikoo-body-text-color-main)}.twikoo .el-button{color:var(--twikoo-body-text-color)!important}</style><script>twikoo.init({envId:'twikoo-2gpvjqe49b66cf52',el:'#tcomment'})</script>
 <footer class=site-footer>

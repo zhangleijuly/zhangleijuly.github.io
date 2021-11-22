@@ -95,14 +95,14 @@ $$
 <p><a class=link href=https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/ target=_blank rel=noopener>Best Time to Buy and Sell Stock with Cooldown</a>的条件是可以买入和卖出任意多次，但是卖出股票后必须等待一天才能够再次买入。</p>
 <p><a class=link href=https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/ target=_blank rel=noopener>Best Time to Buy and Sell Stock with Transaction Fee</a>的条件是可以买入和卖出任意多次，但是卖出股票时必须支付交易费<code>fee</code>。</p>
 <h3 id=我解前三道题的思路>我解前三道题的思路</h3>
-<p>Best Time to Buy and Sell Stock的条件是只能买入和卖出一次，所以使用贪心法。维护一个买入价格<code>buy</code>和盈利<code>profit</code>，分别初始化为<code>prices[0]</code>和<code>0</code>。从第一天开始遍历股票价格，如果这一天的股票价格比买入价格低，那么在这一天买入可以获得更高的盈利，更新<code>buy=prices[i]</code>；如果这一天的股票价格比买入价格高，那么可以在这一天卖出，更新盈利<code>profit=max(profit, prices[i]-buy)</code>。</p>
+<p>Best Time to Buy and Sell Stock的条件是只能买入和卖出一次，所以使用贪心法。维护一个买入价格<code>buy</code>和盈利<code>profit</code>，分别初始化为<code>prices[0]</code>和0。从第一天开始遍历股票价格，如果这一天的股票价格比买入价格低，那么在这一天买入可以获得更高的盈利，更新<code>buy=prices[i]</code>；如果这一天的股票价格比买入价格高，那么可以在这一天卖出，更新盈利<code>profit=max(profit, prices[i]-buy)</code>。</p>
 <p>Best Time to Buy and Sell Stock III可以在第一题的基础上求解。题目的条件是最多可以买入和卖出2次，那么可以分为3种情况：</p>
 <ol>
 <li>不进行交易，盈利为0；</li>
 <li>买入和卖出1次，第一题中已经求出最高盈利；</li>
 <li>买入和卖出2次，假设第一次卖出发生在第<code>i</code>天，那么我们可以分别对第一天到第<code>i</code>天和第<code>i+1</code>天到最后一天使用第一题的算法分别计算最高盈利，然后相加即可。</li>
 </ol>
-<p>只需要考虑第三种情况，我们需要分别计算第一天到第<code>i</code>天交易一次的最高盈利和第<code>i</code>天到最后一天交易一次的最高盈利。对于前者，我们用数组<code>fromBegin[i]</code>储存第一天到第<code>i</code>天交易一次的最高盈利，仍然使用第一题的算法，只需要每一天都用<code>profit</code>更新<code>fromBegin[i]</code>即可。我们用数组<code>toEnd[i]</code>储存第<code>i</code>天到最后一天交易一次的最高盈利。把第一题的算法反过来，维护一个卖出价格<code>sell</code>和盈利<code>profit</code>，分别初始化为<code>prices[prices.size()-1]</code>和<code>0</code>。从最后一天倒序遍历股票价格，如果这一天的股票价格比卖出价格高，那么在这一天卖出可以获得更高的盈利，更新<code>sell=prices[i]</code>；如果这一天的股票价格比卖出价格低，那么可以在这一天买入，更新盈利<code>profit=max(profix,sell-prices[i])</code>。每一天都用<code>profit</code>更新<code>toEnd[i]</code>。</p>
+<p>只需要考虑第三种情况，我们需要分别计算第一天到第<code>i</code>天交易一次的最高盈利和第<code>i</code>天到最后一天交易一次的最高盈利。对于前者，我们用数组<code>fromBegin[i]</code>储存第一天到第<code>i</code>天交易一次的最高盈利，仍然使用第一题的算法，只需要每一天都用<code>profit</code>更新<code>fromBegin[i]</code>即可。我们用数组<code>toEnd[i]</code>储存第<code>i</code>天到最后一天交易一次的最高盈利。把第一题的算法反过来，维护一个卖出价格<code>sell</code>和盈利<code>profit</code>，分别初始化为<code>prices[prices.size()-1]</code>和0。从最后一天倒序遍历股票价格，如果这一天的股票价格比卖出价格高，那么在这一天卖出可以获得更高的盈利，更新<code>sell=prices[i]</code>；如果这一天的股票价格比卖出价格低，那么可以在这一天买入，更新盈利<code>profit=max(profix,sell-prices[i])</code>。每一天都用<code>profit</code>更新<code>toEnd[i]</code>。</p>
 <p>初始化<code>profit</code>为<code>fromBegin[prices.size()-1]</code>，也就是只交易一次能获得的最高盈利。然后遍历所有<code>i</code>，更新<code>profit=max(profit,fromBegin[i]+toEnd[i+1])</code>。最后<code>profit</code>即为最高盈利。</p>
 <p>最后回到本题Best Time to Buy and Sell Stock II，题目不限制买入和卖出次数，但是最多只能持有一支股票。如果画出股票的价格曲线，那么要实现最大化盈利只需要在曲线的波谷买入股票，在下一个波峰卖出，然后在下一个波谷再买入，不断重复。可以用算法模拟这一过程，分别维护两个变量<code>top</code>和<code>bottom</code>表示价格曲线中的波峰和波谷。在一笔交易中需要先买入后卖出，所以先寻找波谷，再寻找波峰。从第一天遍历股票价格，直到当天的价格比后一天的价格低，那么这一天的价格就是波谷，接下来继续遍历，直到当天的价格比后一天的价格高，那么这一天的价格就是波峰，找到一对波谷与波峰后在盈利中加上<code>top-bottom</code>，循环该过程直到遍历整个数组。</p>
 <h3 id=视频里数组降维的证明>视频里数组降维的证明</h3>
@@ -135,7 +135,7 @@ $$
 <p>倒序遍历数组<code>temperatures</code>，遍历到第<code>i</code>个元素时，如果栈非空就弹栈直到栈为空或者栈顶元素对应的温度比<code>temperatures[i]</code>大。如果栈为空则记答案为0，如果栈不为空那么记答案为<code>stack.top()-i</code>。最后把<code>i</code>入栈。</p>
 <h2 id=iterator-for-combination>Iterator for Combination</h2>
 <p><a class=link href=https://leetcode.com/problems/iterator-for-combination/ target=_blank rel=noopener>Iterator for Combination</a>题目大意：设计一个<code>CombinationIterator</code>类，构造时传入一个由不同英文小写字母构成的有序字符串<code>characters</code>和组合长度<code>combinationLength</code>。该类有两个方法：<code>next()</code>按字典序返回下一个长度为<code>combinationLength</code>的字母组合；<code>hasNext()</code>返回是否存在下一个字母组合。</p>
-<p>根据题意，在构造<code>CombinationIterator</code>对象时，需要生成由<code>characters</code>中字符构成的所有长度为<code>combinationLength</code>的字母组合，并按照字典序保存在一个数组中。初始化数组下标<code>index</code>为0，调用<code>next()</code>方法时返回当前下标的字母组合，然后把<code>index</code>加<code>1</code>；调用<code>hasNext()</code>方法时返回<code>index</code>是否小于数组大小的布尔值。</p>
+<p>根据题意，在构造<code>CombinationIterator</code>对象时，需要生成由<code>characters</code>中字符构成的所有长度为<code>combinationLength</code>的字母组合，并按照字典序保存在一个数组中。初始化数组下标<code>index</code>为0，调用<code>next()</code>方法时返回当前下标的字母组合，然后把<code>index</code>加1；调用<code>hasNext()</code>方法时返回<code>index</code>是否小于数组大小的布尔值。</p>
 <h2 id=一些碎碎念>一些碎碎念</h2>
 <p>上一周算是我行动力最强的一周了，花了几天时间把博客从<a class=link href=https://hexo.io/ target=_blank rel=noopener>Hexo</a>迁移到<a class=link href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a>，开始参与<a class=link href=https://leetcode.com/ target=_blank rel=noopener>LeetCode</a>每日打卡领勋章活动，并记录总结。</p>
 <p>刷算法题我是一直不太擅长的，虽然我曾经也在博客写过很多的题解，但是现在我想换一种方式。我希望能够在尽量不贴代码的情况下用文字把解题思路描述清楚，今后自己再看的时候能够想起算法是如何实现的。现阶段这些内容可能并不适合其他读者看，毕竟在算法上文字比起代码在表达上是乏力的。幸运的是互联网上有大量分享解题思路的文章，我也仅仅是其中普通的一员罢了。</p>
@@ -156,6 +156,16 @@ $$
 <div class=related-contents>
 <div class="flex article-list--tile">
 <article class=has-image>
+<a href=/p/leetcode-weekly-3/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-3 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(三)</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
 <a href=/p/leetcode-weekly-1/>
 <div class=article-image>
 <img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-1 data-hash=/img/LeetCode.jpeg>
@@ -168,7 +178,7 @@ $$
 </div>
 </div>
 </aside>
-<script src=//cdn.jsdelivr.net/npm/twikoo@1.4.3/dist/twikoo.all.min.js></script>
+<script src=//cdn.jsdelivr.net/npm/twikoo@1.4.11/dist/twikoo.all.min.js></script>
 <div id=tcomment></div>
 <style>.twikoo{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}:root[data-scheme=dark]{--twikoo-body-text-color-main:rgba(255, 255, 255, 0.9);--twikoo-body-text-color:rgba(255, 255, 255, 0.7)}.twikoo .el-input-group__prepend,.twikoo .tk-action-icon,.twikoo .tk-time,.twikoo .tk-comments-count{color:var(--twikoo-body-text-color)}.twikoo .el-input__inner,.twikoo .el-textarea__inner,.twikoo .tk-preview-container,.twikoo .tk-content,.twikoo .tk-nick,.twikoo .tk-send{color:var(--twikoo-body-text-color-main)}.twikoo .el-button{color:var(--twikoo-body-text-color)!important}</style><script>twikoo.init({envId:'twikoo-2gpvjqe49b66cf52',el:'#tcomment'})</script>
 <footer class=site-footer>

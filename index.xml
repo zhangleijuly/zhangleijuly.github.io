@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 14 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(二)</title><link>https://zhangleijuly.me/p/leetcode-weekly-2/</link><pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-2/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(二)" />&lt;h2 id="unique-binary-search-trees">Unique Binary Search Trees&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 21 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(三)</title><link>https://zhangleijuly.me/p/leetcode-weekly-3/</link><pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-3/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(三)" />&lt;h2 id="largest-divisible-subset">Largest Divisible Subset&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/largest-divisible-subset/" target="_blank" rel="noopener"
+>Largest Divisible Subset&lt;/a>题目大意：已知一个不同正整数组成的集合&lt;code>nums&lt;/code>，求它的一个最大子集合&lt;code>answer&lt;/code>，&lt;code>answer&lt;/code>中任意两个整数都满足其中一个是另外一个的整数倍。&lt;/p>
+&lt;p>这道题和动态规划的经典问题&lt;a class="link" href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener"
+>Longest Increasing Subsequence&lt;/a>类似，只是把条件从大小关系变成了整除关系。&lt;/p>
+&lt;p>因为只可能较大的数整除较小的数，所以要先把&lt;code>nums&lt;/code>从小到大排序。接下来找到&lt;code>nums&lt;/code>的满足&lt;code>sub[i+1]%sub[i]==0&lt;/code>最大子序列&lt;code>sub&lt;/code>就得到了答案，因为&lt;code>sub&lt;/code>具有其中任意一个整数都能整除&lt;code>sub&lt;/code>中比它小的整数并且被&lt;code>sub&lt;/code>中比它大的整数整除的性质。&lt;/p>
+&lt;p>用&lt;code>dp[i]&lt;/code>存储包含&lt;code>nums[i]&lt;/code>的最大子序列&lt;code>sub&lt;/code>的长度，用&lt;code>pred[i]&lt;/code>存储在该子序列中&lt;code>nums[i]&lt;/code>的前驱在&lt;code>nums&lt;/code>中的下标。对所有&lt;code>i&amp;lt;j&lt;/code>，当&lt;code>nums[j]%nums[i]==0 &amp;amp;&amp;amp; dp[i]+1&amp;gt;dp[j]&lt;/code>时更新&lt;code>dp[j]=dp[i]+1; pred[j]=i&lt;/code>。最后根据&lt;code>dp&lt;/code>找到最大的子序列和其中最大的元素，再根据&lt;code>pred&lt;/code>找到所有其他元素。&lt;/p>
+&lt;h2 id="kth-smallest-number-in-multiplication-table">Kth Smallest Number in Multiplication Table&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/05/02/multtable1-grid.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/05/02/multtable1-grid.jpg"
+loading="lazy"
+alt="Kth Smallest Number in Multiplication Table">
+&lt;/a>
+&lt;figcaption>Kth Smallest Number in Multiplication Table&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/" target="_blank" rel="noopener"
+>Kth Smallest Number in Multiplication Table&lt;/a>题目大意：求乘法表里第k小的数。乘法表是一个矩形表格，其中每一格中的数是这一格的行号乘列号。&lt;/p>
+&lt;p>又一道题意简单但是数据规模庞大的题。这道题可以使用二分查找来降低时间复杂度，找到乘法表在1~x区间内有至少k个数的最小x即可。&lt;/p>
+&lt;p>假设乘法表大小为m×n，初始化二分查找的左边界&lt;code>l=1&lt;/code>，右边界&lt;code>r=m*n&lt;/code>。查找时首先计算中点&lt;code>mid=(l+r)/2&lt;/code>，然后计算乘法表在1到&lt;code>mid&lt;/code>之间有多少数，如果有不少于k个，说明应该缩小区间，&lt;code>r=mid&lt;/code>；如果不足k个，说明应该扩大区间，&lt;code>l=mid+1&lt;/code>。左右边界相等时就找到了要求的x。二分查找算法模板参见&lt;a class="link" href="https://www.acwing.com/blog/content/31/" target="_blank" rel="noopener"
+>AcWing&lt;/a>。&lt;/p>
+&lt;p>由于乘法表每一行都是行号的倍数，第i行就有&lt;code>min(n, mid/i)&lt;/code>个数在1和&lt;code>mid&lt;/code>之间，遍历每一行就可以知道乘法表中一共有多少数在1和&lt;code>mid&lt;/code>之间。&lt;/p>
+&lt;h2 id="unique-paths">Unique Paths&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" >
+&lt;img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png"
+loading="lazy"
+alt="Unique Paths">
+&lt;/a>
+&lt;figcaption>Unique Paths&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>这道题在&lt;a class="link" href="https://zhangleijuly.me/p/leetcode-weekly-1/#unique-paths-iii" >LeetCode 每日一题周总结 (一)&lt;/a>中讲到过。&lt;/p>
+&lt;h2 id="find-all-numbers-disappeared-in-an-array">Find All Numbers Disappeared in an Array&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/" target="_blank" rel="noopener"
+>Find All Numbers Disappeared in an Array&lt;/a>题目大意：已知一个数组大小为n，其中包含1到n之间的整数，求1到n之间有哪些整数没有在数组中出现。&lt;/p>
+&lt;p>数组大小为n，其中包含的整数也在1到n之间，那么可以把数组中的整数放到对应下标的位置上去，最后遍历数组，对应下标上的数字不正确就表示缺少这个整数。&lt;/p>
+&lt;p>思路很简单，但是编码过程中有不少细节。遍历数组到下标&lt;code>i&lt;/code>，&lt;code>nums[i]&lt;/code>对应的下标是&lt;code>nums[i]-1&lt;/code>，首先检查&lt;code>nums[nums[i]-1]&lt;/code>是否和&lt;code>nums[i]&lt;/code>相等，如果相等就说明那个下标已经有对应的数字了，继续遍历；如果不相等就交换&lt;code>nums[i]&lt;/code>和&lt;code>nums[nums[i]-1]&lt;/code>，交换后&lt;code>nums[i]&lt;/code>是原先在&lt;code>nums[nums[i]-1]&lt;/code>处的数字，需要重新判断是否需要交换，这时需要把下标&lt;code>i&lt;/code>减1，确保下次遍历还检查&lt;code>nums[i]&lt;/code>。&lt;/p>
+&lt;h2 id="hamming-distance">Hamming Distance&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/hamming-distance/" target="_blank" rel="noopener"
+>Hamming Distance&lt;/a>题目大意：求两个整数的汉明距离。两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。&lt;/p>
+&lt;p>把两个整数异或，计算结果的二进制表示中有多少位为1即可。&lt;/p>
+&lt;h2 id="single-element-in-a-sorted-array">Single Element in a Sorted Array&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-element-in-a-sorted-array/" target="_blank" rel="noopener"
+>Single Element in a Sorted Array&lt;/a>题目大意：在有序数组中有一个元素只出现一次，其余元素均成对出现，找到这个只出现一次的元素。要求时间复杂度为$O(\log n)$，空间复杂度为$O(1)$。&lt;/p>
+&lt;p>如果没有附加条件，这道题可以直接使用&lt;a class="link" href="https://zhangleijuly.me/p/leetcode-weekly-1/#single-number-iii" >Single Number&lt;/a>的方法求解。考虑到附加条件和已知数组有序，应该使用二分查找来求解。&lt;/p>
+&lt;p>二分查找的关键是如何判断这个元素在左半边还是在右半边。如果没有这个元素，那么成对元素的下标应该是2n和2n+1，但是这个元素出现后，成对元素的下标就会向后偏移一位。首先确定中点下标&lt;code>mid&lt;/code>，找到和&lt;code>mid&lt;/code>组成(2n,2n+1)对的另一个下标，可以对&lt;code>mid&lt;/code>的奇偶分类讨论，还有一种简单的方法，另一个下标是&lt;code>mid&lt;/code>异或1。然后判断这两个下标对应的元素是否相等，相等就说明要找的元素还没出现，在右半边；不相等就说明要找的元素在左半边。&lt;/p>
+&lt;h2 id="construct-binary-tree-from-inorder-and-postorder-traversal">Construct Binary Tree from Inorder and Postorder Traversal&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" target="_blank" rel="noopener"
+>Construct Binary Tree from Inorder and Postorder Traversal&lt;/a>题目大意：已知一棵树的中序遍历和后序遍历，构造出这棵树。题目保证中序遍历和后序遍历的数都唯一出现。&lt;/p>
+&lt;p>可以先建立根节点，再递归地构造左子树和右子树。根节点的值是后序遍历的最后一个值，在中序遍历中找到这个值，以它为分界点把中序遍历分成左右两部分，左半边是左子树的中序遍历，右半边是右子树的中序遍历。这样就得到了左右子树的大小，根据左右子树的大小可以从后序遍历中提取出左子树的后序遍历和右子树的后序遍历。用根节点的值建立根节点，递归调用函数，用左子树的中序遍历和后序遍历生成左子树，并赋值给根节点的指针，然后再类似地生成右子树赋值给根节点的指针。最后返回根节点。&lt;/p>
+&lt;p>注意边界条件，如果中序遍历和后序遍历为空，返回空指针。&lt;/p></description></item><item><title>LeetCode每日一题周总结(二)</title><link>https://zhangleijuly.me/p/leetcode-weekly-2/</link><pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-2/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(二)" />&lt;h2 id="unique-binary-search-trees">Unique Binary Search Trees&lt;/h2>
 &lt;p>&lt;figure
 >
 &lt;a href="https://assets.leetcode.com/uploads/2021/01/18/uniquebstn3.jpg" >
@@ -69,14 +121,14 @@ allowfullscreen="true"
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/" target="_blank" rel="noopener"
 >Best Time to Buy and Sell Stock with Transaction Fee&lt;/a>的条件是可以买入和卖出任意多次，但是卖出股票时必须支付交易费&lt;code>fee&lt;/code>。&lt;/p>
 &lt;h3 id="我解前三道题的思路">我解前三道题的思路&lt;/h3>
-&lt;p>Best Time to Buy and Sell Stock的条件是只能买入和卖出一次，所以使用贪心法。维护一个买入价格&lt;code>buy&lt;/code>和盈利&lt;code>profit&lt;/code>，分别初始化为&lt;code>prices[0]&lt;/code>和&lt;code>0&lt;/code>。从第一天开始遍历股票价格，如果这一天的股票价格比买入价格低，那么在这一天买入可以获得更高的盈利，更新&lt;code>buy=prices[i]&lt;/code>；如果这一天的股票价格比买入价格高，那么可以在这一天卖出，更新盈利&lt;code>profit=max(profit, prices[i]-buy)&lt;/code>。&lt;/p>
+&lt;p>Best Time to Buy and Sell Stock的条件是只能买入和卖出一次，所以使用贪心法。维护一个买入价格&lt;code>buy&lt;/code>和盈利&lt;code>profit&lt;/code>，分别初始化为&lt;code>prices[0]&lt;/code>和0。从第一天开始遍历股票价格，如果这一天的股票价格比买入价格低，那么在这一天买入可以获得更高的盈利，更新&lt;code>buy=prices[i]&lt;/code>；如果这一天的股票价格比买入价格高，那么可以在这一天卖出，更新盈利&lt;code>profit=max(profit, prices[i]-buy)&lt;/code>。&lt;/p>
 &lt;p>Best Time to Buy and Sell Stock III可以在第一题的基础上求解。题目的条件是最多可以买入和卖出2次，那么可以分为3种情况：&lt;/p>
 &lt;ol>
 &lt;li>不进行交易，盈利为0；&lt;/li>
 &lt;li>买入和卖出1次，第一题中已经求出最高盈利；&lt;/li>
 &lt;li>买入和卖出2次，假设第一次卖出发生在第&lt;code>i&lt;/code>天，那么我们可以分别对第一天到第&lt;code>i&lt;/code>天和第&lt;code>i+1&lt;/code>天到最后一天使用第一题的算法分别计算最高盈利，然后相加即可。&lt;/li>
 &lt;/ol>
-&lt;p>只需要考虑第三种情况，我们需要分别计算第一天到第&lt;code>i&lt;/code>天交易一次的最高盈利和第&lt;code>i&lt;/code>天到最后一天交易一次的最高盈利。对于前者，我们用数组&lt;code>fromBegin[i]&lt;/code>储存第一天到第&lt;code>i&lt;/code>天交易一次的最高盈利，仍然使用第一题的算法，只需要每一天都用&lt;code>profit&lt;/code>更新&lt;code>fromBegin[i]&lt;/code>即可。我们用数组&lt;code>toEnd[i]&lt;/code>储存第&lt;code>i&lt;/code>天到最后一天交易一次的最高盈利。把第一题的算法反过来，维护一个卖出价格&lt;code>sell&lt;/code>和盈利&lt;code>profit&lt;/code>，分别初始化为&lt;code>prices[prices.size()-1]&lt;/code>和&lt;code>0&lt;/code>。从最后一天倒序遍历股票价格，如果这一天的股票价格比卖出价格高，那么在这一天卖出可以获得更高的盈利，更新&lt;code>sell=prices[i]&lt;/code>；如果这一天的股票价格比卖出价格低，那么可以在这一天买入，更新盈利&lt;code>profit=max(profix,sell-prices[i])&lt;/code>。每一天都用&lt;code>profit&lt;/code>更新&lt;code>toEnd[i]&lt;/code>。&lt;/p>
+&lt;p>只需要考虑第三种情况，我们需要分别计算第一天到第&lt;code>i&lt;/code>天交易一次的最高盈利和第&lt;code>i&lt;/code>天到最后一天交易一次的最高盈利。对于前者，我们用数组&lt;code>fromBegin[i]&lt;/code>储存第一天到第&lt;code>i&lt;/code>天交易一次的最高盈利，仍然使用第一题的算法，只需要每一天都用&lt;code>profit&lt;/code>更新&lt;code>fromBegin[i]&lt;/code>即可。我们用数组&lt;code>toEnd[i]&lt;/code>储存第&lt;code>i&lt;/code>天到最后一天交易一次的最高盈利。把第一题的算法反过来，维护一个卖出价格&lt;code>sell&lt;/code>和盈利&lt;code>profit&lt;/code>，分别初始化为&lt;code>prices[prices.size()-1]&lt;/code>和0。从最后一天倒序遍历股票价格，如果这一天的股票价格比卖出价格高，那么在这一天卖出可以获得更高的盈利，更新&lt;code>sell=prices[i]&lt;/code>；如果这一天的股票价格比卖出价格低，那么可以在这一天买入，更新盈利&lt;code>profit=max(profix,sell-prices[i])&lt;/code>。每一天都用&lt;code>profit&lt;/code>更新&lt;code>toEnd[i]&lt;/code>。&lt;/p>
 &lt;p>初始化&lt;code>profit&lt;/code>为&lt;code>fromBegin[prices.size()-1]&lt;/code>，也就是只交易一次能获得的最高盈利。然后遍历所有&lt;code>i&lt;/code>，更新&lt;code>profit=max(profit,fromBegin[i]+toEnd[i+1])&lt;/code>。最后&lt;code>profit&lt;/code>即为最高盈利。&lt;/p>
 &lt;p>最后回到本题Best Time to Buy and Sell Stock II，题目不限制买入和卖出次数，但是最多只能持有一支股票。如果画出股票的价格曲线，那么要实现最大化盈利只需要在曲线的波谷买入股票，在下一个波峰卖出，然后在下一个波谷再买入，不断重复。可以用算法模拟这一过程，分别维护两个变量&lt;code>top&lt;/code>和&lt;code>bottom&lt;/code>表示价格曲线中的波峰和波谷。在一笔交易中需要先买入后卖出，所以先寻找波谷，再寻找波峰。从第一天遍历股票价格，直到当天的价格比后一天的价格低，那么这一天的价格就是波谷，接下来继续遍历，直到当天的价格比后一天的价格高，那么这一天的价格就是波峰，找到一对波谷与波峰后在盈利中加上&lt;code>top-bottom&lt;/code>，循环该过程直到遍历整个数组。&lt;/p>
 &lt;h3 id="视频里数组降维的证明">视频里数组降维的证明&lt;/h3>
@@ -113,7 +165,7 @@ allowfullscreen="true"
 &lt;h2 id="iterator-for-combination">Iterator for Combination&lt;/h2>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/iterator-for-combination/" target="_blank" rel="noopener"
 >Iterator for Combination&lt;/a>题目大意：设计一个&lt;code>CombinationIterator&lt;/code>类，构造时传入一个由不同英文小写字母构成的有序字符串&lt;code>characters&lt;/code>和组合长度&lt;code>combinationLength&lt;/code>。该类有两个方法：&lt;code>next()&lt;/code>按字典序返回下一个长度为&lt;code>combinationLength&lt;/code>的字母组合；&lt;code>hasNext()&lt;/code>返回是否存在下一个字母组合。&lt;/p>
-&lt;p>根据题意，在构造&lt;code>CombinationIterator&lt;/code>对象时，需要生成由&lt;code>characters&lt;/code>中字符构成的所有长度为&lt;code>combinationLength&lt;/code>的字母组合，并按照字典序保存在一个数组中。初始化数组下标&lt;code>index&lt;/code>为0，调用&lt;code>next()&lt;/code>方法时返回当前下标的字母组合，然后把&lt;code>index&lt;/code>加&lt;code>1&lt;/code>；调用&lt;code>hasNext()&lt;/code>方法时返回&lt;code>index&lt;/code>是否小于数组大小的布尔值。&lt;/p>
+&lt;p>根据题意，在构造&lt;code>CombinationIterator&lt;/code>对象时，需要生成由&lt;code>characters&lt;/code>中字符构成的所有长度为&lt;code>combinationLength&lt;/code>的字母组合，并按照字典序保存在一个数组中。初始化数组下标&lt;code>index&lt;/code>为0，调用&lt;code>next()&lt;/code>方法时返回当前下标的字母组合，然后把&lt;code>index&lt;/code>加1；调用&lt;code>hasNext()&lt;/code>方法时返回&lt;code>index&lt;/code>是否小于数组大小的布尔值。&lt;/p>
 &lt;h2 id="一些碎碎念">一些碎碎念&lt;/h2>
 &lt;p>上一周算是我行动力最强的一周了，花了几天时间把博客从&lt;a class="link" href="https://hexo.io/" target="_blank" rel="noopener"
 >Hexo&lt;/a>迁移到&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
@@ -218,7 +270,7 @@ alt="Arranging Coins">
 >Single Number II&lt;/a>。&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-number/" target="_blank" rel="noopener"
 >Single Number&lt;/a>题目大意：非空数组中除了一个整数外其他整数都出现偶数次，找到只出现一次的整数。&lt;/p>
-&lt;p>这里利用了异或运算的性质：a⊕b⊕a=b。把整个数组异或起来结果就是要找的整数。&lt;/p>
+&lt;p>这里利用了异或运算的性质：$a \oplus b \oplus a = b$。把整个数组异或起来结果就是要找的整数。&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener"
 >Single Number II&lt;/a>题目大意：非空数组中除了一个整数外其他整数都出现3次，找到只出现一次的整数。&lt;/p>
 &lt;p>常规思路是把每个整数都表示为二进制，对每一位分别求和并模3，余数所构成的二进制整数就是所求的数。进阶解法是把每一位求和模3的状态表示为0、1和2，那么下一个数这一位为0时，该状态保持不变；下一个数这一位为1时，状态将按照0-&amp;gt;1-&amp;gt;2-&amp;gt;0迁移，表示为二进制就是00-&amp;gt;01-&amp;gt;10-&amp;gt;00。分别用$B_0$和$B_1$表示二进制状态的低位和高位，$B$表示输入的这一位的值，根据状态迁移可以推导出以下关系：&lt;/p>
@@ -229,7 +281,7 @@ $$&lt;/p>
 &lt;p>应用到这道题中，就是用两个整数&lt;code>high&lt;/code>和&lt;code>low&lt;/code>分别维护二进制整数每一位的高低位状态表示，对数组中的每一个整数分别计算&lt;code>high&lt;/code>和&lt;code>low&lt;/code>，最终维护低位状态表示的整数&lt;code>low&lt;/code>即为答案。&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="noopener"
 >Single Number III&lt;/a>题目大意：非空数组中除了两个整数外其他整数都出现偶数次，找到这两个整数。&lt;/p>
-&lt;p>假设这两个整数分别为a和b，利用异或运算的性质，把整个数组异或起来结果就是a⊕b。a和b是不同整数，所以a⊕b不为0，我们可以在a⊕b的二进制表示中找到值为1的某一位。根据这一位的不同把数组分为两个数组，那么a和b一定分别在这两个数组中，并且除了a和b以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到a和b。&lt;/p>
+&lt;p>假设这两个整数分别为$a$和$b$，利用异或运算的性质，把整个数组异或起来结果就是$a \oplus b$。$a$和$b$是不同整数，所以$a \oplus b$不为0，我们可以在$a \oplus b$的二进制表示中找到值为1的某一位。根据这一位的不同把数组分为两个数组，那么$a$和$b$一定分别在这两个数组中，并且除了$a$和$b$以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到$a$和$b$。&lt;/p>
 &lt;h2 id="multiply-strings">Multiply Strings&lt;/h2>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/multiply-strings/" target="_blank" rel="noopener"
 >Multiply Strings&lt;/a>题目大意：已知两个表示整数的字符串，求这两个整数的乘积，也用字符串表示。&lt;/p>

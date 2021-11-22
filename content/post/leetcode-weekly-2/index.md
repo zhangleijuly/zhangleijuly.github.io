@@ -77,7 +77,7 @@ while(subMask > 0)
 
 ### 我解前三道题的思路
 
-Best Time to Buy and Sell Stock的条件是只能买入和卖出一次，所以使用贪心法。维护一个买入价格`buy`和盈利`profit`，分别初始化为`prices[0]`和`0`。从第一天开始遍历股票价格，如果这一天的股票价格比买入价格低，那么在这一天买入可以获得更高的盈利，更新`buy=prices[i]`；如果这一天的股票价格比买入价格高，那么可以在这一天卖出，更新盈利`profit=max(profit, prices[i]-buy)`。
+Best Time to Buy and Sell Stock的条件是只能买入和卖出一次，所以使用贪心法。维护一个买入价格`buy`和盈利`profit`，分别初始化为`prices[0]`和0。从第一天开始遍历股票价格，如果这一天的股票价格比买入价格低，那么在这一天买入可以获得更高的盈利，更新`buy=prices[i]`；如果这一天的股票价格比买入价格高，那么可以在这一天卖出，更新盈利`profit=max(profit, prices[i]-buy)`。
 
 Best Time to Buy and Sell Stock III可以在第一题的基础上求解。题目的条件是最多可以买入和卖出2次，那么可以分为3种情况：
 
@@ -85,7 +85,7 @@ Best Time to Buy and Sell Stock III可以在第一题的基础上求解。题目
 2. 买入和卖出1次，第一题中已经求出最高盈利；
 3. 买入和卖出2次，假设第一次卖出发生在第`i`天，那么我们可以分别对第一天到第`i`天和第`i+1`天到最后一天使用第一题的算法分别计算最高盈利，然后相加即可。
 
-只需要考虑第三种情况，我们需要分别计算第一天到第`i`天交易一次的最高盈利和第`i`天到最后一天交易一次的最高盈利。对于前者，我们用数组`fromBegin[i]`储存第一天到第`i`天交易一次的最高盈利，仍然使用第一题的算法，只需要每一天都用`profit`更新`fromBegin[i]`即可。我们用数组`toEnd[i]`储存第`i`天到最后一天交易一次的最高盈利。把第一题的算法反过来，维护一个卖出价格`sell`和盈利`profit`，分别初始化为`prices[prices.size()-1]`和`0`。从最后一天倒序遍历股票价格，如果这一天的股票价格比卖出价格高，那么在这一天卖出可以获得更高的盈利，更新`sell=prices[i]`；如果这一天的股票价格比卖出价格低，那么可以在这一天买入，更新盈利`profit=max(profix,sell-prices[i])`。每一天都用`profit`更新`toEnd[i]`。
+只需要考虑第三种情况，我们需要分别计算第一天到第`i`天交易一次的最高盈利和第`i`天到最后一天交易一次的最高盈利。对于前者，我们用数组`fromBegin[i]`储存第一天到第`i`天交易一次的最高盈利，仍然使用第一题的算法，只需要每一天都用`profit`更新`fromBegin[i]`即可。我们用数组`toEnd[i]`储存第`i`天到最后一天交易一次的最高盈利。把第一题的算法反过来，维护一个卖出价格`sell`和盈利`profit`，分别初始化为`prices[prices.size()-1]`和0。从最后一天倒序遍历股票价格，如果这一天的股票价格比卖出价格高，那么在这一天卖出可以获得更高的盈利，更新`sell=prices[i]`；如果这一天的股票价格比卖出价格低，那么可以在这一天买入，更新盈利`profit=max(profix,sell-prices[i])`。每一天都用`profit`更新`toEnd[i]`。
 
 初始化`profit`为`fromBegin[prices.size()-1]`，也就是只交易一次能获得的最高盈利。然后遍历所有`i`，更新`profit=max(profit,fromBegin[i]+toEnd[i+1])`。最后`profit`即为最高盈利。
 
@@ -147,7 +147,7 @@ withShare = max(withShare, noShare-prices[i]);
 
 [Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)题目大意：设计一个`CombinationIterator`类，构造时传入一个由不同英文小写字母构成的有序字符串`characters`和组合长度`combinationLength`。该类有两个方法：`next()`按字典序返回下一个长度为`combinationLength`的字母组合；`hasNext()`返回是否存在下一个字母组合。
 
-根据题意，在构造`CombinationIterator`对象时，需要生成由`characters`中字符构成的所有长度为`combinationLength`的字母组合，并按照字典序保存在一个数组中。初始化数组下标`index`为0，调用`next()`方法时返回当前下标的字母组合，然后把`index`加`1`；调用`hasNext()`方法时返回`index`是否小于数组大小的布尔值。
+根据题意，在构造`CombinationIterator`对象时，需要生成由`characters`中字符构成的所有长度为`combinationLength`的字母组合，并按照字典序保存在一个数组中。初始化数组下标`index`为0，调用`next()`方法时返回当前下标的字母组合，然后把`index`加1；调用`hasNext()`方法时返回`index`是否小于数组大小的布尔值。
 
 ## 一些碎碎念
 

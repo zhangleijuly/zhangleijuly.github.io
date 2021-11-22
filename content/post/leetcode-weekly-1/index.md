@@ -69,7 +69,7 @@ tags:
 
 [Single Number](https://leetcode.com/problems/single-number/)题目大意：非空数组中除了一个整数外其他整数都出现偶数次，找到只出现一次的整数。
 
-这里利用了异或运算的性质：a⊕b⊕a=b。把整个数组异或起来结果就是要找的整数。
+这里利用了异或运算的性质：$a \oplus b \oplus a = b$。把整个数组异或起来结果就是要找的整数。
 
 [Single Number II](https://leetcode.com/problems/single-number-ii/)题目大意：非空数组中除了一个整数外其他整数都出现3次，找到只出现一次的整数。
 
@@ -84,7 +84,7 @@ $$
 
 [Single Number III](https://leetcode.com/problems/single-number-iii/)题目大意：非空数组中除了两个整数外其他整数都出现偶数次，找到这两个整数。
 
-假设这两个整数分别为a和b，利用异或运算的性质，把整个数组异或起来结果就是a⊕b。a和b是不同整数，所以a⊕b不为0，我们可以在a⊕b的二进制表示中找到值为1的某一位。根据这一位的不同把数组分为两个数组，那么a和b一定分别在这两个数组中，并且除了a和b以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到a和b。
+假设这两个整数分别为$a$和$b$，利用异或运算的性质，把整个数组异或起来结果就是$a \oplus b$。$a$和$b$是不同整数，所以$a \oplus b$不为0，我们可以在$a \oplus b$的二进制表示中找到值为1的某一位。根据这一位的不同把数组分为两个数组，那么$a$和$b$一定分别在这两个数组中，并且除了$a$和$b$以外这两个数组中的其他整数都是成对出现的，接下来按照Single Number的解法就可以得到$a$和$b$。
 
 ## Multiply Strings
 

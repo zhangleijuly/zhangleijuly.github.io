@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 21 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(三)</title><link>https://zhangleijuly.me/p/leetcode-weekly-3/</link><pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-3/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(三)" />&lt;h2 id="largest-divisible-subset">Largest Divisible Subset&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 28 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(四)</title><link>https://zhangleijuly.me/p/leetcode-weekly-4/</link><pubDate>Sun, 28 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-4/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(四)" />&lt;h2 id="delete-node-in-a-bst">Delete Node in a BST&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2020/09/04/del_node_1.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2020/09/04/del_node_1.jpg"
+loading="lazy"
+alt="Delete Node in a BST">
+&lt;/a>
+&lt;figcaption>Delete Node in a BST&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/delete-node-in-a-bst/" target="_blank" rel="noopener"
+>Delete Node in a BST&lt;/a>题目大意：删除二叉搜索树的一个节点。&lt;/p>
+&lt;p>数据结构与算法的经典问题，分三种情况：&lt;/p>
+&lt;ol>
+&lt;li>该节点是叶子节点，直接删除；&lt;/li>
+&lt;li>该节点只有一个子节点，用子节点代替该节点位置；&lt;/li>
+&lt;li>该节点有两个子节点，删除该节点后，为了保持二叉搜索树的性质，应该用左子树的最大值或者右子树的最小值代替该节点。&lt;/li>
+&lt;/ol>
+&lt;p>可以参考&lt;a class="link" href="https://oi-wiki.org/ds/bst/#_6" target="_blank" rel="noopener"
+>OI Wiki&lt;/a>。&lt;/p>
+&lt;h2 id="largest-component-size-by-common-factor">Largest Component Size by Common Factor&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2018/12/01/ex3.png" >
+&lt;img src="https://assets.leetcode.com/uploads/2018/12/01/ex3.png"
+loading="lazy"
+alt="Largest Component Size by Common Factor">
+&lt;/a>
+&lt;figcaption>Largest Component Size by Common Factor&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/largest-component-size-by-common-factor/" target="_blank" rel="noopener"
+>Largest Component Size by Common Factor&lt;/a>题目大意：已知一个由不同正整数构成的数组，按照如下规则构造一个无向图：&lt;/p>
+&lt;ul>
+&lt;li>数组中的每个数都代表图中的一个顶点；&lt;/li>
+&lt;li>如果两个数存在大于1的公约数，则这两个数代表的顶点之间存在一条边。&lt;/li>
+&lt;/ul>
+&lt;p>求该图的最大连通分支中包含多少个顶点。&lt;/p>
+&lt;p>这道题其实不是图论问题，而是集合划分问题，按照不同的连通分支把数组中的数划分为不同的集合，求最大的集合里有多少个数。解决这类问题用到的数据结构是&lt;a class="link" href="https://oi-wiki.org/ds/dsu/" target="_blank" rel="noopener"
+>并查集&lt;/a>，并查集能够用来处理一些&lt;strong>互不相交的集合的合并和查询&lt;/strong>的问题。并查集的定义和实现可以参考&lt;a class="link" href="https://oi-wiki.org/ds/dsu/" target="_blank" rel="noopener"
+>OI Wiki&lt;/a>。&lt;/p>
+&lt;p>首先需要给顶点划分集合，如果两个数存在1以外的公约数就应该把它们所在的集合合并，但是对每个数都去求它和其他所有数有没有公约数包含了很多重复的工作量。不妨换一种思路，如果我们把每个数和它的所有非1约数的集合都合并，那么两个有非1公约数的数就都跟这个公约数在同一个集合里。然后对每个顶点查找它在哪一个集合里，更新集合的大小和答案即可。&lt;/p>
+&lt;h2 id="interval-list-intersections">Interval List Intersections&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2019/01/30/interval1.png" >
+&lt;img src="https://assets.leetcode.com/uploads/2019/01/30/interval1.png"
+loading="lazy"
+alt="Interval List Intersections">
+&lt;/a>
+&lt;figcaption>Interval List Intersections&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/interval-list-intersections/" target="_blank" rel="noopener"
+>Interval List Intersections&lt;/a>题目大意：已知两个数组，其中包含的是&lt;strong>互不相交&lt;/strong>并且&lt;strong>有序&lt;/strong>的闭区间，求这两个数组中区间的交集。&lt;/p>
+&lt;p>这道题是贪心法的一个典型应用。对数组A和B分别维护下标&lt;code>i&lt;/code>和&lt;code>j&lt;/code>，&lt;code>i&lt;/code>和&lt;code>j&lt;/code>初始化为0。计算区间&lt;code>A[i]&lt;/code>和&lt;code>B[j]&lt;/code>的交集，交集的左边界是&lt;code>max(A[i][0],B[j][0])&lt;/code>，右边界是&lt;code>min(A[i][1],B[j][1])&lt;/code>，如果左边界大于右边界说明交集为空。然后比较两个区间的右边界，保留右边界较大的区间，将另一个区间的下标加1。如果两个区间的右边界相等，则两个下标都加1。&lt;/p>
+&lt;h2 id="maximum-subarray">Maximum Subarray&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/maximum-subarray/" target="_blank" rel="noopener"
+>Maximum Subarray&lt;/a>题目大意：求一个数组的和最大的子数组，返回和的值。子数组是指数组中连续的一部分。&lt;/p>
+&lt;p>这道题是典型的动态规划问题。用&lt;code>dp[i]&lt;/code>表示以下标&lt;code>i&lt;/code>结尾的子数组的和的最大值，那么有两种可能，一种是&lt;code>nums[i]&lt;/code>自己构成一个子数组，另一种是它和前面的若干数构成一个子数组，这些子数组中和最大的是以下标&lt;code>i-1&lt;/code>结尾的和最大的子数组再加上&lt;code>nums[i]&lt;/code>，所以状态转移公式是&lt;code>dp[i]=max(nums[i],dp[i-1]+nums[i])&lt;/code>。初始条件是&lt;code>dp[0]=nums[0]&lt;/code>。&lt;/p>
+&lt;h2 id="search-insert-position">Search Insert Position&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/search-insert-position/" target="_blank" rel="noopener"
+>Search Insert Position&lt;/a>题目大意：已知一个包含&lt;strong>各不相同&lt;/strong>的整数的&lt;strong>有序&lt;/strong>数组中和一个目标值，如果能在数组中找到目标值就返回它的下标，如果不能找到就返回它插入数组中并保持数组有序时它的下标。算法时间复杂度应为$O(\log n)$。&lt;/p>
+&lt;p>看题意就知道应该用二分法，需要注意最后找不到目标数时应该返回什么下标。&lt;/p>
+&lt;h2 id="product-of-array-except-self">Product of Array Except Self&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank" rel="noopener"
+>Product of Array Except Self&lt;/a>题目大意：已知一个整型数组&lt;code>nums&lt;/code>，求数组&lt;code>answer&lt;/code>，使得&lt;code>answer[i]&lt;/code>的值是&lt;code>nums&lt;/code>中除&lt;code>nums[i]&lt;/code>以外所有值之积。题目要求算法复杂度为$O(n)$并且不使用除法。&lt;/p>
+&lt;p>自然的想法肯定是把所有数相乘然后依次除以每一个数即可，但是因为数组中可能包含0，所以这种方法本来也行不通。换一种思路，用&lt;code>pre[i]&lt;/code>表示下标小于&lt;code>i&lt;/code>的所有数的乘积，用&lt;code>post[i]&lt;/code>表示下标大于&lt;code>i&lt;/code>的所有数的乘积，那么&lt;code>answer[i]=pre[i]*post[i]&lt;/code>，而求&lt;code>pre[i]&lt;/code>和&lt;code>post[i]&lt;/code>也只需要把数组正反各扫描一遍。&lt;/p>
+&lt;h2 id="all-paths-from-source-to-target">All Paths From Source to Target&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2020/09/28/all_1.jpg"
+loading="lazy"
+alt="All Paths From Source to Target">
+&lt;/a>
+&lt;figcaption>All Paths From Source to Target&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/all-paths-from-source-to-target/" target="_blank" rel="noopener"
+>All Paths From Source to Target&lt;/a>题目大意：已知一个包含n个顶点的有向无环图，求从0号顶点到n-1号顶点的所有路径。&lt;/p>
+&lt;p>使用深度优先搜索即可，在搜索时记录路径，只要到达n-1号顶点就把路径加入答案。&lt;/p></description></item><item><title>LeetCode每日一题周总结(三)</title><link>https://zhangleijuly.me/p/leetcode-weekly-3/</link><pubDate>Sun, 21 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-3/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(三)" />&lt;h2 id="largest-divisible-subset">Largest Divisible Subset&lt;/h2>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/largest-divisible-subset/" target="_blank" rel="noopener"
 >Largest Divisible Subset&lt;/a>题目大意：已知一个不同正整数组成的集合&lt;code>nums&lt;/code>，求它的一个最大子集合&lt;code>answer&lt;/code>，&lt;code>answer&lt;/code>中任意两个整数都满足其中一个是另外一个的整数倍。&lt;/p>
 &lt;p>这道题和动态规划的经典问题&lt;a class="link" href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener"
@@ -47,8 +125,17 @@ alt="Unique Paths">
 &lt;p>如果没有附加条件，这道题可以直接使用&lt;a class="link" href="https://zhangleijuly.me/p/leetcode-weekly-1/#single-number-iii" >Single Number&lt;/a>的方法求解。考虑到附加条件和已知数组有序，应该使用二分查找来求解。&lt;/p>
 &lt;p>二分查找的关键是如何判断这个元素在左半边还是在右半边。如果没有这个元素，那么成对元素的下标应该是2n和2n+1，但是这个元素出现后，成对元素的下标就会向后偏移一位。首先确定中点下标&lt;code>mid&lt;/code>，找到和&lt;code>mid&lt;/code>组成(2n,2n+1)对的另一个下标，可以对&lt;code>mid&lt;/code>的奇偶分类讨论，还有一种简单的方法，另一个下标是&lt;code>mid&lt;/code>异或1。然后判断这两个下标对应的元素是否相等，相等就说明要找的元素还没出现，在右半边；不相等就说明要找的元素在左半边。&lt;/p>
 &lt;h2 id="construct-binary-tree-from-inorder-and-postorder-traversal">Construct Binary Tree from Inorder and Postorder Traversal&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/02/19/tree.jpg"
+loading="lazy"
+alt="Construct Binary Tree from Inorder and Postorder Traversal">
+&lt;/a>
+&lt;figcaption>Construct Binary Tree from Inorder and Postorder Traversal&lt;/figcaption>
+&lt;/figure>&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" target="_blank" rel="noopener"
->Construct Binary Tree from Inorder and Postorder Traversal&lt;/a>题目大意：已知一棵树的中序遍历和后序遍历，构造出这棵树。题目保证中序遍历和后序遍历的数都唯一出现。&lt;/p>
+>Construct Binary Tree from Inorder and Postorder Traversal&lt;/a>题目大意：已知一棵树的中序遍历和后序遍历，构造出这棵树。题目保证中序遍历和后序遍历的数都唯一出现。上图为用中序遍历[9, 3, 15, 20, 7]和[9, 15, 7, 20, 3]构造的二叉树。&lt;/p>
 &lt;p>可以先建立根节点，再递归地构造左子树和右子树。根节点的值是后序遍历的最后一个值，在中序遍历中找到这个值，以它为分界点把中序遍历分成左右两部分，左半边是左子树的中序遍历，右半边是右子树的中序遍历。这样就得到了左右子树的大小，根据左右子树的大小可以从后序遍历中提取出左子树的后序遍历和右子树的后序遍历。用根节点的值建立根节点，递归调用函数，用左子树的中序遍历和后序遍历生成左子树，并赋值给根节点的指针，然后再类似地生成右子树赋值给根节点的指针。最后返回根节点。&lt;/p>
 &lt;p>注意边界条件，如果中序遍历和后序遍历为空，返回空指针。&lt;/p></description></item><item><title>LeetCode每日一题周总结(二)</title><link>https://zhangleijuly.me/p/leetcode-weekly-2/</link><pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-2/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(二)" />&lt;h2 id="unique-binary-search-trees">Unique Binary Search Trees&lt;/h2>
 &lt;p>&lt;figure
@@ -152,6 +239,15 @@ allowfullscreen="true"
 >Minimum Value to Get Positive Step by Step Sum&lt;/a>题目大意：已知整型数组&lt;code>nums&lt;/code>，用一个正整数&lt;code>startValue&lt;/code>逐一累加数组中的数，为保证累加和全程不小于1，&lt;code>startValue&lt;/code>至少要是多少。&lt;/p>
 &lt;p>略。&lt;/p>
 &lt;h2 id="remove-linked-list-elements">Remove Linked List Elements&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/03/06/removelinked-list.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/03/06/removelinked-list.jpg"
+loading="lazy"
+alt="Remove Linked List Elements">
+&lt;/a>
+&lt;figcaption>Remove Linked List Elements&lt;/figcaption>
+&lt;/figure>&lt;/p>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/remove-linked-list-elements/" target="_blank" rel="noopener"
 >Remove Linked List Elements&lt;/a>题目大意：已知链表的头指针，删除链表中所有值等于给定值的结点，返回新的头指针。&lt;/p>
 &lt;p>略。&lt;/p>

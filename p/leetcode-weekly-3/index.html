@@ -85,7 +85,13 @@ Code
 <p>如果没有附加条件，这道题可以直接使用<a class=link href=/p/leetcode-weekly-1/#single-number-iii>Single Number</a>的方法求解。考虑到附加条件和已知数组有序，应该使用二分查找来求解。</p>
 <p>二分查找的关键是如何判断这个元素在左半边还是在右半边。如果没有这个元素，那么成对元素的下标应该是2n和2n+1，但是这个元素出现后，成对元素的下标就会向后偏移一位。首先确定中点下标<code>mid</code>，找到和<code>mid</code>组成(2n,2n+1)对的另一个下标，可以对<code>mid</code>的奇偶分类讨论，还有一种简单的方法，另一个下标是<code>mid</code>异或1。然后判断这两个下标对应的元素是否相等，相等就说明要找的元素还没出现，在右半边；不相等就说明要找的元素在左半边。</p>
 <h2 id=construct-binary-tree-from-inorder-and-postorder-traversal>Construct Binary Tree from Inorder and Postorder Traversal</h2>
-<p><a class=link href=https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/ target=_blank rel=noopener>Construct Binary Tree from Inorder and Postorder Traversal</a>题目大意：已知一棵树的中序遍历和后序遍历，构造出这棵树。题目保证中序遍历和后序遍历的数都唯一出现。</p>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/02/19/tree.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/02/19/tree.jpg loading=lazy alt="Construct Binary Tree from Inorder and Postorder Traversal">
+</a>
+<figcaption>Construct Binary Tree from Inorder and Postorder Traversal</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/ target=_blank rel=noopener>Construct Binary Tree from Inorder and Postorder Traversal</a>题目大意：已知一棵树的中序遍历和后序遍历，构造出这棵树。题目保证中序遍历和后序遍历的数都唯一出现。上图为用中序遍历[9, 3, 15, 20, 7]和[9, 15, 7, 20, 3]构造的二叉树。</p>
 <p>可以先建立根节点，再递归地构造左子树和右子树。根节点的值是后序遍历的最后一个值，在中序遍历中找到这个值，以它为分界点把中序遍历分成左右两部分，左半边是左子树的中序遍历，右半边是右子树的中序遍历。这样就得到了左右子树的大小，根据左右子树的大小可以从后序遍历中提取出左子树的后序遍历和右子树的后序遍历。用根节点的值建立根节点，递归调用函数，用左子树的中序遍历和后序遍历生成左子树，并赋值给根节点的指针，然后再类似地生成右子树赋值给根节点的指针。最后返回根节点。</p>
 <p>注意边界条件，如果中序遍历和后序遍历为空，返回空指针。</p>
 </section>
@@ -103,6 +109,16 @@ Code
 <h2 class=section-title>相关文章</h2>
 <div class=related-contents>
 <div class="flex article-list--tile">
+<article class=has-image>
+<a href=/p/leetcode-weekly-4/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-4 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(四)</h2>
+</div>
+</a>
+</article>
 <article class=has-image>
 <a href=/p/leetcode-weekly-2/>
 <div class=article-image>

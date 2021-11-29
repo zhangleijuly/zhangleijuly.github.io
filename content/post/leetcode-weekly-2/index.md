@@ -127,6 +127,8 @@ withShare = max(withShare, noShare-prices[i]);
 
 ## Remove Linked List Elements
 
+![Remove Linked List Elements](https://assets.leetcode.com/uploads/2021/03/06/removelinked-list.jpg)
+
 [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)题目大意：已知链表的头指针，删除链表中所有值等于给定值的结点，返回新的头指针。
 
 略。

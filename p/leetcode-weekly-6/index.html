@@ -1,0 +1,294 @@
+<!doctype html><html lang=zh-cn>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Minimum Cost to Move Chips to The Same Position Minimum Cost to Move Chips to The Same Position Minimum Cost to Move Chips to The Same Position题目大意：有n摞筹码，每个筹码可以以如下的方式移动： 以代价0向左或者向右"><title>LeetCode每日一题周总结(六)</title>
+<link rel=canonical href=https://zhangleijuly.me/p/leetcode-weekly-6/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="LeetCode每日一题周总结(六)">
+<meta property="og:description" content="Minimum Cost to Move Chips to The Same Position Minimum Cost to Move Chips to The Same Position Minimum Cost to Move Chips to The Same Position题目大意：有n摞筹码，每个筹码可以以如下的方式移动： 以代价0向左或者向右">
+<meta property="og:url" content="https://zhangleijuly.me/p/leetcode-weekly-6/">
+<meta property="og:site_name" content="凉城">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="LeetCode"><meta property="article:published_time" content="2021-12-13T00:00:00+00:00"><meta property="article:modified_time" content="2021-12-13T00:00:00+00:00"><meta property="og:image" content="https://zhangleijuly.me/img/LeetCode.jpeg">
+<meta name=twitter:title content="LeetCode每日一题周总结(六)">
+<meta name=twitter:description content="Minimum Cost to Move Chips to The Same Position Minimum Cost to Move Chips to The Same Position Minimum Cost to Move Chips to The Same Position题目大意：有n摞筹码，每个筹码可以以如下的方式移动： 以代价0向左或者向右"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://zhangleijuly.me/img/LeetCode.jpeg">
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-25675628-4','auto'),ga('send','pageview'))</script>
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>返回</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<link rel=stylesheet href=/katex/katex.min.css>
+<script defer src=/katex/katex.min.js></script>
+<script defer src=/katex/contrib/auto-render.js onload=renderMathInElement(document.body)></script>
+<div class=article-image>
+<a href=/p/leetcode-weekly-6/>
+<img src=/img/LeetCode.jpeg loading=lazy alt="Featured image of post LeetCode每日一题周总结(六)">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/code/ style=background-color:#2a9d8f;color:#fff>
+Code
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/leetcode-weekly-6/>LeetCode每日一题周总结(六)</a>
+</h2>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Dec 13, 2021</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h2 id=minimum-cost-to-move-chips-to-the-same-position>Minimum Cost to Move Chips to The Same Position</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2020/08/15/chips_e1.jpg>
+<img src=https://assets.leetcode.com/uploads/2020/08/15/chips_e1.jpg loading=lazy alt="Minimum Cost to Move Chips to The Same Position">
+</a>
+<figcaption>Minimum Cost to Move Chips to The Same Position</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/ target=_blank rel=noopener>Minimum Cost to Move Chips to The Same Position</a>题目大意：有n摞筹码，每个筹码可以以如下的方式移动：</p>
+<ul>
+<li>以代价0向左或者向右移动2格</li>
+<li>以代价1向左或者向右移动1格</li>
+</ul>
+<p>求把所有筹码摞成一摞的最小代价。</p>
+<p>根据题意，所有奇数位置的筹码可以无代价移动到奇数位置，偶数位置的筹码可以无代价移动到偶数位置，在奇数位置和偶数位置之间移动才需要代价，所以只需要统计奇数位置和偶数位置的筹码数量哪种比较多。</p>
+<h2 id=convert-binary-number-in-a-linked-list-to-integer>Convert Binary Number in a Linked List to Integer</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2019/12/05/graph-1.png>
+<img src=https://assets.leetcode.com/uploads/2019/12/05/graph-1.png loading=lazy alt="Convert Binary Number in a Linked List to Integer">
+</a>
+<figcaption>Convert Binary Number in a Linked List to Integer</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/ target=_blank rel=noopener>Convert Binary Number in a Linked List to Integer</a>题目大意：一个链表只包含0和1，把这个链表看作一个二进制数，求这个数的十进制表示。</p>
+<p>略。</p>
+<h2 id=binary-tree-tilt>Binary Tree Tilt</h2>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2020/10/20/tilt1.jpg>
+<img src=https://assets.leetcode.com/uploads/2020/10/20/tilt1.jpg loading=lazy alt="Binary Tree Tilt">
+</a>
+<figcaption>Binary Tree Tilt</figcaption>
+</figure></p>
+<p><a class=link href=https://leetcode.com/problems/binary-tree-tilt/ target=_blank rel=noopener>Binary Tree Tilt</a>题目大意：求二叉树每个节点坡度之和。二叉树节点的坡度是该节点左子树节点之和与右子树节点之和的差的绝对值。</p>
+<p>略。</p>
+<h2 id=jump-game-iii>Jump Game III</h2>
+<p>一个系列题目，一共有7道题，每道题之间的解法也不太一样。</p>
+<p><a class=link href=https://leetcode.com/problems/jump-game/ target=_blank rel=noopener>Jump Game</a>题目大意：已知一个数组<code>nums</code>，初始在第一个位置，每个位置的数字表示从这个位置最多可以跳多远，如果能到达最后一个位置，返回<code>true</code>，否则返回<code>false</code>。</p>
+<p>模拟题，用<code>range</code>表示可抵达的范围，那么最初<code>range=0</code>。从0开始遍历所有下标小于等于<code>range</code>的位置，如果可以到达更远的位置就更新<code>range</code>，最后判断<code>range</code>是否包含最后一个位置。</p>
+<p><a class=link href=https://leetcode.com/problems/jump-game-ii/ target=_blank rel=noopener>Jump Game II</a>题目大意：已知一个数组<code>nums</code>，初始在第一个位置，每个位置的数字表示从这个位置最多可以跳多远，求最少需要多少步可以跳到最后一个位置。题目保证可以跳到最后一个位置。</p>
+<p>还是模拟，一步一步跳，每一个位置都有一个可以抵达的范围，在这个范围内找到跳得最远的位置作为下一步的落脚点，直到能够到达最后一个位置。</p>
+<p><a class=link href=https://leetcode.com/problems/jump-game-iii/ target=_blank rel=noopener>Jump Game III</a>题目大意：已知一个数组<code>nums</code>，初始在位置<code>start</code>，每次从下标<code>i</code>可以跳到下标<code>i-nums[i]</code>或者<code>i+nums[i]</code>，求能不能从起始位置跳到一个值为0的位置。</p>
+<p>按照题意进行深度优先搜索。</p>
+<p><a class=link href=https://leetcode.com/problems/jump-game-iv/ target=_blank rel=noopener>Jump Game IV</a>题目大意：已知一个数组<code>arr</code>，初始在第一个位置，每次可以从下标<code>i</code>按照如下规则跳跃：</p>
+<ul>
+<li>当<code>i+1&lt;arr.length</code>时跳到<code>i+1</code></li>
+<li>当<code>i-1>=0</code>时跳到<code>i-1</code></li>
+<li>当<code>arr[i]==arr[j]</code>并且<code>i!=j</code>时跳到<code>j</code></li>
+</ul>
+<p>求最少多少步可以跳到最后一个位置。</p>
+<p>需要定义几个数组，<code>step[i]</code>表示到下标<code>i</code>最少需要的步数，<code>visited[i]</code>表示是否到达过下标<code>i</code>。建立一个队列，每次找到能够到达的新的点就加入队列，这样可以保证队列里的下是按照到达步数递增排列的。建立一个<code>hash</code>表，对于数组中的每一个值，都记录数组里这个值的所有下标。</p>
+<p>初始化<code>step[0]=0,visited[0]=true</code>，把0加入队列。循环遍历队列，从队列中取出第一个元素<code>x</code>，如果这个元素是最后一个位置就跳出循环。否则先判断<code>x-1</code>是否访问过，如果没有访问过，更新<code>step[x-1]=step[x]+1,visited[x-1]=true</code>，把<code>x-1</code>加入队列。然后对<code>x+1</code>做类似操作。接下来遍历<code>hash[arr[x]]</code>中的所有下标，更新其中未被访问过的下标的<code>step</code>和<code>visited</code>数组，并加入队列。遍历完成后清空<code>hash[arr[x]]</code>。（<strong>注意</strong>：一定要清空，这是为了避免重复遍历，我就是因为没有清空所有个别样例一直超时。）循环结束后<code>step[arr.length-1]</code>即为所求。</p>
+<p><a class=link href=https://leetcode.com/problems/jump-game-v/ target=_blank rel=noopener>Jump Game V</a>题目大意：已知一个数组<code>arr</code>和一个整数<code>d</code>，每次可以从下标<code>i</code>按照如下规则跳跃：</p>
+<ul>
+<li>如果<code>i+x&lt;arr.length</code>并且<code>0&lt;x&lt;=d</code>，可以跳到<code>i+x</code></li>
+<li>如果<code>i-x>=0</code>并且<code>0&lt;x&lt;=d</code>，可以跳到<code>i-x</code></li>
+</ul>
+<p>并且从<code>i</code>跳到<code>j</code>时必须满足<code>arr[i]>arr[j]</code>和<code>i</code>与<code>j</code>之间的所有下标<code>k</code>都满足<code>arr[i]>arr[k]</code>。</p>
+<p>可以选择从任何位置开始跳跃，求最多可以访问多少个下标。</p>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2020/01/23/meta-chart.jpeg>
+<img src=https://assets.leetcode.com/uploads/2020/01/23/meta-chart.jpeg loading=lazy alt="Jump Game V">
+</a>
+<figcaption>Jump Game V</figcaption>
+</figure></p>
+<p>通俗地说就是只能从高处向低处跳，最远跳跃距离是<code>d</code>，并且途经的位置也必须比起点低。用<code>dp[i]</code>表示以下标为<code>i</code>的位置为起点最多可以访问多少下标。那么状态转移公式为：<code>dp[i]=max(1,max(dp[j])+1)</code>，其中<code>j</code>是从<code>i</code>可以跳到的下标。为了保证在计算<code>dp[i]</code>时所有<code>dp[j]</code>都已经被计算过，应该把所有下标按照高度从低到高排序，然后按照排序计算<code>dp[i]</code>。最后取所有<code>dp[i]</code>中最大的。</p>
+<p><a class=link href=https://leetcode.com/problems/jump-game-vi target=_blank rel=noopener>Jump Game VI</a>题目大意：已知一个长度为<code>n</code>的整型数组<code>nums</code>和整数<code>k</code>，起始下标为0，每次可以从下标<code>i</code>跳跃到区间<code>[i+1,min(n-1,i+k)]</code>中的任意下标。当跳跃到数组的最后一个下标也就是<code>n-1</code>的时候，你的得分是途中经过的每个下标处值之和，求可能得到的最大得分。</p>
+<p>用<code>dp[i]</code>表示在跳跃到下标<code>i</code>处时可以获得的最大得分，那么<code>dp[i]=max(dp[j])+nums[i]</code>，其中<code>j</code>是可以跳到<code>i</code>的下标。因为这道题的数据规模很大，$1 &lt;= k &lt;= 10^5$，所以需要一个能快速找到最大的<code>dp[j]</code>的方法。</p>
+<p>维护一个最大优先队列，把所有计算过的<code>dp[j]</code>都放进去，计算<code>dp[i]</code>的时候就从队列头部取<code>dp[j]</code>，如果<code>j</code>不能跳到<code>i</code>就弹出，直到<code>j</code>能够跳到<code>i</code>，用<code>dp[j]</code>更新<code>dp[i]</code>。最后<code>dp[n-1]</code>即为所求。</p>
+<p><a class=link href=https://leetcode.com/problems/jump-game-vii/ target=_blank rel=noopener>Jump Game VII</a>题目大意：已知一个字符串<code>s</code>和两个整数<code>minJump</code>和<code>maxJump</code>。起始下标为0，对应字符也是<code>'0'</code>。符合以下条件时可以从下标<code>i</code>跳跃到下标<code>j</code>：</p>
+<ul>
+<li><code>i+minJump &lt;= j &lt;= min(i+maxJump, s.length-1)</code></li>
+<li><code>s[j]=='0'</code></li>
+</ul>
+<p>如果能跳跃到数组最后一个位置，返回<code>true</code>，否则返回<code>false</code>。</p>
+<p>首先如果<code>s[s.length-1]</code>不是<code>'0'</code>可以直接返回<code>false</code>。其他情况我们就需要判断是不是真的能跳跃到最后一个下标。</p>
+<p>每次从下标<code>i</code>可以跳跃到的范围是<code>[i+minJump, min(i+maxJump, s.length-1)]</code>，如果最后一个下标在这个范围内就可以返回<code>true</code>，否则我们需要记录这个范围内所有<code>s[j]=='0'</code>的下标<code>j</code>用于后续的跳跃。</p>
+<p>用一个队列维护起跳位置，初始只有0，同时记录已经处理过的最大跳跃范围<code>range</code>。每次从队首弹出一个起跳位置<code>i</code>，那么从<code>i</code>跳跃范围的左边界<code>l=i+minJump</code>，右边界<code>r=min(i+maxJump,s.length-1)</code>。如果左边界<code>l>s.length-1</code>，那么返回<code>false</code>，因为从后续的位置只会跳得比<code>i</code>远，范围也不会包含最后一个下标。如果<code>s.length-1</code>在左右边界之间，返回<code>true</code>。都不是就说明还需要继续跳跃，首先更新<code>l=max(l,range+1)</code>，这是为了避免重复处理，只处理没有处理过的下标。把<code>l</code>和<code>r</code>之间所有为<code>'0'</code>的下标都加入队列，更新<code>range=r</code>。如果循环结束都没有返回，就说明跳得不够远，返回<code>false</code>。</p>
+<h2 id=domino-and-tromino-tiling>Domino and Tromino Tiling</h2>
+<p><a class=link href=https://leetcode.com/problems/domino-and-tromino-tiling/ target=_blank rel=noopener>Domino and Tromino Tiling</a>题目大意：求下面两种形状拼成2×n的形状有多少种方法。</p>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/07/15/lc-domino.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/07/15/lc-domino.jpg loading=lazy alt="Domino and Tromino Tiling">
+</a>
+<figcaption>Domino and Tromino Tiling</figcaption>
+</figure></p>
+<p>例如拼成2×5的形状有以下方法：</p>
+<p><figure>
+<a href=https://assets.leetcode.com/uploads/2021/07/15/lc-domino1.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/07/15/lc-domino1.jpg loading=lazy alt=2×5>
+</a>
+<figcaption>2×5</figcaption>
+</figure></p>
+<p>这道题是真的没想明白，直接看<a class=link href=https://leetcode.com/problems/domino-and-tromino-tiling/discuss/116581/Detail-and-explanation-of-O%28n%29-solution-why-dpn2*dn-1+dpn-3 target=_blank rel=noopener>大神推导的递推公式</a>吧。看到下面的评论“高中一眼看出来的公式，现在一开始以为是魔法。”真的泪目了。</p>
+<h2 id=nth-magical-number>Nth Magical Number</h2>
+<p><a class=link href=https://leetcode.com/problems/nth-magical-number/ target=_blank rel=noopener>Nth Magical Number</a>题目大意：如果一个正整数能整除a或者b就称为魔数。已知n，a和b，求第n个魔数。</p>
+<p>魔数是有一个周期的，也就是a和b的最小公倍数lcm。任何魔数加上最小公倍数的整数倍还是魔数。一个周期内的魔数有$N = lcm/a + lcm/b -1$个。那么第n个魔数就是lcm的$\lfloor n/N \rfloor$倍加上第$n\bmod N$个魔数。前者容易计算，后者可以把lcm以内所有a和b的倍数放到一个数组中排序求得。</p>
+<p>还有<a class=link href=https://leetcode.com/problems/nth-magical-number/discuss/154965/o%20%281%29-Mathematical-Solution-without-binary-or-brute-force-search target=_blank rel=noopener>一种纯数学方法</a>是利用魔数的分布去逼近，然后求出准确值。我专门和数院的同学讨论了一下这种方法为什么能准确地求出第x个魔数，因为它通过近似找到了不小于第x个魔数的a的倍数和b的倍数，这两个数就是第x个和第x+1个魔数。</p>
+<h2 id=partition-equal-subset-sum>Partition Equal Subset Sum</h2>
+<p><a class=link href=https://leetcode.com/problems/partition-equal-subset-sum/ target=_blank rel=noopener>Partition Equal Subset Sum</a>题目大意：已知一个由正整数构成的非空集合，求能不能把它分成两个集合，这两个集合中数字的和相等。</p>
+<p>这道题思路很简单，首先把集合中所有数字加起来，如果和是奇数那么肯定不可能，如果是偶数那么题目变成能不能在集合中找到一些整数加起来等于和的一半。</p>
+<p>能够想到用动态规划来解，用<code>dp[i][j]</code>表示用<code>nums[0]</code>到<code>nums[i]</code>的集合能否找到和为<code>j</code>的子集。那么状态转移条件是，当选择<code>nums[i]</code>加入子集时，如果<code>dp[i-1][j-nums[i]]==true</code>，那么<code>dp[i][j]=true</code>。当不选择<code>nums[i]</code>加入子集时，如果<code>dp[i][j]==true</code>，那么<code>dp[i][j]=true</code>。</p>
+<p>可以进行状态压缩，用<code>dp[j]</code>表示能否找到和为<code>j</code>的子集。遍历整个数组，对于每个下标<code>i</code>，从和的一半开始遍历<code>j</code>到<code>nums[i]</code>，如果<code>dp[j-nums[i]]==true</code>，那么<code>dp[j]=true</code>。</p>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/leetcode/>LeetCode</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>相关文章</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article class=has-image>
+<a href=/p/leetcode-weekly-5/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-5 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(五)</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/leetcode-weekly-4/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-4 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(四)</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/leetcode-weekly-3/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-3 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(三)</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/leetcode-weekly-2/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-2 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(二)</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/leetcode-weekly-1/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-1 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(一)</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<script src=//cdn.jsdelivr.net/npm/twikoo@1.4.11/dist/twikoo.all.min.js></script>
+<div id=tcomment></div>
+<style>.twikoo{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}:root[data-scheme=dark]{--twikoo-body-text-color-main:rgba(255, 255, 255, 0.9);--twikoo-body-text-color:rgba(255, 255, 255, 0.7)}.twikoo .el-input-group__prepend,.twikoo .tk-action-icon,.twikoo .tk-time,.twikoo .tk-comments-count{color:var(--twikoo-body-text-color)}.twikoo .el-input__inner,.twikoo .el-textarea__inner,.twikoo .tk-preview-container,.twikoo .tk-content,.twikoo .tk-nick,.twikoo .tk-send{color:var(--twikoo-body-text-color-main)}.twikoo .el-button{color:var(--twikoo-body-text-color)!important}</style><script>twikoo.init({envId:'twikoo-2gpvjqe49b66cf52',el:'#tcomment'})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2021 凉城
+</section>
+<section class=powerby>
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">目录</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#minimum-cost-to-move-chips-to-the-same-position>Minimum Cost to Move Chips to The Same Position</a></li>
+<li><a href=#convert-binary-number-in-a-linked-list-to-integer>Convert Binary Number in a Linked List to Integer</a></li>
+<li><a href=#binary-tree-tilt>Binary Tree Tilt</a></li>
+<li><a href=#jump-game-iii>Jump Game III</a></li>
+<li><a href=#domino-and-tromino-tiling>Domino and Tromino Tiling</a></li>
+<li><a href=#nth-magical-number>Nth Magical Number</a></li>
+<li><a href=#partition-equal-subset-sum>Partition Equal Subset Sum</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

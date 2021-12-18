@@ -1,4 +1,136 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 05 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(五)</title><link>https://zhangleijuly.me/p/leetcode-weekly-5/</link><pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-5/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(五)" />&lt;h2 id="accounts-merge">Accounts Merge&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(六)</title><link>https://zhangleijuly.me/p/leetcode-weekly-6/</link><pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-6/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(六)" />&lt;h2 id="minimum-cost-to-move-chips-to-the-same-position">Minimum Cost to Move Chips to The Same Position&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2020/08/15/chips_e1.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2020/08/15/chips_e1.jpg"
+loading="lazy"
+alt="Minimum Cost to Move Chips to The Same Position">
+&lt;/a>
+&lt;figcaption>Minimum Cost to Move Chips to The Same Position&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/" target="_blank" rel="noopener"
+>Minimum Cost to Move Chips to The Same Position&lt;/a>题目大意：有n摞筹码，每个筹码可以以如下的方式移动：&lt;/p>
+&lt;ul>
+&lt;li>以代价0向左或者向右移动2格&lt;/li>
+&lt;li>以代价1向左或者向右移动1格&lt;/li>
+&lt;/ul>
+&lt;p>求把所有筹码摞成一摞的最小代价。&lt;/p>
+&lt;p>根据题意，所有奇数位置的筹码可以无代价移动到奇数位置，偶数位置的筹码可以无代价移动到偶数位置，在奇数位置和偶数位置之间移动才需要代价，所以只需要统计奇数位置和偶数位置的筹码数量哪种比较多。&lt;/p>
+&lt;h2 id="convert-binary-number-in-a-linked-list-to-integer">Convert Binary Number in a Linked List to Integer&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2019/12/05/graph-1.png" >
+&lt;img src="https://assets.leetcode.com/uploads/2019/12/05/graph-1.png"
+loading="lazy"
+alt="Convert Binary Number in a Linked List to Integer">
+&lt;/a>
+&lt;figcaption>Convert Binary Number in a Linked List to Integer&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/" target="_blank" rel="noopener"
+>Convert Binary Number in a Linked List to Integer&lt;/a>题目大意：一个链表只包含0和1，把这个链表看作一个二进制数，求这个数的十进制表示。&lt;/p>
+&lt;p>略。&lt;/p>
+&lt;h2 id="binary-tree-tilt">Binary Tree Tilt&lt;/h2>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2020/10/20/tilt1.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2020/10/20/tilt1.jpg"
+loading="lazy"
+alt="Binary Tree Tilt">
+&lt;/a>
+&lt;figcaption>Binary Tree Tilt&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/binary-tree-tilt/" target="_blank" rel="noopener"
+>Binary Tree Tilt&lt;/a>题目大意：求二叉树每个节点坡度之和。二叉树节点的坡度是该节点左子树节点之和与右子树节点之和的差的绝对值。&lt;/p>
+&lt;p>略。&lt;/p>
+&lt;h2 id="jump-game-iii">Jump Game III&lt;/h2>
+&lt;p>一个系列题目，一共有7道题，每道题之间的解法也不太一样。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/jump-game/" target="_blank" rel="noopener"
+>Jump Game&lt;/a>题目大意：已知一个数组&lt;code>nums&lt;/code>，初始在第一个位置，每个位置的数字表示从这个位置最多可以跳多远，如果能到达最后一个位置，返回&lt;code>true&lt;/code>，否则返回&lt;code>false&lt;/code>。&lt;/p>
+&lt;p>模拟题，用&lt;code>range&lt;/code>表示可抵达的范围，那么最初&lt;code>range=0&lt;/code>。从0开始遍历所有下标小于等于&lt;code>range&lt;/code>的位置，如果可以到达更远的位置就更新&lt;code>range&lt;/code>，最后判断&lt;code>range&lt;/code>是否包含最后一个位置。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/jump-game-ii/" target="_blank" rel="noopener"
+>Jump Game II&lt;/a>题目大意：已知一个数组&lt;code>nums&lt;/code>，初始在第一个位置，每个位置的数字表示从这个位置最多可以跳多远，求最少需要多少步可以跳到最后一个位置。题目保证可以跳到最后一个位置。&lt;/p>
+&lt;p>还是模拟，一步一步跳，每一个位置都有一个可以抵达的范围，在这个范围内找到跳得最远的位置作为下一步的落脚点，直到能够到达最后一个位置。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/jump-game-iii/" target="_blank" rel="noopener"
+>Jump Game III&lt;/a>题目大意：已知一个数组&lt;code>nums&lt;/code>，初始在位置&lt;code>start&lt;/code>，每次从下标&lt;code>i&lt;/code>可以跳到下标&lt;code>i-nums[i]&lt;/code>或者&lt;code>i+nums[i]&lt;/code>，求能不能从起始位置跳到一个值为0的位置。&lt;/p>
+&lt;p>按照题意进行深度优先搜索。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/jump-game-iv/" target="_blank" rel="noopener"
+>Jump Game IV&lt;/a>题目大意：已知一个数组&lt;code>arr&lt;/code>，初始在第一个位置，每次可以从下标&lt;code>i&lt;/code>按照如下规则跳跃：&lt;/p>
+&lt;ul>
+&lt;li>当&lt;code>i+1&amp;lt;arr.length&lt;/code>时跳到&lt;code>i+1&lt;/code>&lt;/li>
+&lt;li>当&lt;code>i-1&amp;gt;=0&lt;/code>时跳到&lt;code>i-1&lt;/code>&lt;/li>
+&lt;li>当&lt;code>arr[i]==arr[j]&lt;/code>并且&lt;code>i!=j&lt;/code>时跳到&lt;code>j&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>求最少多少步可以跳到最后一个位置。&lt;/p>
+&lt;p>需要定义几个数组，&lt;code>step[i]&lt;/code>表示到下标&lt;code>i&lt;/code>最少需要的步数，&lt;code>visited[i]&lt;/code>表示是否到达过下标&lt;code>i&lt;/code>。建立一个队列，每次找到能够到达的新的点就加入队列，这样可以保证队列里的下是按照到达步数递增排列的。建立一个&lt;code>hash&lt;/code>表，对于数组中的每一个值，都记录数组里这个值的所有下标。&lt;/p>
+&lt;p>初始化&lt;code>step[0]=0,visited[0]=true&lt;/code>，把0加入队列。循环遍历队列，从队列中取出第一个元素&lt;code>x&lt;/code>，如果这个元素是最后一个位置就跳出循环。否则先判断&lt;code>x-1&lt;/code>是否访问过，如果没有访问过，更新&lt;code>step[x-1]=step[x]+1,visited[x-1]=true&lt;/code>，把&lt;code>x-1&lt;/code>加入队列。然后对&lt;code>x+1&lt;/code>做类似操作。接下来遍历&lt;code>hash[arr[x]]&lt;/code>中的所有下标，更新其中未被访问过的下标的&lt;code>step&lt;/code>和&lt;code>visited&lt;/code>数组，并加入队列。遍历完成后清空&lt;code>hash[arr[x]]&lt;/code>。（&lt;strong>注意&lt;/strong>：一定要清空，这是为了避免重复遍历，我就是因为没有清空所有个别样例一直超时。）循环结束后&lt;code>step[arr.length-1]&lt;/code>即为所求。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/jump-game-v/" target="_blank" rel="noopener"
+>Jump Game V&lt;/a>题目大意：已知一个数组&lt;code>arr&lt;/code>和一个整数&lt;code>d&lt;/code>，每次可以从下标&lt;code>i&lt;/code>按照如下规则跳跃：&lt;/p>
+&lt;ul>
+&lt;li>如果&lt;code>i+x&amp;lt;arr.length&lt;/code>并且&lt;code>0&amp;lt;x&amp;lt;=d&lt;/code>，可以跳到&lt;code>i+x&lt;/code>&lt;/li>
+&lt;li>如果&lt;code>i-x&amp;gt;=0&lt;/code>并且&lt;code>0&amp;lt;x&amp;lt;=d&lt;/code>，可以跳到&lt;code>i-x&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>并且从&lt;code>i&lt;/code>跳到&lt;code>j&lt;/code>时必须满足&lt;code>arr[i]&amp;gt;arr[j]&lt;/code>和&lt;code>i&lt;/code>与&lt;code>j&lt;/code>之间的所有下标&lt;code>k&lt;/code>都满足&lt;code>arr[i]&amp;gt;arr[k]&lt;/code>。&lt;/p>
+&lt;p>可以选择从任何位置开始跳跃，求最多可以访问多少个下标。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2020/01/23/meta-chart.jpeg" >
+&lt;img src="https://assets.leetcode.com/uploads/2020/01/23/meta-chart.jpeg"
+loading="lazy"
+alt="Jump Game V">
+&lt;/a>
+&lt;figcaption>Jump Game V&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>通俗地说就是只能从高处向低处跳，最远跳跃距离是&lt;code>d&lt;/code>，并且途经的位置也必须比起点低。用&lt;code>dp[i]&lt;/code>表示以下标为&lt;code>i&lt;/code>的位置为起点最多可以访问多少下标。那么状态转移公式为：&lt;code>dp[i]=max(1,max(dp[j])+1)&lt;/code>，其中&lt;code>j&lt;/code>是从&lt;code>i&lt;/code>可以跳到的下标。为了保证在计算&lt;code>dp[i]&lt;/code>时所有&lt;code>dp[j]&lt;/code>都已经被计算过，应该把所有下标按照高度从低到高排序，然后按照排序计算&lt;code>dp[i]&lt;/code>。最后取所有&lt;code>dp[i]&lt;/code>中最大的。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/jump-game-vi" target="_blank" rel="noopener"
+>Jump Game VI&lt;/a>题目大意：已知一个长度为&lt;code>n&lt;/code>的整型数组&lt;code>nums&lt;/code>和整数&lt;code>k&lt;/code>，起始下标为0，每次可以从下标&lt;code>i&lt;/code>跳跃到区间&lt;code>[i+1,min(n-1,i+k)]&lt;/code>中的任意下标。当跳跃到数组的最后一个下标也就是&lt;code>n-1&lt;/code>的时候，你的得分是途中经过的每个下标处值之和，求可能得到的最大得分。&lt;/p>
+&lt;p>用&lt;code>dp[i]&lt;/code>表示在跳跃到下标&lt;code>i&lt;/code>处时可以获得的最大得分，那么&lt;code>dp[i]=max(dp[j])+nums[i]&lt;/code>，其中&lt;code>j&lt;/code>是可以跳到&lt;code>i&lt;/code>的下标。因为这道题的数据规模很大，$1 &amp;lt;= k &amp;lt;= 10^5$，所以需要一个能快速找到最大的&lt;code>dp[j]&lt;/code>的方法。&lt;/p>
+&lt;p>维护一个最大优先队列，把所有计算过的&lt;code>dp[j]&lt;/code>都放进去，计算&lt;code>dp[i]&lt;/code>的时候就从队列头部取&lt;code>dp[j]&lt;/code>，如果&lt;code>j&lt;/code>不能跳到&lt;code>i&lt;/code>就弹出，直到&lt;code>j&lt;/code>能够跳到&lt;code>i&lt;/code>，用&lt;code>dp[j]&lt;/code>更新&lt;code>dp[i]&lt;/code>。最后&lt;code>dp[n-1]&lt;/code>即为所求。&lt;/p>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/jump-game-vii/" target="_blank" rel="noopener"
+>Jump Game VII&lt;/a>题目大意：已知一个字符串&lt;code>s&lt;/code>和两个整数&lt;code>minJump&lt;/code>和&lt;code>maxJump&lt;/code>。起始下标为0，对应字符也是&lt;code>'0'&lt;/code>。符合以下条件时可以从下标&lt;code>i&lt;/code>跳跃到下标&lt;code>j&lt;/code>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>i+minJump &amp;lt;= j &amp;lt;= min(i+maxJump, s.length-1)&lt;/code>&lt;/li>
+&lt;li>&lt;code>s[j]=='0'&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>如果能跳跃到数组最后一个位置，返回&lt;code>true&lt;/code>，否则返回&lt;code>false&lt;/code>。&lt;/p>
+&lt;p>首先如果&lt;code>s[s.length-1]&lt;/code>不是&lt;code>'0'&lt;/code>可以直接返回&lt;code>false&lt;/code>。其他情况我们就需要判断是不是真的能跳跃到最后一个下标。&lt;/p>
+&lt;p>每次从下标&lt;code>i&lt;/code>可以跳跃到的范围是&lt;code>[i+minJump, min(i+maxJump, s.length-1)]&lt;/code>，如果最后一个下标在这个范围内就可以返回&lt;code>true&lt;/code>，否则我们需要记录这个范围内所有&lt;code>s[j]=='0'&lt;/code>的下标&lt;code>j&lt;/code>用于后续的跳跃。&lt;/p>
+&lt;p>用一个队列维护起跳位置，初始只有0，同时记录已经处理过的最大跳跃范围&lt;code>range&lt;/code>。每次从队首弹出一个起跳位置&lt;code>i&lt;/code>，那么从&lt;code>i&lt;/code>跳跃范围的左边界&lt;code>l=i+minJump&lt;/code>，右边界&lt;code>r=min(i+maxJump,s.length-1)&lt;/code>。如果左边界&lt;code>l&amp;gt;s.length-1&lt;/code>，那么返回&lt;code>false&lt;/code>，因为从后续的位置只会跳得比&lt;code>i&lt;/code>远，范围也不会包含最后一个下标。如果&lt;code>s.length-1&lt;/code>在左右边界之间，返回&lt;code>true&lt;/code>。都不是就说明还需要继续跳跃，首先更新&lt;code>l=max(l,range+1)&lt;/code>，这是为了避免重复处理，只处理没有处理过的下标。把&lt;code>l&lt;/code>和&lt;code>r&lt;/code>之间所有为&lt;code>'0'&lt;/code>的下标都加入队列，更新&lt;code>range=r&lt;/code>。如果循环结束都没有返回，就说明跳得不够远，返回&lt;code>false&lt;/code>。&lt;/p>
+&lt;h2 id="domino-and-tromino-tiling">Domino and Tromino Tiling&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/domino-and-tromino-tiling/" target="_blank" rel="noopener"
+>Domino and Tromino Tiling&lt;/a>题目大意：求下面两种形状拼成2×n的形状有多少种方法。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/07/15/lc-domino.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/07/15/lc-domino.jpg"
+loading="lazy"
+alt="Domino and Tromino Tiling">
+&lt;/a>
+&lt;figcaption>Domino and Tromino Tiling&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>例如拼成2×5的形状有以下方法：&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2021/07/15/lc-domino1.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2021/07/15/lc-domino1.jpg"
+loading="lazy"
+alt="2×5">
+&lt;/a>
+&lt;figcaption>2×5&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>这道题是真的没想明白，直接看&lt;a class="link" href="https://leetcode.com/problems/domino-and-tromino-tiling/discuss/116581/Detail-and-explanation-of-O%28n%29-solution-why-dpn2*dn-1&amp;#43;dpn-3" target="_blank" rel="noopener"
+>大神推导的递推公式&lt;/a>吧。看到下面的评论“高中一眼看出来的公式，现在一开始以为是魔法。”真的泪目了。&lt;/p>
+&lt;h2 id="nth-magical-number">Nth Magical Number&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/nth-magical-number/" target="_blank" rel="noopener"
+>Nth Magical Number&lt;/a>题目大意：如果一个正整数能整除a或者b就称为魔数。已知n，a和b，求第n个魔数。&lt;/p>
+&lt;p>魔数是有一个周期的，也就是a和b的最小公倍数lcm。任何魔数加上最小公倍数的整数倍还是魔数。一个周期内的魔数有$N = lcm/a + lcm/b -1$个。那么第n个魔数就是lcm的$\lfloor n/N \rfloor$倍加上第$n\bmod N$个魔数。前者容易计算，后者可以把lcm以内所有a和b的倍数放到一个数组中排序求得。&lt;/p>
+&lt;p>还有&lt;a class="link" href="https://leetcode.com/problems/nth-magical-number/discuss/154965/o%20%281%29-Mathematical-Solution-without-binary-or-brute-force-search" target="_blank" rel="noopener"
+>一种纯数学方法&lt;/a>是利用魔数的分布去逼近，然后求出准确值。我专门和数院的同学讨论了一下这种方法为什么能准确地求出第x个魔数，因为它通过近似找到了不小于第x个魔数的a的倍数和b的倍数，这两个数就是第x个和第x+1个魔数。&lt;/p>
+&lt;h2 id="partition-equal-subset-sum">Partition Equal Subset Sum&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/partition-equal-subset-sum/" target="_blank" rel="noopener"
+>Partition Equal Subset Sum&lt;/a>题目大意：已知一个由正整数构成的非空集合，求能不能把它分成两个集合，这两个集合中数字的和相等。&lt;/p>
+&lt;p>这道题思路很简单，首先把集合中所有数字加起来，如果和是奇数那么肯定不可能，如果是偶数那么题目变成能不能在集合中找到一些整数加起来等于和的一半。&lt;/p>
+&lt;p>能够想到用动态规划来解，用&lt;code>dp[i][j]&lt;/code>表示用&lt;code>nums[0]&lt;/code>到&lt;code>nums[i]&lt;/code>的集合能否找到和为&lt;code>j&lt;/code>的子集。那么状态转移条件是，当选择&lt;code>nums[i]&lt;/code>加入子集时，如果&lt;code>dp[i-1][j-nums[i]]==true&lt;/code>，那么&lt;code>dp[i][j]=true&lt;/code>。当不选择&lt;code>nums[i]&lt;/code>加入子集时，如果&lt;code>dp[i][j]==true&lt;/code>，那么&lt;code>dp[i][j]=true&lt;/code>。&lt;/p>
+&lt;p>可以进行状态压缩，用&lt;code>dp[j]&lt;/code>表示能否找到和为&lt;code>j&lt;/code>的子集。遍历整个数组，对于每个下标&lt;code>i&lt;/code>，从和的一半开始遍历&lt;code>j&lt;/code>到&lt;code>nums[i]&lt;/code>，如果&lt;code>dp[j-nums[i]]==true&lt;/code>，那么&lt;code>dp[j]=true&lt;/code>。&lt;/p></description></item><item><title>LeetCode每日一题周总结(五)</title><link>https://zhangleijuly.me/p/leetcode-weekly-5/</link><pubDate>Sun, 05 Dec 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-5/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(五)" />&lt;h2 id="accounts-merge">Accounts Merge&lt;/h2>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/accounts-merge/" target="_blank" rel="noopener"
 >Accounts Merge&lt;/a>题目大意：有很多组账户信息，账户信息包括用户的名字和该用户所拥有的一个或者多个邮箱。如果两个用户拥有同一个邮箱，就说明这两个用户是同一个人。两个用户的名字相同但是不拥有同一个邮箱则认为他们是名字相同的不同用户。把所有用户相同的账户信息合并，按照题目规定的格式输出。&lt;/p>
 &lt;p>用并查集解决，每个账户信息可以看作一个集合，如果两个集合中有公共的邮箱地址就合并。用一个hash表保存邮箱和集合之间的映射关系，方便快速找到出现相同邮箱的集合。&lt;/p>

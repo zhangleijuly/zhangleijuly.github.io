@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 13 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(六)</title><link>https://zhangleijuly.me/p/leetcode-weekly-6/</link><pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-6/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(六)" />&lt;h2 id="minimum-cost-to-move-chips-to-the-same-position">Minimum Cost to Move Chips to The Same Position&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 17 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(七)</title><link>https://zhangleijuly.me/p/leetcode-weekly-7/</link><pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-7/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(七)" />&lt;h2 id="consecutive-characters">Consecutive Characters&lt;/h2>
+&lt;p>太简单了，略。&lt;/p>
+&lt;h2 id="range-sum-of-bst">Range Sum of BST&lt;/h2>
+&lt;p>也略。&lt;/p>
+&lt;h2 id="insertion-sort-list">Insertion Sort List&lt;/h2>
+&lt;p>链表版的插入排序，收获的经验是解决链表问题创建一个&lt;code>dummy&lt;/code>节点有时候非常好用。&lt;/p>
+&lt;h2 id="minimum-height-trees">Minimum Height Trees&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/minimum-height-trees/" target="_blank" rel="noopener"
+>Minimum Height Trees&lt;/a>题目大意：已知n个结点和n-1条边，以任何一个结点作为树根可以得到一棵树，求构成的树的高度最低的结点。&lt;/p>
+&lt;p>这道题看起来是一道树的题目，但是实际上它是一道图的题目。把这棵树看作一个图，那么构成树的高度最低就意味着这个结点最接近图的“中心”。从这种角度理解这道题的解法应该是从外层一层一层剥离结点，直到剩下1个或者2个结点（如果剩下2个结点，就无法继续剥离了；如果剩下3个结点，因为树中无环，那么一定还能剥离2个结点得到1个结点）。&lt;/p>
+&lt;p>首先需要求最外层的结点，也就是叶结点，叶结点只和一个结点相邻。遍历所有边，记录每个结点的相邻关系。然后遍历所有结点，找到所有只和一个结点相邻的结点，存入队列。&lt;/p>
+&lt;p>用一个循环来层层剥离，每次执行循环体剥离一层叶结点，记录未被剥离的结点数作为循环终止条件。首先把未剥离的结点数减少当前叶结点数。接下来剥离这层叶结点，遍历当前叶节点队列，把叶节点从它的相邻结点的相邻关系里删除。如果叶节点的相邻结点成为了新的叶节点，就把它保存到一个临时队列。遍历完所有当前叶节点后，用临时队列替换当前叶节点队列。&lt;/p>
+&lt;p>最后叶结点队列中剩余的1个或者2个结点即为所求。&lt;/p>
+&lt;h2 id="maximal-square">Maximal Square&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/maximal-square/" target="_blank" rel="noopener"
+>Maximal Square&lt;/a>题目大意：已知一个由0和1构成的m×n大小的矩阵，找到由1构成的最大的正方形，返回它的面积。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2020/11/26/max1grid.jpg" >
+&lt;img src="https://assets.leetcode.com/uploads/2020/11/26/max1grid.jpg"
+loading="lazy"
+alt="Maximal Square">
+&lt;/a>
+&lt;figcaption>Maximal Square&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>之前做过一道&lt;a class="link" href="https://zhangleijuly.me/p/leetcode-weekly-5/#maximal-rectangle" >Maximal Rectangle&lt;/a>，这道题稍微简单点。用&lt;code>dp[i][j]&lt;/code>表示右下角坐标为&lt;code>(i,j)&lt;/code>的正方形的边长，那么当&lt;code>matrix[i][j]==0&lt;/code>时，&lt;code>dp[i][j]=0&lt;/code>；当&lt;code>matrix[i][j]==1&lt;/code>时，&lt;code>dp[i][j]=min(dp[i-1][j-1],dp[i][j-1],dp[i-1][j])+1&lt;/code>。找到最大的边长就能找到答案。&lt;/p>
+&lt;h2 id="numbers-at-most-n-given-digit-set">Numbers At Most N Given Digit Set&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/numbers-at-most-n-given-digit-set/" target="_blank" rel="noopener"
+>Numbers At Most N Given Digit Set&lt;/a>题目大意：已知一个数字集合和一个整数n，数字集合中包含1~9的几个数字，求用这些数字构成的不大于n的整数有多少个。&lt;/p>
+&lt;p>这道题其实是一道排列组合题，需要用代码实现数学计算的过程，需要注意一些细节。&lt;/p>
+&lt;p>比n小的数包括位数比n少的数，这些数可以随意组合，比较容易计算。主要需要考虑和n位数相等的数，需要从高位到低位遍历，如果这一位的数在数字集合里没有，那么这一位我们只能选比它小的数，后面的每一位都可以随意选择，跳出循环；如果这一位在数字集合里有，那么要分为两种情况，一种是选择比它小的数，后面每一位可以随意选择，另一种是选择这个数，继续遍历。需要注意的是，如果遍历到最低位每一个数都在集合中出现过，那么还需要在结果加1，也就是这个数本身。&lt;/p>
+&lt;h2 id="decode-string">Decode String&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/decode-string/" target="_blank" rel="noopener"
+>Decode String&lt;/a>题目大意：解码字符串，字符串编码形如&lt;code>k[encoded_string]&lt;/code>，表示方括号中的字符串出现k次，需要注意方括号中的字符串可能也需要解码。&lt;/p>
+&lt;p>递归处理即可，从头到尾读取字符串，没有遇到数字就一直读取，遇到数字就解析数字，获取重复次数，然后截取'[&amp;lsquo;和&amp;rsquo;]&amp;lsquo;之间的字符串，递归调用该函数得到解码结果，把解码结果按照次数重复，然后继续读取字符串解码直到结束。&lt;/p></description></item><item><title>LeetCode每日一题周总结(六)</title><link>https://zhangleijuly.me/p/leetcode-weekly-6/</link><pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-6/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(六)" />&lt;h2 id="minimum-cost-to-move-chips-to-the-same-position">Minimum Cost to Move Chips to The Same Position&lt;/h2>
 &lt;p>&lt;figure
 >
 &lt;a href="https://assets.leetcode.com/uploads/2020/08/15/chips_e1.jpg" >

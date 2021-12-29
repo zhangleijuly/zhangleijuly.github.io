@@ -1,14 +1,14 @@
 <!doctype html><html lang=zh-cn>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Consecutive Characters 太简单了，略。 Range Sum of BST 也略。 Insertion Sort List 链表版的插入排序，收获的经验是解决链表问题创建一个dummy节点有时候非常好用。 Minimum Height Trees Minimum Height Trees题"><title>LeetCode每日一题周总结(七)</title>
-<link rel=canonical href=https://zhangleijuly.me/p/leetcode-weekly-7/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="LeetCode每日一题周总结(七)">
-<meta property="og:description" content="Consecutive Characters 太简单了，略。 Range Sum of BST 也略。 Insertion Sort List 链表版的插入排序，收获的经验是解决链表问题创建一个dummy节点有时候非常好用。 Minimum Height Trees Minimum Height Trees题">
-<meta property="og:url" content="https://zhangleijuly.me/p/leetcode-weekly-7/">
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Minimum Absolute Difference 略。 Power of Two Power of Two题目大意：判断一个整数是不是2的幂。 题目很简单，可以用递归或者循环一路判断加除2。但是其他的方法也值得说道说道，一"><title>LeetCode每日一题周总结(八)</title>
+<link rel=canonical href=https://zhangleijuly.me/p/leetcode-weekly-8/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="LeetCode每日一题周总结(八)">
+<meta property="og:description" content="Minimum Absolute Difference 略。 Power of Two Power of Two题目大意：判断一个整数是不是2的幂。 题目很简单，可以用递归或者循环一路判断加除2。但是其他的方法也值得说道说道，一">
+<meta property="og:url" content="https://zhangleijuly.me/p/leetcode-weekly-8/">
 <meta property="og:site_name" content="凉城">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="LeetCode"><meta property="article:published_time" content="2021-12-17T00:00:00+00:00"><meta property="article:modified_time" content="2021-12-17T00:00:00+00:00"><meta property="og:image" content="https://zhangleijuly.me/img/LeetCode.jpeg">
-<meta name=twitter:title content="LeetCode每日一题周总结(七)">
-<meta name=twitter:description content="Consecutive Characters 太简单了，略。 Range Sum of BST 也略。 Insertion Sort List 链表版的插入排序，收获的经验是解决链表问题创建一个dummy节点有时候非常好用。 Minimum Height Trees Minimum Height Trees题"><meta name=twitter:card content="summary_large_image">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="LeetCode"><meta property="article:published_time" content="2021-12-24T00:00:00+00:00"><meta property="article:modified_time" content="2021-12-24T00:00:00+00:00"><meta property="og:image" content="https://zhangleijuly.me/img/LeetCode.jpeg">
+<meta name=twitter:title content="LeetCode每日一题周总结(八)">
+<meta name=twitter:description content="Minimum Absolute Difference 略。 Power of Two Power of Two题目大意：判断一个整数是不是2的幂。 题目很简单，可以用递归或者循环一路判断加除2。但是其他的方法也值得说道说道，一"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://zhangleijuly.me/img/LeetCode.jpeg">
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-25675628-4','auto'),ga('send','pageview'))</script>
 </head>
@@ -28,8 +28,8 @@ extended">
 <script defer src=/katex/katex.min.js></script>
 <script defer src=/katex/contrib/auto-render.js onload=renderMathInElement(document.body)></script>
 <div class=article-image>
-<a href=/p/leetcode-weekly-7/>
-<img src=/img/LeetCode.jpeg loading=lazy alt="Featured image of post LeetCode每日一题周总结(七)">
+<a href=/p/leetcode-weekly-8/>
+<img src=/img/LeetCode.jpeg loading=lazy alt="Featured image of post LeetCode每日一题周总结(八)">
 </a>
 </div>
 <div class=article-details>
@@ -39,44 +39,42 @@ Code
 </a>
 </header>
 <h2 class=article-title>
-<a href=/p/leetcode-weekly-7/>LeetCode每日一题周总结(七)</a>
+<a href=/p/leetcode-weekly-8/>LeetCode每日一题周总结(八)</a>
 </h2>
 <footer class=article-time>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Dec 17, 2021</time>
+<time class=article-time--published>Dec 24, 2021</time>
 </div>
 </footer>
 </div>
 </header>
 <section class=article-content>
-<h2 id=consecutive-characters>Consecutive Characters</h2>
-<p>太简单了，略。</p>
-<h2 id=range-sum-of-bst>Range Sum of BST</h2>
-<p>也略。</p>
-<h2 id=insertion-sort-list>Insertion Sort List</h2>
-<p>链表版的插入排序，收获的经验是解决链表问题创建一个<code>dummy</code>节点有时候非常好用。</p>
-<h2 id=minimum-height-trees>Minimum Height Trees</h2>
-<p><a class=link href=https://leetcode.com/problems/minimum-height-trees/ target=_blank rel=noopener>Minimum Height Trees</a>题目大意：已知n个结点和n-1条边，以任何一个结点作为树根可以得到一棵树，求构成的树的高度最低的结点。</p>
-<p>这道题看起来是一道树的题目，但是实际上它是一道图的题目。把这棵树看作一个图，那么构成树的高度最低就意味着这个结点最接近图的“中心”。从这种角度理解这道题的解法应该是从外层一层一层剥离结点，直到剩下1个或者2个结点（如果剩下2个结点，就无法继续剥离了；如果剩下3个结点，因为树中无环，那么一定还能剥离2个结点得到1个结点）。</p>
-<p>首先需要求最外层的结点，也就是叶结点，叶结点只和一个结点相邻。遍历所有边，记录每个结点的相邻关系。然后遍历所有结点，找到所有只和一个结点相邻的结点，存入队列。</p>
-<p>用一个循环来层层剥离，每次执行循环体剥离一层叶结点，记录未被剥离的结点数作为循环终止条件。首先把未剥离的结点数减少当前叶结点数。接下来剥离这层叶结点，遍历当前叶节点队列，把叶节点从它的相邻结点的相邻关系里删除。如果叶节点的相邻结点成为了新的叶节点，就把它保存到一个临时队列。遍历完所有当前叶节点后，用临时队列替换当前叶节点队列。</p>
-<p>最后叶结点队列中剩余的1个或者2个结点即为所求。</p>
-<h2 id=maximal-square>Maximal Square</h2>
-<p><a class=link href=https://leetcode.com/problems/maximal-square/ target=_blank rel=noopener>Maximal Square</a>题目大意：已知一个由0和1构成的m×n大小的矩阵，找到由1构成的最大的正方形，返回它的面积。</p>
+<h2 id=minimum-absolute-difference>Minimum Absolute Difference</h2>
+<p>略。</p>
+<h2 id=power-of-two>Power of Two</h2>
+<p><a class=link href=https://leetcode.com/problems/power-of-two/ target=_blank rel=noopener>Power of Two</a>题目大意：判断一个整数是不是2的幂。</p>
+<p>题目很简单，可以用递归或者循环一路判断加除2。但是其他的方法也值得说道说道，一种方法是按位判断，2的幂的二进制表示只包含一个1；还有一种方法是在可表达范围找到一个最大的2的幂，判断能不能用这个整数整除。</p>
+<h2 id=reorder-list>Reorder List</h2>
+<p><a class=link href=https://leetcode.com/problems/reorder-list/ target=_blank rel=noopener>Reorder List</a>题目大意：把链表$L_0 → L_1 → … → L_{n-1} → L_n$重排成$L_0 → L_n → L_1 → L_{n-1} → L_2 → L_{n-2} → …$</p>
 <p><figure>
-<a href=https://assets.leetcode.com/uploads/2020/11/26/max1grid.jpg>
-<img src=https://assets.leetcode.com/uploads/2020/11/26/max1grid.jpg loading=lazy alt="Maximal Square">
+<a href=https://assets.leetcode.com/uploads/2021/03/04/reorder1linked-list.jpg>
+<img src=https://assets.leetcode.com/uploads/2021/03/04/reorder1linked-list.jpg loading=lazy alt="Reorder List">
 </a>
-<figcaption>Maximal Square</figcaption>
+<figcaption>Reorder List</figcaption>
 </figure></p>
-<p>之前做过一道<a class=link href=/p/leetcode-weekly-5/#maximal-rectangle>Maximal Rectangle</a>，这道题稍微简单点。用<code>dp[i][j]</code>表示右下角坐标为<code>(i,j)</code>的正方形的边长，那么当<code>matrix[i][j]==0</code>时，<code>dp[i][j]=0</code>；当<code>matrix[i][j]==1</code>时，<code>dp[i][j]=min(dp[i-1][j-1],dp[i][j-1],dp[i-1][j])+1</code>。找到最大的边长就能找到答案。</p>
-<h2 id=numbers-at-most-n-given-digit-set>Numbers At Most N Given Digit Set</h2>
-<p><a class=link href=https://leetcode.com/problems/numbers-at-most-n-given-digit-set/ target=_blank rel=noopener>Numbers At Most N Given Digit Set</a>题目大意：已知一个数字集合和一个整数n，数字集合中包含1~9的几个数字，求用这些数字构成的不大于n的整数有多少个。</p>
-<p>这道题其实是一道排列组合题，需要用代码实现数学计算的过程，需要注意一些细节。</p>
-<p>比n小的数包括位数比n少的数，这些数可以随意组合，比较容易计算。主要需要考虑和n位数相等的数，需要从高位到低位遍历，如果这一位的数在数字集合里没有，那么这一位我们只能选比它小的数，后面的每一位都可以随意选择，跳出循环；如果这一位在数字集合里有，那么要分为两种情况，一种是选择比它小的数，后面每一位可以随意选择，另一种是选择这个数，继续遍历。需要注意的是，如果遍历到最低位每一个数都在集合中出现过，那么还需要在结果加1，也就是这个数本身。</p>
-<h2 id=decode-string>Decode String</h2>
-<p><a class=link href=https://leetcode.com/problems/decode-string/ target=_blank rel=noopener>Decode String</a>题目大意：解码字符串，字符串编码形如<code>k[encoded_string]</code>，表示方括号中的字符串出现k次，需要注意方括号中的字符串可能也需要解码。</p>
-<p>递归处理即可，从头到尾读取字符串，没有遇到数字就一直读取，遇到数字就解析数字，获取重复次数，然后截取'[&lsquo;和&rsquo;]&lsquo;之间的字符串，递归调用该函数得到解码结果，把解码结果按照次数重复，然后继续读取字符串解码直到结束。</p>
+<p>链表只能单向遍历，借助栈这种后进先出的数据结构可以比较简单地实现这种重排。</p>
+<h2 id=course-schedule-ii>Course Schedule II</h2>
+<p><a class=link href=https://leetcode.com/problems/course-schedule-ii/ target=_blank rel=noopener>Course Schedule II</a>题目大意：已知一些课程和先修课程要求——指在学习课程A之前必须先学习课程B，求学完全部课程的顺序，如果没有一种合理的顺序就返回空。</p>
+<p>Course Schedule是一系列题，因为最近时间紧张我没有做完这个系列的全部题，这里只记录这道题的解法，整个系列的以后补上。</p>
+<p>这道题可以用图的思路去解答，把所有课程看作是有向图中的结点，如果学习课程A之前必须先学习B，那么就在图上添加一条B指向A的边。在初始状态下只有没有入度的课程可以学习，表示这些课程没有先修课程。维护所有课程的入度，将所有入度为0的课程都加入一个队列中，表示它们可以学习。依次学习队列中的课程，把课程添加到解中，并把该课程指向的课程入度减1，如果指向的课程入度为0，就添加到学习队列。直到学习队列为空，说明已经没有可以学习的课程了，此时判断解中是否包含全部课程，如果是就返回解，如果不是就说明还有其他课程无法学习，返回空。</p>
+<h2 id=merge-intervals>Merge Intervals</h2>
+<p>虽然是一道中等难度的题，但是不难，略。</p>
+<h2 id=basic-calculator-ii>Basic Calculator II</h2>
+<p><a class=link href=https://leetcode.com/problems/basic-calculator-ii/ target=_blank rel=noopener>Basic Calculator II</a>题目大意：已知一个由数字和四则运算符号组成的表达式字符串，计算这个表达式的值。</p>
+<p>计算表达式的值没有太多可以说的点，通常的做法是用两个栈，一个保存运算数，一个保存运算符，每次计算的时候弹出两个数和一个符号，算出结果之后再压栈。这道题主要需要注意的地方就是运算优先级，在一个没有括号的表达式里乘除法的优先级高于加减法，所以遇到乘除号可以直接计算。这样就保证运算符栈内只有加减法，加减法需要按顺序计算，做法是每当运算符栈内有两个运算符，就计算栈底的运算符。这时候弹出3个运算数，2个运算符，计算完成后压入2个运算数和1个运算符。</p>
+<h2 id=k-closest-points-to-origin>K Closest Points to Origin</h2>
+<p><a class=link href=https://leetcode.com/problems/k-closest-points-to-origin/ target=_blank rel=noopener>K Closest Points to Origin</a>题目大意：已知若干二维平面点的坐标，求距离原点最近的k个点的坐标。</p>
+<p>感觉考察点应该是结构体的排序？中等难度但是做起来很简单，排序或者用优先队列都可以。</p>
 </section>
 <footer class=article-footer>
 <section class=article-tags>
@@ -93,12 +91,12 @@ Code
 <div class=related-contents>
 <div class="flex article-list--tile">
 <article class=has-image>
-<a href=/p/leetcode-weekly-8/>
+<a href=/p/leetcode-weekly-7/>
 <div class=article-image>
-<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-8 data-hash=/img/LeetCode.jpeg>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-7 data-hash=/img/LeetCode.jpeg>
 </div>
 <div class=article-details>
-<h2 class=article-title>LeetCode每日一题周总结(八)</h2>
+<h2 class=article-title>LeetCode每日一题周总结(七)</h2>
 </div>
 </a>
 </article>
@@ -203,13 +201,13 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <div class=widget--toc>
 <nav id=TableOfContents>
 <ol>
-<li><a href=#consecutive-characters>Consecutive Characters</a></li>
-<li><a href=#range-sum-of-bst>Range Sum of BST</a></li>
-<li><a href=#insertion-sort-list>Insertion Sort List</a></li>
-<li><a href=#minimum-height-trees>Minimum Height Trees</a></li>
-<li><a href=#maximal-square>Maximal Square</a></li>
-<li><a href=#numbers-at-most-n-given-digit-set>Numbers At Most N Given Digit Set</a></li>
-<li><a href=#decode-string>Decode String</a></li>
+<li><a href=#minimum-absolute-difference>Minimum Absolute Difference</a></li>
+<li><a href=#power-of-two>Power of Two</a></li>
+<li><a href=#reorder-list>Reorder List</a></li>
+<li><a href=#course-schedule-ii>Course Schedule II</a></li>
+<li><a href=#merge-intervals>Merge Intervals</a></li>
+<li><a href=#basic-calculator-ii>Basic Calculator II</a></li>
+<li><a href=#k-closest-points-to-origin>K Closest Points to Origin</a></li>
 </ol>
 </nav>
 </div>

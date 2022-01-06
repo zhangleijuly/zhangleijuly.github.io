@@ -36,7 +36,7 @@ tags:
 
 ![Binary Tree Tilt](https://assets.leetcode.com/uploads/2020/10/20/tilt1.jpg)
 
-[Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/)题目大意：求二叉树每个节点坡度之和。二叉树节点的坡度是该节点左子树节点之和与右子树节点之和的差的绝对值。
+[Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/)题目大意：求二叉树每个结点坡度之和。二叉树结点的坡度是该结点左子树结点之和与右子树结点之和的差的绝对值。
 
 略。
 

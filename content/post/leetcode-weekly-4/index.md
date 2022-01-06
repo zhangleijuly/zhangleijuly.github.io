@@ -15,13 +15,13 @@ tags:
 
 ![Delete Node in a BST](https://assets.leetcode.com/uploads/2020/09/04/del_node_1.jpg)
 
-[Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/)题目大意：删除二叉搜索树的一个节点。
+[Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst/)题目大意：删除二叉搜索树的一个结点。
 
 数据结构与算法的经典问题，分三种情况：
 
-1. 该节点是叶子节点，直接删除；
-2. 该节点只有一个子节点，用子节点代替该节点位置；
-3. 该节点有两个子节点，删除该节点后，为了保持二叉搜索树的性质，应该用左子树的最大值或者右子树的最小值代替该节点。
+1. 该结点是叶子结点，直接删除；
+2. 该结点只有一个子结点，用子结点代替该结点位置；
+3. 该结点有两个子结点，删除该结点后，为了保持二叉搜索树的性质，应该用左子树的最大值或者右子树的最小值代替该结点。
 
 可以参考[OI Wiki](https://oi-wiki.org/ds/bst/#_6)。
 

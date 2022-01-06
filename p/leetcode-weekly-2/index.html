@@ -57,7 +57,7 @@ Code
 <figcaption>Unique Binary Search Trees</figcaption>
 </figure></p>
 <p><a class=link href=https://leetcode.com/problems/unique-binary-search-trees/ target=_blank rel=noopener>Unique Binary Search Trees</a>题目大意：n个结点的二叉搜索树其结点的值分别为1~n，求这样的二叉搜索树有多少种不同的结构。</p>
-<p>刷软考题时遇到过相同问题，可以把该问题转化为规模更小的问题来求解。假设结点数为n时该问题的解为<code>fun(n)</code>。对于n个结点的二叉搜索树，选择1个结点作为根节点，可以选择1~n，假设我们选择m作为根节点，那么根据二叉搜索树的性质，左子树将包含1~m-1这m-1个结点，右子树将包含m+1~n这n-m个结点，以m作为根结点的二叉搜索树的结构就有<code>fun(m-1)*fun(m-n)</code>种。根节点的选择有n种，可以得到以下公式：
+<p>刷软考题时遇到过相同问题，可以把该问题转化为规模更小的问题来求解。假设结点数为n时该问题的解为<code>fun(n)</code>。对于n个结点的二叉搜索树，选择1个结点作为根结点，可以选择1~n，假设我们选择m作为根结点，那么根据二叉搜索树的性质，左子树将包含1~m-1这m-1个结点，右子树将包含m+1~n这n-m个结点，以m作为根结点的二叉搜索树的结构就有<code>fun(m-1)*fun(m-n)</code>种。根结点的选择有n种，可以得到以下公式：
 $$
 fun(n) = \sum_{i=1}^n fun(i-1)*fun(n-i)
 $$
@@ -162,6 +162,16 @@ $$
 <div class=related-contents>
 <div class="flex article-list--tile">
 <article class=has-image>
+<a href=/p/leetcode-weekly-9/>
+<div class=article-image>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-9 data-hash=/img/LeetCode.jpeg>
+</div>
+<div class=article-details>
+<h2 class=article-title>LeetCode每日一题周总结(九)</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
 <a href=/p/leetcode-weekly-8/>
 <div class=article-image>
 <img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-8 data-hash=/img/LeetCode.jpeg>
@@ -201,16 +211,6 @@ $$
 </div>
 </a>
 </article>
-<article class=has-image>
-<a href=/p/leetcode-weekly-4/>
-<div class=article-image>
-<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-4 data-hash=/img/LeetCode.jpeg>
-</div>
-<div class=article-details>
-<h2 class=article-title>LeetCode每日一题周总结(四)</h2>
-</div>
-</a>
-</article>
 </div>
 </div>
 </aside>
@@ -220,7 +220,8 @@ $$
 <footer class=site-footer>
 <section class=copyright>
 &copy;
-2021 凉城
+2021 -
+2022 凉城
 </section>
 <section class=powerby>
 Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>

@@ -1,14 +1,14 @@
 <!doctype html><html lang=zh-cn>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Number Complement Number Complement题目大意：求一个整数的补数。 找到恰好比这个整数大的2的幂，减去这个整数再减1就是。需要注意整型的表示范围，可以用无"><title>LeetCode每日一题周总结(九)</title>
-<link rel=canonical href=https://zhangleijuly.me/p/leetcode-weekly-9/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="LeetCode每日一题周总结(九)">
-<meta property="og:description" content="Number Complement Number Complement题目大意：求一个整数的补数。 找到恰好比这个整数大的2的幂，减去这个整数再减1就是。需要注意整型的表示范围，可以用无">
-<meta property="og:url" content="https://zhangleijuly.me/p/leetcode-weekly-9/">
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Find the Town Judge 略。 Complement of Base 10 Integer 与Number Complement类似。 Palindrome Partitioning Palindrome Partitioning题目大意：已知一个字符串，求把这个字符串分解成回"><title>LeetCode每日一题周总结(十)</title>
+<link rel=canonical href=https://zhangleijuly.me/p/leetcode-weekly-10/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="LeetCode每日一题周总结(十)">
+<meta property="og:description" content="Find the Town Judge 略。 Complement of Base 10 Integer 与Number Complement类似。 Palindrome Partitioning Palindrome Partitioning题目大意：已知一个字符串，求把这个字符串分解成回">
+<meta property="og:url" content="https://zhangleijuly.me/p/leetcode-weekly-10/">
 <meta property="og:site_name" content="凉城">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="LeetCode"><meta property="article:published_time" content="2022-01-04T00:00:00+00:00"><meta property="article:modified_time" content="2022-01-04T00:00:00+00:00"><meta property="og:image" content="https://zhangleijuly.me/img/LeetCode.jpeg">
-<meta name=twitter:title content="LeetCode每日一题周总结(九)">
-<meta name=twitter:description content="Number Complement Number Complement题目大意：求一个整数的补数。 找到恰好比这个整数大的2的幂，减去这个整数再减1就是。需要注意整型的表示范围，可以用无"><meta name=twitter:card content="summary_large_image">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="LeetCode"><meta property="article:published_time" content="2022-01-11T00:00:00+00:00"><meta property="article:modified_time" content="2022-01-11T00:00:00+00:00"><meta property="og:image" content="https://zhangleijuly.me/img/LeetCode.jpeg">
+<meta name=twitter:title content="LeetCode每日一题周总结(十)">
+<meta name=twitter:description content="Find the Town Judge 略。 Complement of Base 10 Integer 与Number Complement类似。 Palindrome Partitioning Palindrome Partitioning题目大意：已知一个字符串，求把这个字符串分解成回"><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://zhangleijuly.me/img/LeetCode.jpeg">
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-25675628-4','auto'),ga('send','pageview'))</script>
 </head>
@@ -24,9 +24,12 @@ extended">
 <main class="main full-width">
 <article class="has-image main-article">
 <header class=article-header>
+<link rel=stylesheet href=/katex/katex.min.css>
+<script defer src=/katex/katex.min.js></script>
+<script defer src=/katex/contrib/auto-render.js onload=renderMathInElement(document.body)></script>
 <div class=article-image>
-<a href=/p/leetcode-weekly-9/>
-<img src=/img/LeetCode.jpeg loading=lazy alt="Featured image of post LeetCode每日一题周总结(九)">
+<a href=/p/leetcode-weekly-10/>
+<img src=/img/LeetCode.jpeg loading=lazy alt="Featured image of post LeetCode每日一题周总结(十)">
 </a>
 </div>
 <div class=article-details>
@@ -36,70 +39,62 @@ Code
 </a>
 </header>
 <h2 class=article-title>
-<a href=/p/leetcode-weekly-9/>LeetCode每日一题周总结(九)</a>
+<a href=/p/leetcode-weekly-10/>LeetCode每日一题周总结(十)</a>
 </h2>
 <footer class=article-time>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Jan 04, 2022</time>
+<time class=article-time--published>Jan 11, 2022</time>
 </div>
 </footer>
 </div>
 </header>
 <section class=article-content>
-<h2 id=number-complement>Number Complement</h2>
-<p><a class=link href=https://leetcode.com/problems/number-complement/ target=_blank rel=noopener>Number Complement</a>题目大意：求一个整数的补数。</p>
-<p>找到恰好比这个整数大的2的幂，减去这个整数再减1就是。需要注意整型的表示范围，可以用无符号整型或者长整型。</p>
-<h2 id=middle-of-the-linked-list>Middle of the Linked List</h2>
-<p><a class=link href=https://leetcode.com/problems/middle-of-the-linked-list/ target=_blank rel=noopener>Middle of the Linked List</a>题目大意：求链表的中点。</p>
+<h2 id=find-the-town-judge>Find the Town Judge</h2>
+<p>略。</p>
+<h2 id=complement-of-base-10-integer>Complement of Base 10 Integer</h2>
+<p>与<a class=link href=https://zhangleijuly.me/p/leetcode-weekly-9/#number-complement target=_blank rel=noopener>Number Complement</a>类似。</p>
+<h2 id=palindrome-partitioning>Palindrome Partitioning</h2>
+<p><a class=link href=https://leetcode.com/problems/palindrome-partitioning/ target=_blank rel=noopener>Palindrome Partitioning</a>题目大意：已知一个字符串，求把这个字符串分解成回文字符串的所有方案。</p>
+<p>使用深度优先搜索和回溯遍历字符串的所有子串，维护当前遍历的子串和字符串的回文分解方案，只有当子串是回文字符串时才能添加到分解方案，如果遍历到字符串末尾时恰好所有子串都是回文字符串，就把当前分解方案加入答案中。每次把子串添加到分解方案都要进行回溯，即从分解方案中弹出当前子串。</p>
+<h2 id=car-pooling>Car Pooling</h2>
+<p><a class=link href=https://leetcode.com/problems/car-pooling/ target=_blank rel=noopener>Car Pooling</a>题目大意：已知一辆汽车的准乘人数和一个数组<code>trips</code>，<code>trips</code>的每一项包含三个值：<code>numPassengers</code>，<code>from</code>和<code>to</code>，表示有<code>numPassengers</code>个乘客在<code>from</code>上车并在<code>to</code>下车。求汽车能否在不超载的情况下把所有乘客送到目的地。</p>
+<p>这是一道模拟题，初始汽车乘客数为0，<code>numPassengers</code>个乘客在<code>from</code>上车并在<code>to</code>下车可以分解为在<code>from</code>乘客数增加<code>numPassengers</code>和在<code>to</code>乘客数减少<code>numPassengers</code>两个事件。遍历<code>trips</code>得到所有事件，按照事件发生的位置从小到大排序，依次计算在每个位置汽车是否超载即可。</p>
+<h2 id=linked-list-random-node>Linked List Random Node</h2>
+<p><a class=link href=https://leetcode.com/problems/linked-list-random-node/ target=_blank rel=noopener>Linked List Random Node</a>题目大意：编写一个函数随机获取链表中的一个结点。</p>
+<p>题目不难，可以先计算链表长度，在长度范围内生成一个随机数，返回这个序号的结点就可以了。</p>
+<p>我更加好奇的是LeetCode是怎么判断这道题的对错的。</p>
+<h2 id=cherry-pickup-ii>Cherry Pickup II</h2>
+<p><a class=link href=https://leetcode.com/problems/cherry-pickup-ii/ target=_blank rel=noopener>Cherry Pickup II</a>题目大意：如图的矩形表示草莓田，格子中的数字表示草莓数量，有两个机器人分别从矩形的左上角和右上角出发采摘草莓，它们遵循以下原则行动：</p>
+<ul>
+<li>机器人从第i行第j列可以移动到第i+1行第j-1列、第i+1行第j列或第i+1行第j+1列。</li>
+<li>机器人经过一个格子时会采摘全部草莓，这个格子变为空。</li>
+<li>两个机器人到达同一个格子时，只有一个机器人可以采摘到草莓。</li>
+<li>机器人不能走出矩形边界。</li>
+<li>机器人应当抵达矩形的底部。</li>
+</ul>
+<p>求机器人最多能够采摘多少草莓。</p>
 <p><figure>
-<a href=https://assets.leetcode.com/uploads/2021/07/23/lc-midlist1.jpg>
-<img src=https://assets.leetcode.com/uploads/2021/07/23/lc-midlist1.jpg loading=lazy alt="Middle of the Linked List 1">
+<a href=https://assets.leetcode.com/uploads/2020/04/29/sample_1_1802.png>
+<img src=https://assets.leetcode.com/uploads/2020/04/29/sample_1_1802.png loading=lazy alt="Cherry Pickup II">
 </a>
-<figcaption>Middle of the Linked List 1</figcaption>
+<figcaption>Cherry Pickup II</figcaption>
 </figure></p>
-<p><figure>
-<a href=https://assets.leetcode.com/uploads/2021/07/23/lc-midlist2.jpg>
-<img src=https://assets.leetcode.com/uploads/2021/07/23/lc-midlist2.jpg loading=lazy alt="Middle of the Linked List 2">
-</a>
-<figcaption>Middle of the Linked List 2</figcaption>
-</figure></p>
-<p>快慢指针入门题目，定义快指针和慢指针，快指针每次走两步，慢指针每次走一步，快指针走到链表尾部的时候慢指针就在链表的中点。</p>
-<h2 id=populating-next-right-pointers-in-each-node>Populating Next Right Pointers in Each Node</h2>
-<p><a class=link href=https://leetcode.com/problems/populating-next-right-pointers-in-each-node/ target=_blank rel=noopener>Populating Next Right Pointers in Each Node</a>题目大意：为<strong>完美二叉树</strong>的结点添加指针指向相邻结点。</p>
-<p><figure>
-<a href=https://assets.leetcode.com/uploads/2019/02/14/116_sample.png>
-<img src=https://assets.leetcode.com/uploads/2019/02/14/116_sample.png loading=lazy alt="Populating Next Right Pointers in Each Node">
-</a>
-<figcaption>Populating Next Right Pointers in Each Node</figcaption>
-</figure></p>
-<p>维护队列q1存储当前层的结点和队列q2存储下一层的结点。将根结点加入q1。重复以下循环直到q1为空：如果q1非空，从q1中弹出一个结点，将该结点的相邻结点指针指向q1中的下一个结点，如果没有下一个结点就指向空；如果该结点的左右子树非空，就把该结点的左右子树加入q2。如果q1为空，交换q1和q2。</p>
-<h2 id=smallest-integer-divisible-by-k>Smallest Integer Divisible by K</h2>
-<p><a class=link href=https://leetcode.com/problems/smallest-integer-divisible-by-k/ target=_blank rel=noopener>Smallest Integer Divisible by K</a>题目大意：已知整数k，求最少由多少个1组成的整数可以整除k，如果没有这样的整数，返回-1。</p>
-<p>首先判断k的因数是否包含2和5，如果包含可以直接返回-1。</p>
-<p>维护整数长度和整数除以k的余数，并且用hash保存余数，如果同一个余数出现2次就说明不存在这样的整数。</p>
-<p>如果余数不为0并且余数没有在hash中出现过就执行以下循环：把余数加入hash，计算新余数并把整数长度加1。</p>
-<p>循环结束时判断余数，如果余数为0就返回长度，否则返回-1。</p>
-<p>实际上返回-1的k好像只有因数包含2和5的k。</p>
-<h2 id=maximum-difference-between-node-and-ancestor>Maximum Difference Between Node and Ancestor</h2>
-<p><a class=link href=https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/ target=_blank rel=noopener>Maximum Difference Between Node and Ancestor</a>题目大意：求一棵二叉树上两个有祖先关系的结点的值之差的最大值。</p>
-<p><figure>
-<a href=https://assets.leetcode.com/uploads/2020/11/09/tmp-tree.jpg>
-<img src=https://assets.leetcode.com/uploads/2020/11/09/tmp-tree.jpg loading=lazy alt="Maximum Difference Between Node and Ancestor">
-</a>
-<figcaption>Maximum Difference Between Node and Ancestor</figcaption>
-</figure></p>
-<p>把返回值保存在全局变量中，初始化为0。从根结点遍历整棵树，把根结点到当前结点路径上的最大值和最小值传给子结点，每到一个结点就用这个结点的值更新最大值和最小值，如果最大值和最小值的差大于返回值，就更新返回值。</p>
-<h2 id=burst-balloons>Burst Balloons</h2>
-<p><a class=link href=https://leetcode.com/problems/burst-balloons/ target=_blank rel=noopener>Burst Balloons</a>题目大意：有<code>n</code>个气球，分别编号<code>0</code>到<code>n-1</code>，每个气球上都画着一个数字，用数组<code>nums</code>表示。如果打爆气球<code>i</code>，就能够得到<code>nums[i-1]*nums[i]*nums[i+1]</code>个硬币，如果<code>i-1</code>或者<code>i+1</code>超出数组边界，就乘以<code>1</code>代替。求打爆全部气球后最多能获得多少硬币。</p>
-<p>这周最难的一道题，使用的方法是动态规划。用<code>dp[i][j]</code>表示打爆编号<code>i</code>到编号<code>j</code>的气球最多能获得的硬币，状态转移公式如下：</p>
-<p>$$
-dp[i][j] = max(dp[i][k-1]+dp[k+1][j]+nums[i-1]*nums[k]*nums[j+1]) \newline
-(i&lt;=k&lt;=j)
+<p>使用动态规划，根据题意两个机器人总是在同一行，所以用<code>dp[r][c1][c2]</code>表示第一个机器人从第r行第c1列出发，第二个机器人从第r行第c2列出发最多能采摘多少草莓。状态转移公式为：
 $$
-其中<code>k</code>表示最后一个打爆的气球的编号。从状态转移公式可以看出，需要按照区间长度由短到长计算<code>dp</code>，以保证更新时用到的<code>dp</code>值都已经计算过。</p>
-<h2 id=pairs-of-songs-with-total-durations-divisible-by-60>Pairs of Songs With Total Durations Divisible by 60</h2>
-<p><a class=link href=https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/ target=_blank rel=noopener>Pairs of Songs With Total Durations Divisible by 60</a>题目大意：已知若干歌曲和它们的时长，求取出两首总长度为整数分钟的歌一共有多少种取法。</p>
-<p>用每首歌的长度分别余60，统计每种余数的歌各有多少。计算取法包含两种情况，一种是余数为1~29的歌要和余数为31~59的歌组合，另一种是余数为0的歌或者余数为30的歌两两组合。分别计算相加即可。</p>
+\begin{aligned}
+dp[r][c1][c2]&=机器人在当前位置能够采摘的草莓数 \newline
+&+max(dp[r+1][c1-1][c2-1],\dots,dp[r+1][c1+1][c2+1])
+\end{aligned}
+$$</p>
+<h2 id=robot-bounded-in-circle>Robot Bounded In Circle</h2>
+<p><a class=link href=https://leetcode.com/problems/robot-bounded-in-circle/ target=_blank rel=noopener>Robot Bounded In Circle</a>题目大意：在无穷大的平面上，上北下南左西右东，机器人站在原点并且面朝北方，它能够接收三种指令：</p>
+<ul>
+<li>&lsquo;G&rsquo;：机器人将向前移动一个单位。</li>
+<li>&lsquo;L&rsquo;：机器人将向左旋转90度。</li>
+<li>&lsquo;R&rsquo;：机器人将向右旋转90度。</li>
+</ul>
+<p>已知一个指令序列，判断机器人能否在执行若干次该指令序列后回到原点。</p>
+<p>这道题是一道模拟题，机器人只有在一种情况下无法回到原点，即机器人执行完该指令序列后离开原点并且仍然面朝北方。其他任意情况执行4次指令序列后机器人都能回到原点。因此只需要对机器人执行完一遍指令序列后的位置和朝向进行判断。</p>
 </section>
 <footer class=article-footer>
 <section class=article-tags>
@@ -109,18 +104,19 @@ $$
 <span>Licensed under CC BY-NC-SA 4.0</span>
 </section>
 </footer>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css integrity=sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js integrity=sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js integrity=sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.querySelector(`.article-content`),{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script>
 </article>
 <aside class=related-contents--wrapper>
 <h2 class=section-title>相关文章</h2>
 <div class=related-contents>
 <div class="flex article-list--tile">
 <article class=has-image>
-<a href=/p/leetcode-weekly-10/>
+<a href=/p/leetcode-weekly-9/>
 <div class=article-image>
-<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-10 data-hash=/img/LeetCode.jpeg>
+<img src=/img/LeetCode.jpeg loading=lazy data-key=leetcode-weekly-9 data-hash=/img/LeetCode.jpeg>
 </div>
 <div class=article-details>
-<h2 class=article-title>LeetCode每日一题周总结(十)</h2>
+<h2 class=article-title>LeetCode每日一题周总结(九)</h2>
 </div>
 </a>
 </article>
@@ -226,13 +222,13 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <div class=widget--toc>
 <nav id=TableOfContents>
 <ol>
-<li><a href=#number-complement>Number Complement</a></li>
-<li><a href=#middle-of-the-linked-list>Middle of the Linked List</a></li>
-<li><a href=#populating-next-right-pointers-in-each-node>Populating Next Right Pointers in Each Node</a></li>
-<li><a href=#smallest-integer-divisible-by-k>Smallest Integer Divisible by K</a></li>
-<li><a href=#maximum-difference-between-node-and-ancestor>Maximum Difference Between Node and Ancestor</a></li>
-<li><a href=#burst-balloons>Burst Balloons</a></li>
-<li><a href=#pairs-of-songs-with-total-durations-divisible-by-60>Pairs of Songs With Total Durations Divisible by 60</a></li>
+<li><a href=#find-the-town-judge>Find the Town Judge</a></li>
+<li><a href=#complement-of-base-10-integer>Complement of Base 10 Integer</a></li>
+<li><a href=#palindrome-partitioning>Palindrome Partitioning</a></li>
+<li><a href=#car-pooling>Car Pooling</a></li>
+<li><a href=#linked-list-random-node>Linked List Random Node</a></li>
+<li><a href=#cherry-pickup-ii>Cherry Pickup II</a></li>
+<li><a href=#robot-bounded-in-circle>Robot Bounded In Circle</a></li>
 </ol>
 </nav>
 </div>

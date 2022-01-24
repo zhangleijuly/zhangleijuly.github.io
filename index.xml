@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 04 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(九)</title><link>https://zhangleijuly.me/p/leetcode-weekly-9/</link><pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-9/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(九)" />&lt;h2 id="number-complement">Number Complement&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>凉城</title><link>https://zhangleijuly.me/</link><description>Recent content on 凉城</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 11 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://zhangleijuly.me/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode每日一题周总结(十)</title><link>https://zhangleijuly.me/p/leetcode-weekly-10/</link><pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-10/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(十)" />&lt;h2 id="find-the-town-judge">Find the Town Judge&lt;/h2>
+&lt;p>略。&lt;/p>
+&lt;h2 id="complement-of-base-10-integer">Complement of Base 10 Integer&lt;/h2>
+&lt;p>与&lt;a class="link" href="https://zhangleijuly.me/p/leetcode-weekly-9/#number-complement" target="_blank" rel="noopener"
+>Number Complement&lt;/a>类似。&lt;/p>
+&lt;h2 id="palindrome-partitioning">Palindrome Partitioning&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/palindrome-partitioning/" target="_blank" rel="noopener"
+>Palindrome Partitioning&lt;/a>题目大意：已知一个字符串，求把这个字符串分解成回文字符串的所有方案。&lt;/p>
+&lt;p>使用深度优先搜索和回溯遍历字符串的所有子串，维护当前遍历的子串和字符串的回文分解方案，只有当子串是回文字符串时才能添加到分解方案，如果遍历到字符串末尾时恰好所有子串都是回文字符串，就把当前分解方案加入答案中。每次把子串添加到分解方案都要进行回溯，即从分解方案中弹出当前子串。&lt;/p>
+&lt;h2 id="car-pooling">Car Pooling&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/car-pooling/" target="_blank" rel="noopener"
+>Car Pooling&lt;/a>题目大意：已知一辆汽车的准乘人数和一个数组&lt;code>trips&lt;/code>，&lt;code>trips&lt;/code>的每一项包含三个值：&lt;code>numPassengers&lt;/code>，&lt;code>from&lt;/code>和&lt;code>to&lt;/code>，表示有&lt;code>numPassengers&lt;/code>个乘客在&lt;code>from&lt;/code>上车并在&lt;code>to&lt;/code>下车。求汽车能否在不超载的情况下把所有乘客送到目的地。&lt;/p>
+&lt;p>这是一道模拟题，初始汽车乘客数为0，&lt;code>numPassengers&lt;/code>个乘客在&lt;code>from&lt;/code>上车并在&lt;code>to&lt;/code>下车可以分解为在&lt;code>from&lt;/code>乘客数增加&lt;code>numPassengers&lt;/code>和在&lt;code>to&lt;/code>乘客数减少&lt;code>numPassengers&lt;/code>两个事件。遍历&lt;code>trips&lt;/code>得到所有事件，按照事件发生的位置从小到大排序，依次计算在每个位置汽车是否超载即可。&lt;/p>
+&lt;h2 id="linked-list-random-node">Linked List Random Node&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/linked-list-random-node/" target="_blank" rel="noopener"
+>Linked List Random Node&lt;/a>题目大意：编写一个函数随机获取链表中的一个结点。&lt;/p>
+&lt;p>题目不难，可以先计算链表长度，在长度范围内生成一个随机数，返回这个序号的结点就可以了。&lt;/p>
+&lt;p>我更加好奇的是LeetCode是怎么判断这道题的对错的。&lt;/p>
+&lt;h2 id="cherry-pickup-ii">Cherry Pickup II&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/cherry-pickup-ii/" target="_blank" rel="noopener"
+>Cherry Pickup II&lt;/a>题目大意：如图的矩形表示草莓田，格子中的数字表示草莓数量，有两个机器人分别从矩形的左上角和右上角出发采摘草莓，它们遵循以下原则行动：&lt;/p>
+&lt;ul>
+&lt;li>机器人从第i行第j列可以移动到第i+1行第j-1列、第i+1行第j列或第i+1行第j+1列。&lt;/li>
+&lt;li>机器人经过一个格子时会采摘全部草莓，这个格子变为空。&lt;/li>
+&lt;li>两个机器人到达同一个格子时，只有一个机器人可以采摘到草莓。&lt;/li>
+&lt;li>机器人不能走出矩形边界。&lt;/li>
+&lt;li>机器人应当抵达矩形的底部。&lt;/li>
+&lt;/ul>
+&lt;p>求机器人最多能够采摘多少草莓。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://assets.leetcode.com/uploads/2020/04/29/sample_1_1802.png" >
+&lt;img src="https://assets.leetcode.com/uploads/2020/04/29/sample_1_1802.png"
+loading="lazy"
+alt="Cherry Pickup II">
+&lt;/a>
+&lt;figcaption>Cherry Pickup II&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>使用动态规划，根据题意两个机器人总是在同一行，所以用&lt;code>dp[r][c1][c2]&lt;/code>表示第一个机器人从第r行第c1列出发，第二个机器人从第r行第c2列出发最多能采摘多少草莓。状态转移公式为：
+$$
+\begin{aligned}
+dp[r][c1][c2]&amp;amp;=机器人在当前位置能够采摘的草莓数 \newline
+&amp;amp;+max(dp[r+1][c1-1][c2-1],\dots,dp[r+1][c1+1][c2+1])
+\end{aligned}
+$$&lt;/p>
+&lt;h2 id="robot-bounded-in-circle">Robot Bounded In Circle&lt;/h2>
+&lt;p>&lt;a class="link" href="https://leetcode.com/problems/robot-bounded-in-circle/" target="_blank" rel="noopener"
+>Robot Bounded In Circle&lt;/a>题目大意：在无穷大的平面上，上北下南左西右东，机器人站在原点并且面朝北方，它能够接收三种指令：&lt;/p>
+&lt;ul>
+&lt;li>&amp;lsquo;G&amp;rsquo;：机器人将向前移动一个单位。&lt;/li>
+&lt;li>&amp;lsquo;L&amp;rsquo;：机器人将向左旋转90度。&lt;/li>
+&lt;li>&amp;lsquo;R&amp;rsquo;：机器人将向右旋转90度。&lt;/li>
+&lt;/ul>
+&lt;p>已知一个指令序列，判断机器人能否在执行若干次该指令序列后回到原点。&lt;/p>
+&lt;p>这道题是一道模拟题，机器人只有在一种情况下无法回到原点，即机器人执行完该指令序列后离开原点并且仍然面朝北方。其他任意情况执行4次指令序列后机器人都能回到原点。因此只需要对机器人执行完一遍指令序列后的位置和朝向进行判断。&lt;/p></description></item><item><title>LeetCode每日一题周总结(九)</title><link>https://zhangleijuly.me/p/leetcode-weekly-9/</link><pubDate>Tue, 04 Jan 2022 00:00:00 +0000</pubDate><guid>https://zhangleijuly.me/p/leetcode-weekly-9/</guid><description>&lt;img src="https://zhangleijuly.me/img/LeetCode.jpeg" alt="Featured image of post LeetCode每日一题周总结(九)" />&lt;h2 id="number-complement">Number Complement&lt;/h2>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/number-complement/" target="_blank" rel="noopener"
 >Number Complement&lt;/a>题目大意：求一个整数的补数。&lt;/p>
 &lt;p>找到恰好比这个整数大的2的幂，减去这个整数再减1就是。需要注意整型的表示范围，可以用无符号整型或者长整型。&lt;/p>
@@ -36,7 +90,7 @@ alt="Populating Next Right Pointers in Each Node">
 &lt;/a>
 &lt;figcaption>Populating Next Right Pointers in Each Node&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>维护队列q1存储当前层的结点和队列q2存储下一层的结点。将根节点加入q1。重复以下循环直到q1为空：如果q1非空，从q1中弹出一个结点，将该结点的相邻结点指针指向q1中的下一个结点，如果没有下一个结点就指向空；如果该结点的左右子树非空，就把该结点的左右子树加入q2。如果q1为空，交换q1和q2。&lt;/p>
+&lt;p>维护队列q1存储当前层的结点和队列q2存储下一层的结点。将根结点加入q1。重复以下循环直到q1为空：如果q1非空，从q1中弹出一个结点，将该结点的相邻结点指针指向q1中的下一个结点，如果没有下一个结点就指向空；如果该结点的左右子树非空，就把该结点的左右子树加入q2。如果q1为空，交换q1和q2。&lt;/p>
 &lt;h2 id="smallest-integer-divisible-by-k">Smallest Integer Divisible by K&lt;/h2>
 &lt;p>&lt;a class="link" href="https://leetcode.com/problems/smallest-integer-divisible-by-k/" target="_blank" rel="noopener"
 >Smallest Integer Divisible by K&lt;/a>题目大意：已知整数k，求最少由多少个1组成的整数可以整除k，如果没有这样的整数，返回-1。&lt;/p>

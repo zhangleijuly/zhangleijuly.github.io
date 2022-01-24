@@ -3,8 +3,7 @@ title: "LeetCode每日一题周总结(五)"
 date: 2021-12-05
 slug: leetcode-weekly-5
 image: "img/LeetCode.jpeg"
-math: true
-draft: false
+math: false
 categories:
     - Code
 tags:

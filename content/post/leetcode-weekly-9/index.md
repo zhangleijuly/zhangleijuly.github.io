@@ -3,8 +3,7 @@ title: "LeetCode每日一题周总结(九)"
 date: 2022-01-04
 slug: leetcode-weekly-9
 image: "img/LeetCode.jpeg"
-math: true
-draft: false
+math: false
 categories:
     - Code
 tags:
@@ -33,7 +32,7 @@ tags:
 
 ![Populating Next Right Pointers in Each Node](https://assets.leetcode.com/uploads/2019/02/14/116_sample.png)
 
-维护队列q1存储当前层的结点和队列q2存储下一层的结点。将根节点加入q1。重复以下循环直到q1为空：如果q1非空，从q1中弹出一个结点，将该结点的相邻结点指针指向q1中的下一个结点，如果没有下一个结点就指向空；如果该结点的左右子树非空，就把该结点的左右子树加入q2。如果q1为空，交换q1和q2。
+维护队列q1存储当前层的结点和队列q2存储下一层的结点。将根结点加入q1。重复以下循环直到q1为空：如果q1非空，从q1中弹出一个结点，将该结点的相邻结点指针指向q1中的下一个结点，如果没有下一个结点就指向空；如果该结点的左右子树非空，就把该结点的左右子树加入q2。如果q1为空，交换q1和q2。
 
 ## Smallest Integer Divisible by K
 

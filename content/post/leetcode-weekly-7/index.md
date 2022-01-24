@@ -3,8 +3,7 @@ title: "LeetCode每日一题周总结(七)"
 date: 2021-12-17
 slug: leetcode-weekly-7
 image: "img/LeetCode.jpeg"
-math: true
-draft: false
+math: false
 categories:
     - Code
 tags:

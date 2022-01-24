@@ -4,7 +4,6 @@ date: 2021-12-13
 slug: leetcode-weekly-6
 image: "img/LeetCode.jpeg"
 math: true
-draft: false
 categories:
     - Code
 tags:
